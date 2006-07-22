@@ -69,8 +69,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0EC122FC0A71730700CE04DC /* X11Bridge.h */,
-				0EC122FD0A71730700CE04DC /* X11Bridge.m */,
 				66299ADA0A6E2768005757CB /* AXApplication.h */,
 				66299ADB0A6E2768005757CB /* AXApplication.m */,
 				662998A20A6DE8AB005757CB /* AXWindow.h */,
@@ -83,6 +81,8 @@
 				6613E2B70A676588003DA5B2 /* FMN.m */,
 				66299AC50A6E24DE005757CB /* FMNWindowOrientation.h */,
 				66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */,
+				0EC122FC0A71730700CE04DC /* X11Bridge.h */,
+				0EC122FD0A71730700CE04DC /* X11Bridge.m */,
 				0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */,
 				0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */,
 			);

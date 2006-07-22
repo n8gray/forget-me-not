@@ -25,6 +25,9 @@
         NSLog(@"Couldn't get attributes of X Window 0x%x\n", win);
         return nil;
     }
+    // The attrs.x and .y attributes are relative to the window manager frame,
+    // not the root window!  We need to translate them to global coordinates,
+    // removing the offset to get to the WM frame's origin.
     XTranslateCoordinates(disp, win, attrs.root,
                           -attrs.x, -attrs.y,
                           &mX, &mY, &dummy);
