@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <FMNDisplay.h>
+#import "FMNDisplay.h"
 
 @protocol FMNDisplayConfiguration
 

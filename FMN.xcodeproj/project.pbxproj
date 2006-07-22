@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
+		0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
 		662998A40A6DE8AB005757CB /* AXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 662998A30A6DE8AB005757CB /* AXWindow.m */; };
 		6629992F0A6E0386005757CB /* CGDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6629992E0A6E0386005757CB /* CGDisplay.m */; };
@@ -21,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11WindowOrientation.h; sourceTree = "<group>"; };
+		0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11WindowOrientation.m; sourceTree = "<group>"; };
+		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
+		0EC122FD0A71730700CE04DC /* X11Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Bridge.m; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -63,6 +69,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0EC122FC0A71730700CE04DC /* X11Bridge.h */,
+				0EC122FD0A71730700CE04DC /* X11Bridge.m */,
 				66299ADA0A6E2768005757CB /* AXApplication.h */,
 				66299ADB0A6E2768005757CB /* AXApplication.m */,
 				662998A20A6DE8AB005757CB /* AXWindow.h */,
@@ -75,6 +83,8 @@
 				6613E2B70A676588003DA5B2 /* FMN.m */,
 				66299AC50A6E24DE005757CB /* FMNWindowOrientation.h */,
 				66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */,
+				0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */,
+				0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -217,6 +227,8 @@
 				66299A150A6E14A4005757CB /* CGDisplayConfiguration.m in Sources */,
 				66299AC70A6E24DE005757CB /* FMNWindowOrientation.m in Sources */,
 				66299ADC0A6E2768005757CB /* AXApplication.m in Sources */,
+				0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */,
+				0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,9 +265,14 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = /usr/X11R6/lib;
+				OTHER_LDFLAGS = (
+					"-lX11",
+					"-lXmu",
+				);
 				PRODUCT_NAME = FMN;
 				WRAPPER_EXTENSION = app;
-				ZERO_LINK = YES;
+				ZERO_LINK = NO;
 			};
 			name = Debug;
 		};
@@ -271,8 +288,14 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = /usr/X11R6/lib;
+				OTHER_LDFLAGS = (
+					"-lX11",
+					"-lXmu",
+				);
 				PRODUCT_NAME = FMN;
 				WRAPPER_EXTENSION = app;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};

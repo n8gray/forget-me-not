@@ -60,6 +60,10 @@ static void FMN_CGDisplayReconfigurationCallback (
         }
     }
     
+    NSMutableSet *x11orientations = [x11Bridge getWindowOrientationsSet];
+    if (x11orientations != nil)
+        [orientations unionSet : x11orientations];
+    
     return orientations;
 }
 
@@ -98,6 +102,7 @@ static void FMN_CGDisplayReconfigurationCallback (
     
     NSEnumerator* enumerator = [windowOrientationSet objectEnumerator];
     FMNWindowOrientation* windowOrientation;
+    BOOL didOpenX11 = [x11Bridge openDisplay];
     while (windowOrientation = [enumerator nextObject])
     {
         @try
@@ -109,6 +114,8 @@ static void FMN_CGDisplayReconfigurationCallback (
             NSLog([ex reason]);
         }
     }
+    if (didOpenX11)
+        [x11Bridge closeDisplay];
 }
 
 - (id) init
@@ -124,6 +131,9 @@ static void FMN_CGDisplayReconfigurationCallback (
     // Initialize the current display configuration
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
+    
+    // Set up the X11 Bridge
+    x11Bridge = [[X11Bridge alloc] init];
         
     // Register to be notified when the screen configuration changes
     [self registerScreenChangeNotificationHandler];
@@ -165,6 +175,10 @@ static void FMN_CGDisplayReconfigurationCallback (
     )
 {
     FMN* fmn = (FMN*) userInfo;
+
+    // Only want to react once, not once per screen
+    //if (!CGDisplayIsMain(display))
+    //    return;
     
     if(flags == kCGDisplayBeginConfigurationFlag)
     {
