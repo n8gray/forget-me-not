@@ -1,0 +1,5 @@
+Notes:
+
+Prefpane documentation:
+http://developer.apple.com/documentation/UserExperience/Conceptual/PreferencePanes/index.html
+

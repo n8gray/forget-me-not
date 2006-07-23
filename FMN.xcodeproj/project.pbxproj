@@ -27,6 +27,7 @@
 		0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11WindowOrientation.m; sourceTree = "<group>"; };
 		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
 		0EC122FD0A71730700CE04DC /* X11Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Bridge.m; sourceTree = "<group>"; };
+		0EC125A60A71F92D00CE04DC /* DevelNotes.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = DevelNotes.txt; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		29B97314FDCFA39411CA2CEA /* FMN */ = {
 			isa = PBXGroup;
 			children = (
+				0EC125A60A71F92D00CE04DC /* DevelNotes.txt */,
 				66299A1E0A6E14B5005757CB /* Protocols */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
