@@ -33,7 +33,6 @@
                           &mX, &mY, &dummy);
     mWidth = attrs.width;
     mHeight = attrs.height;
-    mBorderWidth = attrs.border_width;
     mWindow = win;
     mX11Bridge = bridge;
     NSLog(@"Created X11 window 0x%x with orientation (%i, %i) %i x %i",

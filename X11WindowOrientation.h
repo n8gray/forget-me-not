@@ -12,7 +12,7 @@
 @interface X11WindowOrientation : NSObject {
     X11Bridge *mX11Bridge;
     Window mWindow;
-    int mX, mY, mWidth, mHeight, mBorderWidth;
+    int mX, mY, mWidth, mHeight;
 }
 
 - (id) initWithXWindow:(Window)win withBridge:(X11Bridge *)bridge;
