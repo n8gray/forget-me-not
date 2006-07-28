@@ -10,6 +10,25 @@
 #import "X11WindowOrientation.h"
 #import <X11/Xmu/WinUtil.h>     /* For XmuClientWindow */
 
+/* Define our own error handlers that don't crash DM */
+int xErrHandler( Display *d, XErrorEvent *error ) {
+    char message[1024];
+    XGetErrorText(d, error->error_code, message, 1024);
+    message[1023] = '\0';
+    NSLog( @"%s", message );
+    return 0;
+}
+
+/* 
+* For some reason this often gets called twice when the server dies.  
+ * Surprisingly, it all works out ok despite that.
+ */
+int ioErrHandler( Display *d ) {
+    NSLog( @"X11Bridge: I/O Error.  Perhaps the X Server Died.\n" );
+    // If this function returns then our process dies.  :-(
+    @throw( @"X11 IO Error" );
+}
+
 @implementation X11Bridge
 
 - (id) init
@@ -24,6 +43,11 @@
         dispName = ":0";
     
     mDisplayName = [[NSString stringWithCString:dispName] retain];
+    
+    // I believe this only needs to be done once, even if we connect to
+    // different servers in our lifetime.
+    XSetErrorHandler(xErrHandler);
+    XSetIOErrorHandler(ioErrHandler);
     return self;
 }
 
