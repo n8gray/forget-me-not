@@ -23,6 +23,7 @@
     Status status = XGetWindowAttributes( disp, win, &attrs );
     if (!status) {
         NSLog(@"Couldn't get attributes of X Window 0x%x\n", win);
+        [self release];
         return nil;
     }
     // The attrs.x and .y attributes are relative to the window manager frame,
