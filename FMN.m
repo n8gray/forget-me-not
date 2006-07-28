@@ -177,8 +177,8 @@ static void FMN_CGDisplayReconfigurationCallback (
     FMN* fmn = (FMN*) userInfo;
 
     // Only want to react once, not once per screen
-    //if (!CGDisplayIsMain(display))
-    //    return;
+    if (!CGDisplayIsMain(display))
+        return;
     
     if(flags == kCGDisplayBeginConfigurationFlag)
     {
