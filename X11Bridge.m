@@ -59,18 +59,18 @@ int ioErrHandler( Display *d ) {
     mDisplayName = tmp;
 }
     
-- (NSMutableSet *) getWindowOrientationsSet
+- (NSMutableArray *) getWindowOrientations
 {
     Window wDummy, *children;
     unsigned int nChildren;
-    NSMutableSet *set = nil;
+    NSMutableArray *array = nil;
     
     if (![self openDisplay])
         return nil;
     
     mRoot = DefaultRootWindow(mDisplay);
     if (XQueryTree( mDisplay, mRoot, &wDummy, &wDummy, &children, &nChildren )) {
-        set = [[NSMutableSet alloc] init];
+        array = [[NSMutableArray alloc] init];
         int i;
         for (i=0; i<nChildren; ++i) {
             Window wClient = XmuClientWindow( mDisplay, children[i] );
@@ -85,7 +85,7 @@ int ioErrHandler( Display *d ) {
                 NSLog(@"Couldn't make X11WindowOrientation for X Window 0x%x\n", wClient);
                 continue;
             }
-            [set addObject:xwo];
+            [array addObject:xwo];
         }
         if (nChildren) {
             XFree(children);
@@ -94,8 +94,8 @@ int ioErrHandler( Display *d ) {
         NSLog(@"XQueryTree Failed!");
     }
     [self closeDisplay];
-    NSLog(@"Retrieved orientations for %i X11 windows", [set count]);
-    return set;
+    NSLog(@"Retrieved orientations for %i X11 windows", [array count]);
+    return array;
 }
 
 - (Display *) display { return mDisplay; };

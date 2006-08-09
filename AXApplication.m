@@ -46,9 +46,9 @@
     return self;
 }
 
-- (NSSet*) getWindows
+- (NSArray*) getWindows
 {
-    NSMutableSet* windows = [NSMutableSet setWithCapacity : 10];
+    NSMutableArray* windows = [NSMutableArray arrayWithCapacity : 10];
     
     CFTypeRef value;
     if (AXUIElementCopyAttributeValue(appElement,kAXWindowsAttribute,
@@ -78,11 +78,11 @@
     return windows;
 }
 
-- (NSSet*) getCurrentWindowOrientations
+- (NSArray*) getCurrentWindowOrientations
 {
-    NSSet* windows = [self getWindows];
-    NSMutableSet* windowOrientations = 
-        [NSMutableSet setWithCapacity : [windows count]];
+    NSArray* windows = [self getWindows];
+    NSMutableArray* windowOrientations = 
+        [NSMutableArray arrayWithCapacity : [windows count]];
     
     NSEnumerator* enumerator = [windows objectEnumerator];
     FMNWindowRef window;

@@ -15,8 +15,8 @@
 
 @protocol FMNWindowGroup 
 
-- (NSSet*) getWindows;
-- (NSSet*) getCurrentWindowOrientations;
+- (NSArray*) getWindows;
+- (NSArray*) getCurrentWindowOrientations;
 
 @end
 

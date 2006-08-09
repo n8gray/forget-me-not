@@ -21,7 +21,7 @@
     Window mRoot;
 }
 
-- (NSMutableSet *) getWindowOrientationsSet;
+- (NSMutableArray *) getWindowOrientations;
 
 - (void) setDisplayName:(NSString *)name;
 - (Display *) display;

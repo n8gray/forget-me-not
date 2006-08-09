@@ -32,13 +32,13 @@ static void FMN_CGDisplayReconfigurationCallback (
         FMN_CGDisplayReconfigurationCallback,self);
 }
 
-- (NSSet*) getCurrentWindowOrientationSet
+- (NSArray*) getCurrentWindowOrientations
 {
     NSArray* launchedApplications = 
         [[NSWorkspace sharedWorkspace] launchedApplications];
     
     NSEnumerator* enumerator = [launchedApplications objectEnumerator];
-    NSMutableSet* orientations = [NSMutableSet setWithCapacity : 100];
+    NSMutableArray* orientations = [NSMutableArray arrayWithCapacity : 100];
     ProcessSerialNumber psn;
     NSDictionary* appInfo;
     while (appInfo = [enumerator nextObject])
@@ -52,7 +52,7 @@ static void FMN_CGDisplayReconfigurationCallback (
         @try
         {
             AXApplication* app = [AXApplication configWithPSN : psn];
-            [orientations unionSet : [app getCurrentWindowOrientations]];
+            [orientations addObjectsFromArray : [app getCurrentWindowOrientations]];
         }
         @catch (NSException* ex)
         {
@@ -60,9 +60,9 @@ static void FMN_CGDisplayReconfigurationCallback (
         }
     }
     
-    NSMutableSet *x11orientations = [x11Bridge getWindowOrientationsSet];
+    NSMutableArray *x11orientations = [x11Bridge getWindowOrientations];
     if (x11orientations != nil)
-        [orientations unionSet : x11orientations];
+        [orientations addObjectsFromArray : x11orientations];
     
     return orientations;
 }
@@ -72,7 +72,7 @@ static void FMN_CGDisplayReconfigurationCallback (
     NSLog(@"Screen configuration about to be changed!");
     
     // Capture the current orientation of the windows
-    [screenConfigurations setObject : [self getCurrentWindowOrientationSet] 
+    [screenConfigurations setObject : [self getCurrentWindowOrientations] 
         forKey : currentDisplayConfiguration];
 }
 
@@ -86,11 +86,11 @@ static void FMN_CGDisplayReconfigurationCallback (
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
     
-    // Try to retrieve the window orientation set associated with the new config
-    NSSet* windowOrientationSet = 
+    // Try to retrieve the window orientations associated with the new config
+    NSArray* windowOrientations = 
         [screenConfigurations objectForKey : currentDisplayConfiguration];
     
-    if (!windowOrientationSet)
+    if (!windowOrientations)
     {
         NSLog(@"Encountered a new display configuration: %@", 
             currentDisplayConfiguration);
@@ -98,9 +98,9 @@ static void FMN_CGDisplayReconfigurationCallback (
     }
     
     NSLog(@"Restoring the orientation of %d windows for configuration: %@",
-        [windowOrientationSet count], currentDisplayConfiguration);
+        [windowOrientations count], currentDisplayConfiguration);
     
-    NSEnumerator* enumerator = [windowOrientationSet objectEnumerator];
+    NSEnumerator* enumerator = [windowOrientations objectEnumerator];
     FMNWindowOrientation* windowOrientation;
     BOOL didOpenX11 = [x11Bridge openDisplay];
     while (windowOrientation = [enumerator nextObject])
