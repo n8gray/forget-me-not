@@ -118,6 +118,23 @@ static void FMN_CGDisplayReconfigurationCallback (
         [x11Bridge closeDisplay];
 }
 
+- (void) activate
+{
+    // Register to be notified when the screen configuration changes
+    [self registerScreenChangeNotificationHandler];
+}    
+    
+- (void) deactivate
+{
+    // Unregister the screen change handler
+    [self unregisterScreenChangeNotificationHandler];
+}
+
+- (void) quit
+{
+    [[NSApplication sharedApplication] terminate:self];
+}
+
 - (id) init
 {
     if (![super init])
@@ -134,22 +151,29 @@ static void FMN_CGDisplayReconfigurationCallback (
     
     // Set up the X11 Bridge
     x11Bridge = [[X11Bridge alloc] init];
-        
-    // Register to be notified when the screen configuration changes
-    [self registerScreenChangeNotificationHandler];
     
+    [self activate];
+        
     return self;
+}
+
+- (BOOL) registerAsServer
+{
+    serverConnection = [NSConnection defaultConnection];
+    [serverConnection setRootObject:self];
+    return [serverConnection registerName:@"org.metaprl.ForgetMeNot"];
 }
 
 - (void) awakeFromNib
 {
     NSLog(@"Awake!");
+    if (![self registerAsServer])
+        NSLog(@"Couldn't register as a distributed object server!");
 }
 
 - (void) dealloc
 {
-    // Unregister the app launch/termination handlers
-    [self unregisterScreenChangeNotificationHandler];
+    [self deactivate];
     
     // Release the dictionary
     if (screenConfigurations)

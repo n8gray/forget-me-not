@@ -16,8 +16,14 @@
     @protected NSMutableDictionary* screenConfigurations;
     @protected FMNDisplayConfigurationRef currentDisplayConfiguration;
     @protected X11Bridge *x11Bridge;
+    @protected NSConnection *serverConnection;
 }
 
 - (void) awakeFromNib;
+
+// The preference pane will call these
+- (void) activate;
+- (void) deactivate;
+- (void) quit;
 
 @end
