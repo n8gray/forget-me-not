@@ -10,7 +10,7 @@
 
 @implementation X11WindowOrientation
 
-- (id) initWithXWindow:(Window)win withBridge:(X11Bridge *)bridge
+- (id) initWithXWindow:(Window)win onDisplay:(Display *)disp
 {
     XWindowAttributes attrs;
     Window dummy;
@@ -19,7 +19,6 @@
     if (self == nil)
         return self;
     
-    Display *disp = [bridge display];
     Status status = XGetWindowAttributes( disp, win, &attrs );
     if (!status) {
         NSLog(@"Couldn't get attributes of X Window 0x%x\n", win);
@@ -35,13 +34,12 @@
     mWidth = attrs.width;
     mHeight = attrs.height;
     mWindow = win;
-    mX11Bridge = bridge;
-    NSLog(@"Created X11 window 0x%x with orientation (%i, %i) %i x %i",
-          mWindow, mX, mY, mWidth, mHeight);
+    //NSLog(@"Created X11 window 0x%x with orientation (%i, %i) %i x %i",
+    //      mWindow, mX, mY, mWidth, mHeight);
     return self;
 }
 
-- (void) restore
+- (void) restoreOnDisplay:(Display *)disp
 {
     XWindowChanges values;
     unsigned int value_mask;
@@ -50,14 +48,14 @@
     values.width = mWidth;
     values.height = mHeight;
     value_mask = CWX | CWY | CWWidth | CWHeight;
-    Display *disp = [mX11Bridge display];
     if (!XReconfigureWMWindow(disp, mWindow, DefaultScreen(disp), 
-                              value_mask, &values))
+                              value_mask, &values)) {
         NSLog(@"Couldn't restore X11 window 0x%x to (%i, %i) %i x %i", 
               mWindow, mX, mY, mWidth, mHeight);
-    else
-        NSLog(@"Restored X11 window 0x%x to (%i, %i) %i x %i", 
-              mWindow, mX, mY, mWidth, mHeight);
+    }
+    //else
+        //NSLog(@"Restored X11 window 0x%x to (%i, %i) %i x %i", 
+        //      mWindow, mX, mY, mWidth, mHeight);
 }
 
 @end

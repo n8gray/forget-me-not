@@ -12,16 +12,19 @@
 #import <X11/Xlib.h>
 #import <X11/Xatom.h>
 #import <X11/Xutil.h>
+#import <X11/Xmu/WinUtil.h>     /* For XmuClientWindow */
 #undef Cursor
 
+#import "FMNModule.h"
 
-@interface X11Bridge : NSObject {
+
+@interface X11Bridge : NSObject <FMNModule> {
     NSString *mDisplayName;
     Display *mDisplay;
     Window mRoot;
 }
 
-- (NSMutableArray *) getWindowOrientations;
+- (NSMutableArray *) getRestorables;
 
 - (void) setDisplayName:(NSString *)name;
 - (Display *) display;

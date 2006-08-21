@@ -8,14 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FMNWindow.h"
+#import "FMNRestorable.h"
 
-@interface FMNWindowOrientation : NSObject {
+@interface FMNWindowOrientation : NSObject <FMNRestorable> {
     @protected NSPoint position;
     @protected NSSize size;
     @protected FMNWindowRef window;
 }
 
 - (id) initWithWindow : (FMNWindowRef) win;
-- (void) restore;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "X11Bridge.h"
 #import "X11WindowOrientation.h"
-#import <X11/Xmu/WinUtil.h>     /* For XmuClientWindow */
+#import "X11Restorable.h"
 
 /* Define our own error handlers that don't crash DM */
 int xErrHandler( Display *d, XErrorEvent *error ) {
@@ -58,44 +58,11 @@ int ioErrHandler( Display *d ) {
         [mDisplayName release];
     mDisplayName = tmp;
 }
-    
-- (NSMutableArray *) getWindowOrientations
+
+- (NSMutableArray *) getRestorables
 {
-    Window wDummy, *children;
-    unsigned int nChildren;
-    NSMutableArray *array = nil;
-    
-    if (![self openDisplay])
-        return nil;
-    
-    mRoot = DefaultRootWindow(mDisplay);
-    if (XQueryTree( mDisplay, mRoot, &wDummy, &wDummy, &children, &nChildren )) {
-        array = [[NSMutableArray alloc] init];
-        int i;
-        for (i=0; i<nChildren; ++i) {
-            Window wClient = XmuClientWindow( mDisplay, children[i] );
-            if( wClient == children[i] ) {
-                //NSLog(@"No client window found for X11 window 0x%x\n", wClient);
-                continue;
-            }
-            X11WindowOrientation *xwo = 
-                    [[X11WindowOrientation alloc] 
-                        initWithXWindow:wClient withBridge:self];
-            if (xwo == nil) {
-                NSLog(@"Couldn't make X11WindowOrientation for X Window 0x%x\n", wClient);
-                continue;
-            }
-            [array addObject:xwo];
-        }
-        if (nChildren) {
-            XFree(children);
-        }
-    } else {
-        NSLog(@"XQueryTree Failed!");
-    }
-    [self closeDisplay];
-    NSLog(@"Retrieved orientations for %i X11 windows", [array count]);
-    return array;
+    return [NSMutableArray 
+            arrayWithObject:[[X11Restorable alloc] initWithBridge:self]];
 }
 
 - (Display *) display { return mDisplay; };

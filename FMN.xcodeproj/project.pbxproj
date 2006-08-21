@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E13E07F0A93E1CB0093153D /* FMNAXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E07E0A93E1CA0093153D /* FMNAXModule.m */; };
+		0E13E0920A93E8670093153D /* X11Restorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E0910A93E8670093153D /* X11Restorable.m */; };
 		0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
 		0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
@@ -23,6 +25,12 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0E13E0670A93CA870093153D /* FMNRestorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNRestorable.h; sourceTree = "<group>"; };
+		0E13E0760A93E0E40093153D /* FMNModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNModule.h; sourceTree = "<group>"; };
+		0E13E07D0A93E1CA0093153D /* FMNAXModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNAXModule.h; sourceTree = "<group>"; };
+		0E13E07E0A93E1CA0093153D /* FMNAXModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNAXModule.m; sourceTree = "<group>"; };
+		0E13E0900A93E8670093153D /* X11Restorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Restorable.h; sourceTree = "<group>"; };
+		0E13E0910A93E8670093153D /* X11Restorable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Restorable.m; sourceTree = "<group>"; };
 		0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11WindowOrientation.h; sourceTree = "<group>"; };
 		0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11WindowOrientation.m; sourceTree = "<group>"; };
 		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
@@ -70,10 +78,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				66299ADA0A6E2768005757CB /* AXApplication.h */,
-				66299ADB0A6E2768005757CB /* AXApplication.m */,
-				662998A20A6DE8AB005757CB /* AXWindow.h */,
-				662998A30A6DE8AB005757CB /* AXWindow.m */,
+				0E13E37D0A9A545D0093153D /* AX Module */,
+				0E13E37C0A9A54450093153D /* X11 Module */,
 				6629992D0A6E0386005757CB /* CGDisplay.h */,
 				6629992E0A6E0386005757CB /* CGDisplay.m */,
 				66299A130A6E14A4005757CB /* CGDisplayConfiguration.h */,
@@ -82,12 +88,34 @@
 				6613E2B70A676588003DA5B2 /* FMN.m */,
 				66299AC50A6E24DE005757CB /* FMNWindowOrientation.h */,
 				66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		0E13E37C0A9A54450093153D /* X11 Module */ = {
+			isa = PBXGroup;
+			children = (
 				0EC122FC0A71730700CE04DC /* X11Bridge.h */,
 				0EC122FD0A71730700CE04DC /* X11Bridge.m */,
+				0E13E0900A93E8670093153D /* X11Restorable.h */,
+				0E13E0910A93E8670093153D /* X11Restorable.m */,
 				0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */,
 				0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */,
 			);
-			name = Classes;
+			name = "X11 Module";
+			sourceTree = "<group>";
+		};
+		0E13E37D0A9A545D0093153D /* AX Module */ = {
+			isa = PBXGroup;
+			children = (
+				0E13E07D0A93E1CA0093153D /* FMNAXModule.h */,
+				0E13E07E0A93E1CA0093153D /* FMNAXModule.m */,
+				66299ADA0A6E2768005757CB /* AXApplication.h */,
+				66299ADB0A6E2768005757CB /* AXApplication.m */,
+				662998A20A6DE8AB005757CB /* AXWindow.h */,
+				662998A30A6DE8AB005757CB /* AXWindow.m */,
+			);
+			name = "AX Module";
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -161,6 +189,8 @@
 		66299A1E0A6E14B5005757CB /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				0E13E0670A93CA870093153D /* FMNRestorable.h */,
+				0E13E0760A93E0E40093153D /* FMNModule.h */,
 				662999280A6E034C005757CB /* FMNDisplay.h */,
 				666FF6440A6B17F6007110EF /* FMNDisplayConfiguration.h */,
 				662998980A6DE369005757CB /* FMNWindow.h */,
@@ -231,6 +261,8 @@
 				66299ADC0A6E2768005757CB /* AXApplication.m in Sources */,
 				0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */,
 				0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */,
+				0E13E07F0A93E1CB0093153D /* FMNAXModule.m in Sources */,
+				0E13E0920A93E8670093153D /* X11Restorable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

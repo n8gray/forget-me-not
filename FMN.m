@@ -8,8 +8,12 @@
 
 #import <ApplicationServices/ApplicationServices.h>
 #import "FMN.h"
-#import "AXApplication.h"
+#import "FMNModule.h"
+#import "FMNRestorable.h"
 #import "CGDisplayConfiguration.h"
+
+#import "X11Bridge.h"
+#import "FMNAXModule.h"
 
 
 static void FMN_CGDisplayReconfigurationCallback (
@@ -32,90 +36,73 @@ static void FMN_CGDisplayReconfigurationCallback (
         FMN_CGDisplayReconfigurationCallback,self);
 }
 
-- (NSArray*) getCurrentWindowOrientations
+- (void) handlePreDisplayConfigurationChange
 {
-    NSArray* launchedApplications = 
-        [[NSWorkspace sharedWorkspace] launchedApplications];
+    NSLog(@"******** Screen configuration about to be changed! ********");
+    NSDate *startDate = [NSDate date];
     
-    NSEnumerator* enumerator = [launchedApplications objectEnumerator];
-    NSMutableArray* orientations = [NSMutableArray arrayWithCapacity : 100];
-    ProcessSerialNumber psn;
-    NSDictionary* appInfo;
-    while (appInfo = [enumerator nextObject])
-    {
-        NSNumber* tmp;
-        tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberLow"];
-        psn.lowLongOfPSN = [tmp longValue];
-        tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberHigh"];
-        psn.highLongOfPSN = [tmp longValue];
-        
-        @try
-        {
-            AXApplication* app = [AXApplication configWithPSN : psn];
-            [orientations addObjectsFromArray : [app getCurrentWindowOrientations]];
+    // Save the current restorables
+    NSMutableArray *restorables = [NSMutableArray arrayWithCapacity:20];    
+    NSEnumerator* enumerator = [fmnModules objectEnumerator];
+    FMNModuleRef module;
+    while (module = [enumerator nextObject]) {
+        @try {
+            //NSDate *restorableDate = [NSDate date];
+            NSArray *tmpRestorables = [module getRestorables];
+            //NSLog(@"Got %d restorables in %f seconds", [tmpRestorables count],
+            //      -[restorableDate timeIntervalSinceNow]);
+            [restorables addObjectsFromArray:tmpRestorables];
         }
-        @catch (NSException* ex)
-        {
+        @catch (NSException* ex) {
             NSLog([ex reason]);
         }
     }
     
-    NSMutableArray *x11orientations = [x11Bridge getWindowOrientations];
-    if (x11orientations != nil)
-        [orientations addObjectsFromArray : x11orientations];
-    
-    return orientations;
-}
-
-- (void) handlePreDisplayConfigurationChange
-{
-    NSLog(@"Screen configuration about to be changed!");
-    
-    // Capture the current orientation of the windows
-    [screenConfigurations setObject : [self getCurrentWindowOrientations] 
-        forKey : currentDisplayConfiguration];
+    [screenConfigurations setObject:restorables
+                             forKey:currentDisplayConfiguration];
+    NSLog(@"Saved %d restorables in %f seconds", [restorables count],
+          -[startDate timeIntervalSinceNow]);    
 }
 
 - (void) handlePostDisplayConfigurationChange
 {
-    NSLog(@"Screen configuration changed!");
+    NSLog(@"======== Screen configuration changed! ========");
+    NSDate *startDate = [NSDate date];
     
-    //[currentDisplayConfiguration release];
+    [currentDisplayConfiguration release];
     
     // Get the new display configuration
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
     
-    // Try to retrieve the window orientations associated with the new config
-    NSArray* windowOrientations = 
+    // Try to retrieve the restorables associated with the new config
+    NSArray* restorables = 
         [screenConfigurations objectForKey : currentDisplayConfiguration];
     
-    if (!windowOrientations)
+    if (!restorables)
     {
         NSLog(@"Encountered a new display configuration: %@", 
             currentDisplayConfiguration);
         return;
     }
     
-    NSLog(@"Restoring the orientation of %d windows for configuration: %@",
-        [windowOrientations count], currentDisplayConfiguration);
-    
-    NSEnumerator* enumerator = [windowOrientations objectEnumerator];
-    FMNWindowOrientation* windowOrientation;
-    BOOL didOpenX11 = [x11Bridge openDisplay];
-    while (windowOrientation = [enumerator nextObject])
+    NSEnumerator* enumerator = [restorables objectEnumerator];
+    FMNRestorableRef restorable;
+    while (restorable = [enumerator nextObject])
     {
         @try
         {
-            [windowOrientation restore];
+            [restorable restore];
         }
         @catch (NSException* ex)
         {
             NSLog([ex reason]);
         }
     }
-    if (didOpenX11)
-        [x11Bridge closeDisplay];
+    
+    NSLog(@"Restored %d restorables in %f seconds for configuration: %@",
+          [restorables count], -[startDate timeIntervalSinceNow], 
+          currentDisplayConfiguration);
 }
 
 - (void) activate
@@ -149,11 +136,30 @@ static void FMN_CGDisplayReconfigurationCallback (
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
     
-    // Set up the X11 Bridge
-    x11Bridge = [[X11Bridge alloc] init];
+    // Set up the modules.  Ideally this would load bundles instead of a list of
+    // statically coded modules.
+    FMNAXModule *axModule = [[FMNAXModule alloc] init];
+    fmnModules = [[NSArray arrayWithObjects:
+            axModule,
+            [[X11Bridge alloc] init],
+            nil] retain];
+    
+    // This should be in the prefs pane, but for now put it in the info.plist
+    NSArray *exclusions = 
+        [[NSBundle mainBundle]
+            objectForInfoDictionaryKey:@"ExcludedAppBundleIDs"];
+    if (exclusions == nil) {
+        NSLog(@"No excluded apps found");
+    } else if (![exclusions isKindOfClass:[NSArray class]]) {
+        NSLog(@"Ignoring ExcludedAppBundleIDs.  Not an NSArray! (class = %@)",
+              [exclusions class]);
+    } else {
+        NSLog(@"Excluding apps:\n%@", exclusions);
+        [axModule setExclusions:exclusions];
+    }
     
     [self activate];
-        
+    
     return self;
 }
 
