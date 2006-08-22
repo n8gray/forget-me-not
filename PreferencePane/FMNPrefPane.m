@@ -31,7 +31,6 @@
 
 - (void) connectToFMN
 {
-    //[mSpinner setHidden:NO];
     [mSpinner startAnimation:self];
     [mStatusField setStringValue:@"Connecting to FMN.app"];
     
@@ -47,23 +46,52 @@
         }
     }
     [mSpinner stopAnimation:self];
-    //[mSpinner setHidden:YES];
+}
+
+- (BOOL) updateFMNStatus
+{
+    if (mFMNProxy) {
+        [mLaunchQuit setTitle:@"Quit FMN"];
+        [mControls setHidden:NO];
+        if ([mFMNProxy isActiveFMN]) {
+            [mStatusField setStringValue:@"FMN Activated"];
+            [mActivated setState:NSOnState];
+            return YES;
+        } else {
+            [mStatusField setStringValue:@"FMN Deactivated"];
+            [mActivated setState:NSOffState];
+            return NO;
+        }
+    } else {
+        [mLaunchQuit setTitle:@"Launch FMN"];
+        [mControls setHidden:YES];
+        return NO;
+    }
+}
+
+- (IBAction) launchOrQuit:(id)sender
+{
+    if (mFMNProxy) {
+        [mFMNProxy quitFMN];
+        [mFMNProxy release];
+        mFMNProxy = nil;
+    } else {
+        [self connectToFMN];
+    }
+    [self updateFMNStatus];
 }
 
 - (IBAction) toggleActivated:(id)sender
 {
     if (mFMNProxy) {
         if ([sender state] == NSOnState) {
-            if ([mFMNProxy activateFMN])
-                [mStatusField setStringValue:@"FMN Activated"];
-            else
+            if (![mFMNProxy activateFMN])
                 [mStatusField setStringValue:@"Error while activating FMN"];
         } else {
-            if ([mFMNProxy deactivateFMN])
-                [mStatusField setStringValue:@"FMN Deactivated"];
-            else
+            if (![mFMNProxy deactivateFMN])
                 [mStatusField setStringValue:@"Error while deactivating FMN"];
         }
+        [self updateFMNStatus];
     }
 }
 
@@ -71,6 +99,7 @@
 - (void) didSelect
 {
     [self connectToFMN];
+    [self updateFMNStatus];
 }
 
 - (id) initWithBundle:(NSBundle *)bundle

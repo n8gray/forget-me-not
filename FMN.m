@@ -110,6 +110,7 @@ static void FMN_CGDisplayReconfigurationCallback (
     // Register to be notified when the screen configuration changes
     NSLog(@"Activating");
     [self registerScreenChangeNotificationHandler];
+    isActive = YES;
     return YES;
 }
     
@@ -118,7 +119,13 @@ static void FMN_CGDisplayReconfigurationCallback (
     // Unregister the screen change handler
     NSLog(@"Deactivating");
     [self unregisterScreenChangeNotificationHandler];
+    isActive = NO;
     return YES;
+}
+
+- (BOOL) isActiveFMN
+{
+    return isActive;
 }
 
 - (void) quitFMN

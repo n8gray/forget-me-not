@@ -1,12 +1,14 @@
 {
     IBClasses = (
         {
-            ACTIONS = {toggleActivated = id; }; 
-            CLASS = FMNPrefPanePref; 
+            ACTIONS = {launchOrQuit = id; toggleActivated = id; }; 
+            CLASS = FMNPrefPane; 
             LANGUAGE = ObjC; 
             OUTLETS = {
                 mActivated = NSButton; 
+                mControls = NSBox; 
                 mFMNProxy = id; 
+                mLaunchQuit = NSButton; 
                 mSpinner = NSProgressIndicator; 
                 mStatusField = NSTextField; 
             }; 

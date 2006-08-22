@@ -17,6 +17,7 @@
     @protected FMNDisplayConfigurationRef currentDisplayConfiguration;
     @protected NSArray *fmnModules;
     @protected NSConnection *serverConnection;
+    @protected BOOL isActive;
 }
 
 - (void) awakeFromNib;

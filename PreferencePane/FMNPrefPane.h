@@ -17,10 +17,13 @@
     IBOutlet NSProgressIndicator *mSpinner;
     IBOutlet NSTextField *mStatusField;
     IBOutlet NSButton *mActivated;
+    IBOutlet NSBox *mControls;
+    IBOutlet NSButton *mLaunchQuit;
 }
 
-//- (void) mainViewDidLoad;
 - (IBAction) toggleActivated:(id)sender;
+- (IBAction) launchOrQuit:(id)sender;
+
 - (NSString *)mainNibName;
 
 
