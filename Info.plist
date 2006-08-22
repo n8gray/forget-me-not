@@ -28,5 +28,7 @@
     <array>
         <string>com.apple.systempreferences</string>
     </array>
+    <key>LSUIElement</key>
+    <string>1</string>
 </dict>
 </plist>
