@@ -13,12 +13,14 @@
 {
     id mFMNProxy;
     NSBundle *myBundle;
+    NSString *mFMNPath;
     
+    IBOutlet NSButton *mLaunchQuit;
     IBOutlet NSProgressIndicator *mSpinner;
     IBOutlet NSTextField *mStatusField;
-    IBOutlet NSButton *mActivated;
     IBOutlet NSBox *mControls;
-    IBOutlet NSButton *mLaunchQuit;
+    IBOutlet NSButton *mActivated;
+    IBOutlet NSButton *mAutolaunch;
 }
 
 - (IBAction) toggleActivated:(id)sender;

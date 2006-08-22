@@ -6,6 +6,7 @@
             LANGUAGE = ObjC; 
             OUTLETS = {
                 mActivated = NSButton; 
+                mAutolaunch = NSButton; 
                 mControls = NSBox; 
                 mFMNProxy = id; 
                 mLaunchQuit = NSButton; 
