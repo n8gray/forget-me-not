@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		0E13E07F0A93E1CB0093153D /* FMNAXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E07E0A93E1CA0093153D /* FMNAXModule.m */; };
 		0E13E0920A93E8670093153D /* X11Restorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E0910A93E8670093153D /* X11Restorable.m */; };
+		0E13E4580A9A7E950093153D /* FMNPrefPane.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */; };
+		0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4510A9A7E950093153D /* InfoPlist.strings */; };
+		0E13E45A0A9A7E950093153D /* FMNPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E4540A9A7E950093153D /* FMNPrefPane.m */; };
+		0E13E45B0A9A7E950093153D /* FMNPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */; };
+		0E13E45D0A9A7E950093153D /* version.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4570A9A7E950093153D /* version.plist */; };
+		0E13E4600A9A7ED00093153D /* FMN.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* FMN.app */; };
+		0E13E5230A9A8C3A0093153D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		0E13E5380A9A8C880093153D /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E13E5370A9A8C880093153D /* PreferencePanes.framework */; };
 		0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
 		0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
@@ -23,6 +31,16 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0E13E4310A9A7DE50093153D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* FMN */;
+			remoteInfo = FMN;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E13E0670A93CA870093153D /* FMNRestorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNRestorable.h; sourceTree = "<group>"; };
@@ -31,6 +49,16 @@
 		0E13E07E0A93E1CA0093153D /* FMNAXModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNAXModule.m; sourceTree = "<group>"; };
 		0E13E0900A93E8670093153D /* X11Restorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Restorable.h; sourceTree = "<group>"; };
 		0E13E0910A93E8670093153D /* X11Restorable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Restorable.m; sourceTree = "<group>"; };
+		0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForgetMeNot.prefpane; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "ForgetMeNot-Info.plist"; path = "../ForgetMeNot-Info.plist"; sourceTree = "<group>"; };
+		0E13E4500A9A7E950093153D /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FMNPrefPane.nib; sourceTree = "<group>"; };
+		0E13E4520A9A7E950093153D /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0E13E4530A9A7E950093153D /* FMNPrefPane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FMNPrefPane.h; sourceTree = "<group>"; };
+		0E13E4540A9A7E950093153D /* FMNPrefPane.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FMNPrefPane.m; sourceTree = "<group>"; };
+		0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FMNPrefPane.tiff; sourceTree = "<group>"; };
+		0E13E4570A9A7E950093153D /* version.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version.plist; sourceTree = "<group>"; };
+		0E13E4E40A9A8B460093153D /* FMNServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNServer.h; sourceTree = "<group>"; };
+		0E13E5370A9A8C880093153D /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11WindowOrientation.h; sourceTree = "<group>"; };
 		0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11WindowOrientation.m; sourceTree = "<group>"; };
 		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
@@ -64,6 +92,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0E13E42A0A9A7DDD0093153D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E13E5230A9A8C3A0093153D /* Cocoa.framework in Frameworks */,
+				0E13E5380A9A8C880093153D /* PreferencePanes.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +155,20 @@
 			name = "AX Module";
 			sourceTree = "<group>";
 		};
+		0E13E44E0A9A7E950093153D /* PreferencePane */ = {
+			isa = PBXGroup;
+			children = (
+				0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */,
+				0E13E4510A9A7E950093153D /* InfoPlist.strings */,
+				0E13E4530A9A7E950093153D /* FMNPrefPane.h */,
+				0E13E4540A9A7E950093153D /* FMNPrefPane.m */,
+				0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */,
+				0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */,
+				0E13E4570A9A7E950093153D /* version.plist */,
+			);
+			path = PreferencePane;
+			sourceTree = "<group>";
+		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +180,7 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E13E5370A9A8C880093153D /* PreferencePanes.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
@@ -140,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* FMN.app */,
+				0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -148,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				0EC125A60A71F92D00CE04DC /* DevelNotes.txt */,
+				0E13E44E0A9A7E950093153D /* PreferencePane */,
 				66299A1E0A6E14B5005757CB /* Protocols */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -195,6 +249,7 @@
 				666FF6440A6B17F6007110EF /* FMNDisplayConfiguration.h */,
 				662998980A6DE369005757CB /* FMNWindow.h */,
 				66299ABD0A6E22ED005757CB /* FMNWindowGroup.h */,
+				0E13E4E40A9A8B460093153D /* FMNServer.h */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -202,6 +257,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0E13E42B0A9A7DDD0093153D /* ForgetMeNot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E13E42E0A9A7DDF0093153D /* Build configuration list for PBXNativeTarget "ForgetMeNot" */;
+			buildPhases = (
+				0E13E4280A9A7DDD0093153D /* Resources */,
+				0E13E4290A9A7DDD0093153D /* Sources */,
+				0E13E42A0A9A7DDD0093153D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E13E4320A9A7DE50093153D /* PBXTargetDependency */,
+			);
+			name = ForgetMeNot;
+			productName = ForgetMeNot;
+			productReference = 0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8D1107260486CEB800E47090 /* FMN */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "FMN" */;
@@ -231,11 +304,24 @@
 			projectDirPath = "";
 			targets = (
 				8D1107260486CEB800E47090 /* FMN */,
+				0E13E42B0A9A7DDD0093153D /* ForgetMeNot */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0E13E4280A9A7DDD0093153D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E13E4600A9A7ED00093153D /* FMN.app in Resources */,
+				0E13E4580A9A7E950093153D /* FMNPrefPane.nib in Resources */,
+				0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */,
+				0E13E45B0A9A7E950093153D /* FMNPrefPane.tiff in Resources */,
+				0E13E45D0A9A7E950093153D /* version.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,6 +334,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0E13E4290A9A7DDD0093153D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E13E45A0A9A7E950093153D /* FMNPrefPane.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,11 +362,35 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0E13E4320A9A7DE50093153D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* FMN */;
+			targetProxy = 0E13E4310A9A7DE50093153D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E13E4500A9A7E950093153D /* English */,
+			);
+			name = FMNPrefPane.nib;
+			sourceTree = "<group>";
+		};
+		0E13E4510A9A7E950093153D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E13E4520A9A7E950093153D /* English */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -288,6 +406,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0E13E42F0A9A7DDF0093153D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "ForgetMeNot-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ForgetMeNot;
+				WRAPPER_EXTENSION = prefpane;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		0E13E4300A9A7DDF0093153D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "ForgetMeNot-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = ForgetMeNot;
+				WRAPPER_EXTENSION = prefpane;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -356,6 +524,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0E13E42E0A9A7DDF0093153D /* Build configuration list for PBXNativeTarget "ForgetMeNot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E13E42F0A9A7DDF0093153D /* Debug */,
+				0E13E4300A9A7DDF0093153D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "FMN" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

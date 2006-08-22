@@ -9,9 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 #import "FMNDisplayConfiguration.h"
+#import "FMNServer.h"
 
 
-@interface FMN : NSObject {
+@interface FMN : NSObject <FMNServer> {
     @protected NSMutableDictionary* screenConfigurations;
     @protected FMNDisplayConfigurationRef currentDisplayConfiguration;
     @protected NSArray *fmnModules;
@@ -19,10 +20,5 @@
 }
 
 - (void) awakeFromNib;
-
-// The preference pane will call these
-- (void) activate;
-- (void) deactivate;
-- (void) quit;
 
 @end

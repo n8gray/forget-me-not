@@ -1,0 +1,29 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {toggleActivated = id; }; 
+            CLASS = FMNPrefPanePref; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                mActivated = NSButton; 
+                mFMNProxy = id; 
+                mSpinner = NSProgressIndicator; 
+                mStatusField = NSTextField; 
+            }; 
+            SUPERCLASS = NSPreferencePane; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            CLASS = NSPreferencePane; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                "_firstKeyView" = id; 
+                "_initialKeyView" = id; 
+                "_lastKeyView" = id; 
+                "_window" = id; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

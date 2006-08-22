@@ -105,20 +105,25 @@ static void FMN_CGDisplayReconfigurationCallback (
           currentDisplayConfiguration);
 }
 
-- (void) activate
+- (BOOL) activateFMN
 {
     // Register to be notified when the screen configuration changes
+    NSLog(@"Activating");
     [self registerScreenChangeNotificationHandler];
-}    
+    return YES;
+}
     
-- (void) deactivate
+- (BOOL) deactivateFMN
 {
     // Unregister the screen change handler
+    NSLog(@"Deactivating");
     [self unregisterScreenChangeNotificationHandler];
+    return YES;
 }
 
-- (void) quit
+- (void) quitFMN
 {
+    NSLog(@"Quitting");
     [[NSApplication sharedApplication] terminate:self];
 }
 
@@ -158,7 +163,7 @@ static void FMN_CGDisplayReconfigurationCallback (
         [axModule setExclusions:exclusions];
     }
     
-    [self activate];
+    [self activateFMN];
     
     return self;
 }
@@ -179,7 +184,7 @@ static void FMN_CGDisplayReconfigurationCallback (
 
 - (void) dealloc
 {
-    [self deactivate];
+    [self deactivateFMN];
     
     // Release the dictionary
     if (screenConfigurations)

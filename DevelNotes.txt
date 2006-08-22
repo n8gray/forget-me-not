@@ -3,3 +3,5 @@ Notes:
 Prefpane documentation:
 http://developer.apple.com/documentation/UserExperience/Conceptual/PreferencePanes/index.html
 
+On debugging the preference pane:
+    The output from FMN.app will go to console.log (use Console.app to monitor it.)
