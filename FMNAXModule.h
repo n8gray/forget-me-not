@@ -13,5 +13,5 @@
     NSArray *mExclusions;
 }
 - (void) setExclusions:(NSArray *)ex;
-
+- (id) initWithBundle:(NSBundle *)bundle;
 @end

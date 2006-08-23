@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E13E07F0A93E1CB0093153D /* FMNAXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E07E0A93E1CA0093153D /* FMNAXModule.m */; };
-		0E13E0920A93E8670093153D /* X11Restorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E0910A93E8670093153D /* X11Restorable.m */; };
 		0E13E4580A9A7E950093153D /* FMNPrefPane.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */; };
 		0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4510A9A7E950093153D /* InfoPlist.strings */; };
 		0E13E45A0A9A7E950093153D /* FMNPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E4540A9A7E950093153D /* FMNPrefPane.m */; };
@@ -17,14 +15,19 @@
 		0E13E4600A9A7ED00093153D /* FMN.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* FMN.app */; };
 		0E13E5230A9A8C3A0093153D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		0E13E5380A9A8C880093153D /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E13E5370A9A8C880093153D /* PreferencePanes.framework */; };
-		0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
-		0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
+		0E4DE3F30A9BBA37001C9EEF /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
+		0E4DE3F40A9BBA38001C9EEF /* X11Restorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E0910A93E8670093153D /* X11Restorable.m */; };
+		0E4DE3F50A9BBA39001C9EEF /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
+		0E4DE42A0A9BBD9D001C9EEF /* FMNModuleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */; };
+		0E4DE4B00A9BCB98001C9EEF /* AXApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299ADB0A6E2768005757CB /* AXApplication.m */; };
+		0E4DE4B10A9BCB99001C9EEF /* AXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 662998A30A6DE8AB005757CB /* AXWindow.m */; };
+		0E4DE4B20A9BCB9A001C9EEF /* FMNAXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E07E0A93E1CA0093153D /* FMNAXModule.m */; };
+		0E4DE5410A9BD143001C9EEF /* AXModule.plugin in Copy into FMN.app */ = {isa = PBXBuildFile; fileRef = 0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */; };
+		0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into FMN.app */ = {isa = PBXBuildFile; fileRef = 0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
-		662998A40A6DE8AB005757CB /* AXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 662998A30A6DE8AB005757CB /* AXWindow.m */; };
 		6629992F0A6E0386005757CB /* CGDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6629992E0A6E0386005757CB /* CGDisplay.m */; };
 		66299A150A6E14A4005757CB /* CGDisplayConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299A140A6E14A4005757CB /* CGDisplayConfiguration.m */; };
 		66299AC70A6E24DE005757CB /* FMNWindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */; };
-		66299ADC0A6E2768005757CB /* AXApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299ADB0A6E2768005757CB /* AXApplication.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -36,10 +39,63 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = FMN;
+		};
+		0E4DE4F00A9BCDFE001C9EEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* FMN */;
+			remoteInfo = FMN;
+		};
+		0E4DE5470A9BD1CC001C9EEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E4DE3CA0A9BB92C001C9EEF /* X11Module */;
+			remoteInfo = X11Module;
+		};
+		0E4DE5490A9BD1CC001C9EEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E4DE4A40A9BCADA001C9EEF /* AXModule */;
+			remoteInfo = AXModule;
+		};
+		0E4DE56F0A9BD4F0001C9EEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
 			remoteGlobalIDString = 8D1107260486CEB800E47090 /* FMN */;
 			remoteInfo = FMN;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0E4DE5330A9BD101001C9EEF /* Copy into FMN.app */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = FMN.app/Contents/PlugIns;
+			dstSubfolderSpec = 16;
+			files = (
+				0E4DE5410A9BD143001C9EEF /* AXModule.plugin in Copy into FMN.app */,
+			);
+			name = "Copy into FMN.app";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E4DE5420A9BD174001C9EEF /* Copy into FMN.app */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = FMN.app/Contents/PlugIns;
+			dstSubfolderSpec = 16;
+			files = (
+				0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into FMN.app */,
+			);
+			name = "Copy into FMN.app";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -59,6 +115,12 @@
 		0E13E4570A9A7E950093153D /* version.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version.plist; sourceTree = "<group>"; };
 		0E13E4E40A9A8B460093153D /* FMNServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNServer.h; sourceTree = "<group>"; };
 		0E13E5370A9A8C880093153D /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
+		0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = X11Module.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E4DE3CC0A9BB92C001C9EEF /* X11Module-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "X11Module-Info.plist"; sourceTree = "<group>"; };
+		0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNModuleLoader.h; sourceTree = "<group>"; };
+		0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNModuleLoader.m; sourceTree = "<group>"; };
+		0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXModule.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E4DE4A60A9BCADA001C9EEF /* AXModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AXModule-Info.plist"; sourceTree = "<group>"; };
 		0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11WindowOrientation.h; sourceTree = "<group>"; };
 		0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11WindowOrientation.m; sourceTree = "<group>"; };
 		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
@@ -101,6 +163,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0E4DE3C90A9BB92C001C9EEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E4DE4A30A9BCADA001C9EEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,6 +199,8 @@
 				66299A140A6E14A4005757CB /* CGDisplayConfiguration.m */,
 				6613E2B60A676588003DA5B2 /* FMN.h */,
 				6613E2B70A676588003DA5B2 /* FMN.m */,
+				0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */,
+				0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */,
 				66299AC50A6E24DE005757CB /* FMNWindowOrientation.h */,
 				66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */,
 			);
@@ -132,6 +210,7 @@
 		0E13E37C0A9A54450093153D /* X11 Module */ = {
 			isa = PBXGroup;
 			children = (
+				0E4DE3CC0A9BB92C001C9EEF /* X11Module-Info.plist */,
 				0EC122FC0A71730700CE04DC /* X11Bridge.h */,
 				0EC122FD0A71730700CE04DC /* X11Bridge.m */,
 				0E13E0900A93E8670093153D /* X11Restorable.h */,
@@ -145,6 +224,7 @@
 		0E13E37D0A9A545D0093153D /* AX Module */ = {
 			isa = PBXGroup;
 			children = (
+				0E4DE4A60A9BCADA001C9EEF /* AXModule-Info.plist */,
 				0E13E07D0A93E1CA0093153D /* FMNAXModule.h */,
 				0E13E07E0A93E1CA0093153D /* FMNAXModule.m */,
 				66299ADA0A6E2768005757CB /* AXApplication.h */,
@@ -193,6 +273,8 @@
 			children = (
 				8D1107320486CEB800E47090 /* FMN.app */,
 				0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */,
+				0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */,
+				0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -268,11 +350,51 @@
 			buildRules = (
 			);
 			dependencies = (
+				0E4DE54A0A9BD1CC001C9EEF /* PBXTargetDependency */,
+				0E4DE5480A9BD1CC001C9EEF /* PBXTargetDependency */,
 				0E13E4320A9A7DE50093153D /* PBXTargetDependency */,
 			);
 			name = ForgetMeNot;
 			productName = ForgetMeNot;
 			productReference = 0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */;
+			productType = "com.apple.product-type.bundle";
+		};
+		0E4DE3CA0A9BB92C001C9EEF /* X11Module */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E4DE3CD0A9BB92D001C9EEF /* Build configuration list for PBXNativeTarget "X11Module" */;
+			buildPhases = (
+				0E4DE3C70A9BB92C001C9EEF /* Resources */,
+				0E4DE3C80A9BB92C001C9EEF /* Sources */,
+				0E4DE3C90A9BB92C001C9EEF /* Frameworks */,
+				0E4DE5420A9BD174001C9EEF /* Copy into FMN.app */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E4DE5700A9BD4F0001C9EEF /* PBXTargetDependency */,
+			);
+			name = X11Module;
+			productName = X11Module;
+			productReference = 0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		0E4DE4A40A9BCADA001C9EEF /* AXModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0E4DE4A70A9BCADB001C9EEF /* Build configuration list for PBXNativeTarget "AXModule" */;
+			buildPhases = (
+				0E4DE4A10A9BCADA001C9EEF /* Resources */,
+				0E4DE4A20A9BCADA001C9EEF /* Sources */,
+				0E4DE4A30A9BCADA001C9EEF /* Frameworks */,
+				0E4DE5330A9BD101001C9EEF /* Copy into FMN.app */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0E4DE4F10A9BCDFE001C9EEF /* PBXTargetDependency */,
+			);
+			name = AXModule;
+			productName = AXModule;
+			productReference = 0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 		8D1107260486CEB800E47090 /* FMN */ = {
@@ -304,6 +426,8 @@
 			projectDirPath = "";
 			targets = (
 				8D1107260486CEB800E47090 /* FMN */,
+				0E4DE4A40A9BCADA001C9EEF /* AXModule */,
+				0E4DE3CA0A9BB92C001C9EEF /* X11Module */,
 				0E13E42B0A9A7DDD0093153D /* ForgetMeNot */,
 			);
 		};
@@ -319,6 +443,20 @@
 				0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */,
 				0E13E45B0A9A7E950093153D /* FMNPrefPane.tiff in Resources */,
 				0E13E45D0A9A7E950093153D /* version.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E4DE3C70A9BB92C001C9EEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E4DE4A10A9BCADA001C9EEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,21 +480,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0E4DE3C80A9BB92C001C9EEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E4DE3F30A9BBA37001C9EEF /* X11Bridge.m in Sources */,
+				0E4DE3F40A9BBA38001C9EEF /* X11Restorable.m in Sources */,
+				0E4DE3F50A9BBA39001C9EEF /* X11WindowOrientation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0E4DE4A20A9BCADA001C9EEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E4DE4B00A9BCB98001C9EEF /* AXApplication.m in Sources */,
+				0E4DE4B10A9BCB99001C9EEF /* AXWindow.m in Sources */,
+				0E4DE4B20A9BCB9A001C9EEF /* FMNAXModule.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				6613E2B80A676588003DA5B2 /* FMN.m in Sources */,
-				662998A40A6DE8AB005757CB /* AXWindow.m in Sources */,
 				6629992F0A6E0386005757CB /* CGDisplay.m in Sources */,
 				66299A150A6E14A4005757CB /* CGDisplayConfiguration.m in Sources */,
 				66299AC70A6E24DE005757CB /* FMNWindowOrientation.m in Sources */,
-				66299ADC0A6E2768005757CB /* AXApplication.m in Sources */,
-				0EC122F90A71728B00CE04DC /* X11WindowOrientation.m in Sources */,
-				0EC122FE0A71730700CE04DC /* X11Bridge.m in Sources */,
-				0E13E07F0A93E1CB0093153D /* FMNAXModule.m in Sources */,
-				0E13E0920A93E8670093153D /* X11Restorable.m in Sources */,
+				0E4DE42A0A9BBD9D001C9EEF /* FMNModuleLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +520,26 @@
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* FMN */;
 			targetProxy = 0E13E4310A9A7DE50093153D /* PBXContainerItemProxy */;
+		};
+		0E4DE4F10A9BCDFE001C9EEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* FMN */;
+			targetProxy = 0E4DE4F00A9BCDFE001C9EEF /* PBXContainerItemProxy */;
+		};
+		0E4DE5480A9BD1CC001C9EEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E4DE3CA0A9BB92C001C9EEF /* X11Module */;
+			targetProxy = 0E4DE5470A9BD1CC001C9EEF /* PBXContainerItemProxy */;
+		};
+		0E4DE54A0A9BD1CC001C9EEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E4DE4A40A9BCADA001C9EEF /* AXModule */;
+			targetProxy = 0E4DE5490A9BD1CC001C9EEF /* PBXContainerItemProxy */;
+		};
+		0E4DE5700A9BD4F0001C9EEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* FMN */;
+			targetProxy = 0E4DE56F0A9BD4F0001C9EEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -456,6 +629,118 @@
 			};
 			name = Release;
 		};
+		0E4DE3CE0A9BB92D001C9EEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G4;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "X11Module-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = /usr/X11R6/lib;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+					"-lX11",
+					"-lXmu",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = X11Module;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		0E4DE3CF0A9BB92D001C9EEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G4;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "X11Module-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LIBRARY_SEARCH_PATHS = /usr/X11R6/lib;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+					"-lX11",
+					"-lXmu",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = X11Module;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		0E4DE4A80A9BCADB001C9EEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMN.app/Contents/MacOS/FMN";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "AXModule-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = AXModule;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		0E4DE4A90A9BCADB001C9EEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMN.app/Contents/MacOS/FMN";
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "AXModule-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = AXModule;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -467,11 +752,8 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = /usr/X11R6/lib;
-				OTHER_LDFLAGS = (
-					"-lX11",
-					"-lXmu",
-				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = FMN;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
@@ -490,11 +772,8 @@
 				GCC_MODEL_TUNING = G5;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				LIBRARY_SEARCH_PATHS = /usr/X11R6/lib;
-				OTHER_LDFLAGS = (
-					"-lX11",
-					"-lXmu",
-				);
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = FMN;
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
@@ -529,6 +808,24 @@
 			buildConfigurations = (
 				0E13E42F0A9A7DDF0093153D /* Debug */,
 				0E13E4300A9A7DDF0093153D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E4DE3CD0A9BB92D001C9EEF /* Build configuration list for PBXNativeTarget "X11Module" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E4DE3CE0A9BB92D001C9EEF /* Debug */,
+				0E4DE3CF0A9BB92D001C9EEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0E4DE4A70A9BCADB001C9EEF /* Build configuration list for PBXNativeTarget "AXModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E4DE4A80A9BCADB001C9EEF /* Debug */,
+				0E4DE4A90A9BCADB001C9EEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

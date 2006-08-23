@@ -5,3 +5,7 @@ http://developer.apple.com/documentation/UserExperience/Conceptual/PreferencePan
 
 On debugging the preference pane:
     The output from FMN.app will go to console.log (use Console.app to monitor it.)
+
+Handy page on loading code in bundles:
+http://developer.apple.com/documentation/Cocoa/Conceptual/LoadingCode/Tasks/LoadingBundles.html
+

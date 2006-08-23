@@ -11,9 +11,10 @@
 #import "FMNModule.h"
 #import "FMNRestorable.h"
 #import "CGDisplayConfiguration.h"
+#import "FMNModuleLoader.h"
 
-#import "X11Bridge.h"
-#import "FMNAXModule.h"
+//#import "X11Bridge.h"
+//#import "FMNAXModule.h"
 
 
 static void FMN_CGDisplayReconfigurationCallback (
@@ -148,27 +149,11 @@ static void FMN_CGDisplayReconfigurationCallback (
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
     
-    // Set up the modules.  Ideally this would load bundles instead of a list of
-    // statically coded modules.
-    FMNAXModule *axModule = [[FMNAXModule alloc] init];
-    fmnModules = [[NSArray arrayWithObjects:
-            axModule,
-            [[X11Bridge alloc] init],
-            nil] retain];
-    
-    // This should be in the prefs pane, but for now put it in the info.plist
-    NSArray *exclusions = 
-        [[NSBundle mainBundle]
-            objectForInfoDictionaryKey:@"ExcludedAppBundleIDs"];
-    if (exclusions == nil) {
-        NSLog(@"No excluded apps found");
-    } else if (![exclusions isKindOfClass:[NSArray class]]) {
-        NSLog(@"Ignoring ExcludedAppBundleIDs.  Not an NSArray! (class = %@)",
-              [exclusions class]);
-    } else {
-        NSLog(@"Excluding apps:\n%@", exclusions);
-        [axModule setExclusions:exclusions];
-    }
+    // Set up the modules.
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    fmnModules = 
+        [[FMNModuleLoader allPluginsOfBundle:mainBundle 
+                                withProtocol:@protocol(FMNModule)] retain];
     
     [self activateFMN];
     

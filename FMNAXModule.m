@@ -19,6 +19,26 @@
     mExclusions = [ex retain];
 }
 
+- (id) initWithBundle:(NSBundle *)bundle
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    // This should be in the prefs pane, but for now put it in the info.plist
+    NSArray *exclusions = 
+        [bundle objectForInfoDictionaryKey:@"ExcludedAppBundleIDs"];
+    if (exclusions == nil) {
+        NSLog(@"No excluded apps found");
+    } else if (![exclusions isKindOfClass:[NSArray class]]) {
+        NSLog(@"Ignoring ExcludedAppBundleIDs.  Not an NSArray! (class = %@)",
+              [exclusions class]);
+    } else {
+        NSLog(@"Excluding apps:\n%@", exclusions);
+        mExclusions = [exclusions retain];
+    }
+    return self;
+}    
+
 - (void) dealloc
 {
     if (mExclusions != nil)

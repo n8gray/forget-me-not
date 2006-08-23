@@ -15,7 +15,7 @@
 @interface FMN : NSObject <FMNServer> {
     @protected NSMutableDictionary* screenConfigurations;
     @protected FMNDisplayConfigurationRef currentDisplayConfiguration;
-    @protected NSArray *fmnModules;
+    @protected NSMutableArray *fmnModules;
     @protected NSConnection *serverConnection;
     @protected BOOL isActive;
 }
