@@ -20,9 +20,3 @@
                     withProtocol:(Protocol *)proto;
 
 @end
-
-// This is just so we can call initWithBundle
-@interface CanInitWithBundle {
-}
-- (id) initWithBundle:(NSBundle *)b;
-@end
