@@ -130,15 +130,18 @@ void removeLoginItem( NSString *path )
     [mSpinner startAnimation:self];
     [mStatusField setStringValue:@"Connecting to FMN.app"];
     
-    if (![self startFMN]) {
-        [mStatusField setStringValue:@"Couldn't launch FMN.app"];
-    } else {
-        sleep(1);
-        [self connectToRunningFMN];
-        if (mFMNProxy == nil) {
-            [mStatusField setStringValue:@"Couldn't connect to FMN.app"];
+    [self connectToRunningFMN];
+    if (mFMNProxy == nil) {
+        if (![self startFMN]) {
+            [mStatusField setStringValue:@"Couldn't launch FMN.app"];
         } else {
-            [mStatusField setStringValue:@"FMN.app Ready."];
+            sleep(1);
+            [self connectToRunningFMN];
+            if (mFMNProxy == nil) {
+                [mStatusField setStringValue:@"Couldn't connect to FMN.app"];
+            } else {
+                [mStatusField setStringValue:@"FMN.app Ready."];
+            }
         }
     }
     [mSpinner stopAnimation:self];
@@ -152,15 +155,19 @@ void removeLoginItem( NSString *path )
         if ([mFMNProxy isActiveFMN]) {
             [mStatusField setStringValue:@"FMN Activated"];
             [mActivated setState:NSOnState];
+            [mDiagram setImage:mEnabledImage];
             return YES;
         } else {
             [mStatusField setStringValue:@"FMN Deactivated"];
             [mActivated setState:NSOffState];
+            [mDiagram setImage:mDisabledImage];
             return NO;
         }
     } else {
+        [mStatusField setStringValue:@"FMN Not Running"];
         [mLaunchQuit setTitle:@"Launch FMN"];
         [mControls setHidden:YES];
+        [mDiagram setImage:mDisabledImage];
         return NO;
     }
 }
@@ -210,6 +217,9 @@ void removeLoginItem( NSString *path )
         removeLoginItem( mFMNPath );
     }
     [mControls setHidden:YES];
+    if (mFMNProxy != nil) {
+        [mFMNProxy release];
+    }
     return NSUnselectNow;
 }
 
@@ -220,6 +230,13 @@ void removeLoginItem( NSString *path )
     }
     myBundle = [bundle retain];
     mFMNPath = [[myBundle pathForResource:@"FMN" ofType:@"app"] retain];
+    mEnabledImage = [[NSImage alloc] 
+            initWithContentsOfFile:[myBundle pathForResource:@"diagram-enabled" 
+                                                      ofType:@"png"]];
+    mDisabledImage = [[NSImage alloc] 
+            initWithContentsOfFile:[myBundle pathForResource:@"diagram-disabled" 
+                                                      ofType:@"png"]];
+    [mDiagram setImage:mDisabledImage];
     return self;
 }
 

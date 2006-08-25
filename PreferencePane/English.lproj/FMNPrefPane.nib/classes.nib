@@ -8,6 +8,7 @@
                 mActivated = NSButton; 
                 mAutolaunch = NSButton; 
                 mControls = NSBox; 
+                mDiagram = NSImageView; 
                 mFMNProxy = id; 
                 mLaunchQuit = NSButton; 
                 mSpinner = NSProgressIndicator; 

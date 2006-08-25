@@ -15,6 +15,8 @@
 		0E13E4600A9A7ED00093153D /* FMN.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* FMN.app */; };
 		0E13E5230A9A8C3A0093153D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		0E13E5380A9A8C880093153D /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E13E5370A9A8C880093153D /* PreferencePanes.framework */; };
+		0E2A9C770A9F71A40005F7D6 /* diagram-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */; };
+		0E2A9C780A9F71A40005F7D6 /* diagram-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */; };
 		0E4DE3F30A9BBA37001C9EEF /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
 		0E4DE3F40A9BBA38001C9EEF /* X11Restorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E0910A93E8670093153D /* X11Restorable.m */; };
 		0E4DE3F50A9BBA39001C9EEF /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
@@ -46,28 +48,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* FMN */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = FMN;
 		};
 		0E4DE5470A9BD1CC001C9EEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E4DE3CA0A9BB92C001C9EEF /* X11Module */;
+			remoteGlobalIDString = 0E4DE3CA0A9BB92C001C9EEF;
 			remoteInfo = X11Module;
 		};
 		0E4DE5490A9BD1CC001C9EEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E4DE4A40A9BCADA001C9EEF /* AXModule */;
+			remoteGlobalIDString = 0E4DE4A40A9BCADA001C9EEF;
 			remoteInfo = AXModule;
 		};
 		0E4DE56F0A9BD4F0001C9EEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* FMN */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = FMN;
 		};
 /* End PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		0E13E4570A9A7E950093153D /* version.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version.plist; sourceTree = "<group>"; };
 		0E13E4E40A9A8B460093153D /* FMNServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNServer.h; sourceTree = "<group>"; };
 		0E13E5370A9A8C880093153D /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
+		0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "diagram-disabled.png"; path = "../diagram-disabled.png"; sourceTree = "<group>"; };
+		0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "diagram-enabled.png"; path = "../diagram-enabled.png"; sourceTree = "<group>"; };
 		0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = X11Module.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4DE3CC0A9BB92C001C9EEF /* X11Module-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "X11Module-Info.plist"; sourceTree = "<group>"; };
 		0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNModuleLoader.h; sourceTree = "<group>"; };
@@ -238,15 +242,25 @@
 		0E13E44E0A9A7E950093153D /* PreferencePane */ = {
 			isa = PBXGroup;
 			children = (
-				0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */,
-				0E13E4510A9A7E950093153D /* InfoPlist.strings */,
+				0E2A9C7B0A9F72060005F7D6 /* Resources */,
 				0E13E4530A9A7E950093153D /* FMNPrefPane.h */,
 				0E13E4540A9A7E950093153D /* FMNPrefPane.m */,
+			);
+			path = PreferencePane;
+			sourceTree = "<group>";
+		};
+		0E2A9C7B0A9F72060005F7D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */,
+				0E13E4510A9A7E950093153D /* InfoPlist.strings */,
 				0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */,
+				0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */,
+				0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */,
 				0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */,
 				0E13E4570A9A7E950093153D /* version.plist */,
 			);
-			path = PreferencePane;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -443,6 +457,8 @@
 				0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */,
 				0E13E45B0A9A7E950093153D /* FMNPrefPane.tiff in Resources */,
 				0E13E45D0A9A7E950093153D /* version.plist in Resources */,
+				0E2A9C770A9F71A40005F7D6 /* diagram-disabled.png in Resources */,
+				0E2A9C780A9F71A40005F7D6 /* diagram-enabled.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

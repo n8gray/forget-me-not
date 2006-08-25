@@ -9,3 +9,7 @@ On debugging the preference pane:
 Handy page on loading code in bundles:
 http://developer.apple.com/documentation/Cocoa/Conceptual/LoadingCode/Tasks/LoadingBundles.html
 
+Preference panes are exactly 595 pixels wide, with varying height.
+
+The image on the cinema display in the prefs pane is 139x87 pixels and the 
+macbook pro's image is 90x57 pixels.

@@ -14,6 +14,8 @@
     id mFMNProxy;
     NSBundle *myBundle;
     NSString *mFMNPath;
+    NSImage *mEnabledImage;
+    NSImage *mDisabledImage;
     
     IBOutlet NSButton *mLaunchQuit;
     IBOutlet NSProgressIndicator *mSpinner;
@@ -21,6 +23,7 @@
     IBOutlet NSBox *mControls;
     IBOutlet NSButton *mActivated;
     IBOutlet NSButton *mAutolaunch;
+    IBOutlet NSImageView *mDiagram;
 }
 
 - (IBAction) toggleActivated:(id)sender;
