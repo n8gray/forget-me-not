@@ -13,3 +13,20 @@ Preference panes are exactly 595 pixels wide, with varying height.
 
 The image on the cinema display in the prefs pane is 139x87 pixels and the 
 macbook pro's image is 90x57 pixels.
+
+Things that still bug n8:
+
+* I would prefer that the app be called ForgetMeNot.app or Forget-Me-Not.app.
+  It's always annoying to find some cryptic program running whose purpose you
+  don't remember and can't intuit.  Unfortunately, this will probably require
+  a bit of hunting to find all the places that need to be changed.
+
+* The "launch at login" preference doesn't require FMN to be running, so we
+  shouldn't disable it when FMN isn't running.
+
+* We may want to let the user decide how display configurations are matched.
+  For example, one strategy is to only use display size.  In this case, moving
+  displays wouldn't change the match.  On the other end of the spectrum, another
+  strategy is to only match if the monitors are identical in make, model, size,
+  and position.  The default strategy, IMHO, should be "only use size".
+
