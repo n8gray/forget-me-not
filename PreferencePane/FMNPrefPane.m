@@ -128,19 +128,19 @@ void removeLoginItem( NSString *path )
 - (void) connectToFMN
 {
     [mSpinner startAnimation:self];
-    [mStatusField setStringValue:@"Connecting to FMN.app"];
+    [mStatusField setStringValue:@"Connecting to Forget-Me-Not.app"];
     
     [self connectToRunningFMN];
     if (mFMNProxy == nil) {
         if (![self startFMN]) {
-            [mStatusField setStringValue:@"Couldn't launch FMN.app"];
+            [mStatusField setStringValue:@"Couldn't launch Forget-Me-Not.app"];
         } else {
             sleep(1);
             [self connectToRunningFMN];
             if (mFMNProxy == nil) {
-                [mStatusField setStringValue:@"Couldn't connect to FMN.app"];
+                [mStatusField setStringValue:@"Couldn't connect to Forget-Me-Not.app"];
             } else {
-                [mStatusField setStringValue:@"FMN.app Ready."];
+                [mStatusField setStringValue:@"Forget-Me-Not.app Ready."];
             }
         }
     }
@@ -150,22 +150,22 @@ void removeLoginItem( NSString *path )
 - (BOOL) updateFMNStatus
 {
     if (mFMNProxy) {
-        [mLaunchQuit setTitle:@"Quit FMN"];
+        [mLaunchQuit setTitle:@"Quit"];
         [mControls setHidden:NO];
         if ([mFMNProxy isActiveFMN]) {
-            [mStatusField setStringValue:@"FMN Activated"];
+            [mStatusField setStringValue:@"Forget-Me-Not Activated"];
             [mActivated setState:NSOnState];
             [mDiagram setImage:mEnabledImage];
             return YES;
         } else {
-            [mStatusField setStringValue:@"FMN Deactivated"];
+            [mStatusField setStringValue:@"Forget-Me-Not Deactivated"];
             [mActivated setState:NSOffState];
             [mDiagram setImage:mDisabledImage];
             return NO;
         }
     } else {
-        [mStatusField setStringValue:@"FMN Not Running"];
-        [mLaunchQuit setTitle:@"Launch FMN"];
+        [mStatusField setStringValue:@"Forget-Me-Not Not Running"];
+        [mLaunchQuit setTitle:@"Launch"];
         [mControls setHidden:YES];
         [mDiagram setImage:mDisabledImage];
         return NO;
@@ -189,10 +189,10 @@ void removeLoginItem( NSString *path )
     if (mFMNProxy) {
         if ([sender state] == NSOnState) {
             if (![mFMNProxy activateFMN])
-                [mStatusField setStringValue:@"Error while activating FMN"];
+                [mStatusField setStringValue:@"Error while activating Forget-Me-Not"];
         } else {
             if (![mFMNProxy deactivateFMN])
-                [mStatusField setStringValue:@"Error while deactivating FMN"];
+                [mStatusField setStringValue:@"Error while deactivating Forget-Me-Not"];
         }
         [self updateFMNStatus];
     }
@@ -229,7 +229,7 @@ void removeLoginItem( NSString *path )
         return nil;
     }
     myBundle = [bundle retain];
-    mFMNPath = [[myBundle pathForResource:@"FMN" ofType:@"app"] retain];
+    mFMNPath = [[myBundle pathForResource:@"Forget-Me-Not" ofType:@"app"] retain];
     mEnabledImage = [[NSImage alloc] 
             initWithContentsOfFile:[myBundle pathForResource:@"diagram-enabled" 
                                                       ofType:@"png"]];

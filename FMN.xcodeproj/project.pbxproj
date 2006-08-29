@@ -10,9 +10,8 @@
 		0E13E4580A9A7E950093153D /* FMNPrefPane.nib in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */; };
 		0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4510A9A7E950093153D /* InfoPlist.strings */; };
 		0E13E45A0A9A7E950093153D /* FMNPrefPane.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E4540A9A7E950093153D /* FMNPrefPane.m */; };
-		0E13E45B0A9A7E950093153D /* FMNPrefPane.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */; };
 		0E13E45D0A9A7E950093153D /* version.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E13E4570A9A7E950093153D /* version.plist */; };
-		0E13E4600A9A7ED00093153D /* FMN.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* FMN.app */; };
+		0E13E4600A9A7ED00093153D /* Forget-Me-Not.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* Forget-Me-Not.app */; };
 		0E13E5230A9A8C3A0093153D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		0E13E5380A9A8C880093153D /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E13E5370A9A8C880093153D /* PreferencePanes.framework */; };
 		0E2A9C770A9F71A40005F7D6 /* diagram-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */; };
@@ -24,8 +23,11 @@
 		0E4DE4B00A9BCB98001C9EEF /* AXApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299ADB0A6E2768005757CB /* AXApplication.m */; };
 		0E4DE4B10A9BCB99001C9EEF /* AXWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 662998A30A6DE8AB005757CB /* AXWindow.m */; };
 		0E4DE4B20A9BCB9A001C9EEF /* FMNAXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E07E0A93E1CA0093153D /* FMNAXModule.m */; };
-		0E4DE5410A9BD143001C9EEF /* AXModule.plugin in Copy into FMN.app */ = {isa = PBXBuildFile; fileRef = 0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */; };
-		0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into FMN.app */ = {isa = PBXBuildFile; fileRef = 0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */; };
+		0E4DE5410A9BD143001C9EEF /* AXModule.plugin in Copy into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */; };
+		0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */; };
+		0E5742E60AA4085B00A42972 /* miniFlower.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0E5742E50AA4085B00A42972 /* miniFlower.tiff */; };
+		0E57434A0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
+		0E57434B0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
 		6629992F0A6E0386005757CB /* CGDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6629992E0A6E0386005757CB /* CGDisplay.m */; };
 		66299A150A6E14A4005757CB /* CGDisplayConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299A140A6E14A4005757CB /* CGDisplayConfiguration.m */; };
@@ -75,26 +77,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0E4DE5330A9BD101001C9EEF /* Copy into FMN.app */ = {
+		0E4DE5330A9BD101001C9EEF /* Copy into Forget-Me-Not.app */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = FMN.app/Contents/PlugIns;
+			dstPath = "Forget-Me-Not.app/Contents/PlugIns";
 			dstSubfolderSpec = 16;
 			files = (
-				0E4DE5410A9BD143001C9EEF /* AXModule.plugin in Copy into FMN.app */,
+				0E4DE5410A9BD143001C9EEF /* AXModule.plugin in Copy into Forget-Me-Not.app */,
 			);
-			name = "Copy into FMN.app";
+			name = "Copy into Forget-Me-Not.app";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0E4DE5420A9BD174001C9EEF /* Copy into FMN.app */ = {
+		0E4DE5420A9BD174001C9EEF /* Copy into Forget-Me-Not.app */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = FMN.app/Contents/PlugIns;
+			dstPath = "Forget-Me-Not.app/Contents/PlugIns";
 			dstSubfolderSpec = 16;
 			files = (
-				0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into FMN.app */,
+				0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into Forget-Me-Not.app */,
 			);
-			name = "Copy into FMN.app";
+			name = "Copy into Forget-Me-Not.app";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -107,13 +109,12 @@
 		0E13E07E0A93E1CA0093153D /* FMNAXModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNAXModule.m; sourceTree = "<group>"; };
 		0E13E0900A93E8670093153D /* X11Restorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Restorable.h; sourceTree = "<group>"; };
 		0E13E0910A93E8670093153D /* X11Restorable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Restorable.m; sourceTree = "<group>"; };
-		0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForgetMeNot.prefpane; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E13E42C0A9A7DDD0093153D /* Forget-Me-Not.prefpane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Forget-Me-Not.prefpane"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "ForgetMeNot-Info.plist"; path = "../ForgetMeNot-Info.plist"; sourceTree = "<group>"; };
 		0E13E4500A9A7E950093153D /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FMNPrefPane.nib; sourceTree = "<group>"; };
 		0E13E4520A9A7E950093153D /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E13E4530A9A7E950093153D /* FMNPrefPane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FMNPrefPane.h; sourceTree = "<group>"; };
 		0E13E4540A9A7E950093153D /* FMNPrefPane.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FMNPrefPane.m; sourceTree = "<group>"; };
-		0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FMNPrefPane.tiff; sourceTree = "<group>"; };
 		0E13E4570A9A7E950093153D /* version.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version.plist; sourceTree = "<group>"; };
 		0E13E4E40A9A8B460093153D /* FMNServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNServer.h; sourceTree = "<group>"; };
 		0E13E5370A9A8C880093153D /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
@@ -125,6 +126,8 @@
 		0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNModuleLoader.m; sourceTree = "<group>"; };
 		0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXModule.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4DE4A60A9BCADA001C9EEF /* AXModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AXModule-Info.plist"; sourceTree = "<group>"; };
+		0E5742E50AA4085B00A42972 /* miniFlower.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = miniFlower.tiff; sourceTree = SOURCE_ROOT; };
+		0E5743490AA4C2B400A42972 /* Flower.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Flower.icns; sourceTree = "<group>"; };
 		0EC122F70A71728B00CE04DC /* X11WindowOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11WindowOrientation.h; sourceTree = "<group>"; };
 		0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11WindowOrientation.m; sourceTree = "<group>"; };
 		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
@@ -154,7 +157,7 @@
 		66299ADB0A6E2768005757CB /* AXApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXApplication.m; sourceTree = "<group>"; };
 		666FF6440A6B17F6007110EF /* FMNDisplayConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNDisplayConfiguration.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* FMN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FMN.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,9 +255,9 @@
 		0E2A9C7B0A9F72060005F7D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E5742E50AA4085B00A42972 /* miniFlower.tiff */,
 				0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */,
 				0E13E4510A9A7E950093153D /* InfoPlist.strings */,
-				0E13E4550A9A7E950093153D /* FMNPrefPane.tiff */,
 				0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */,
 				0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */,
 				0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */,
@@ -285,8 +288,8 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* FMN.app */,
-				0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */,
+				8D1107320486CEB800E47090 /* Forget-Me-Not.app */,
+				0E13E42C0A9A7DDD0093153D /* Forget-Me-Not.prefpane */,
 				0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */,
 				0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */,
 			);
@@ -320,6 +323,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E5743490AA4C2B400A42972 /* Flower.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
@@ -353,13 +357,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0E13E42B0A9A7DDD0093153D /* ForgetMeNot */ = {
+		0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0E13E42E0A9A7DDF0093153D /* Build configuration list for PBXNativeTarget "ForgetMeNot" */;
+			buildConfigurationList = 0E13E42E0A9A7DDF0093153D /* Build configuration list for PBXNativeTarget "Forget-Me-Not Prefpane" */;
 			buildPhases = (
 				0E13E4280A9A7DDD0093153D /* Resources */,
 				0E13E4290A9A7DDD0093153D /* Sources */,
 				0E13E42A0A9A7DDD0093153D /* Frameworks */,
+				0E5742EC0AA4087C00A42972 /* rm prefs system caches */,
 			);
 			buildRules = (
 			);
@@ -368,9 +373,9 @@
 				0E4DE5480A9BD1CC001C9EEF /* PBXTargetDependency */,
 				0E13E4320A9A7DE50093153D /* PBXTargetDependency */,
 			);
-			name = ForgetMeNot;
+			name = "Forget-Me-Not Prefpane";
 			productName = ForgetMeNot;
-			productReference = 0E13E42C0A9A7DDD0093153D /* ForgetMeNot.prefpane */;
+			productReference = 0E13E42C0A9A7DDD0093153D /* Forget-Me-Not.prefpane */;
 			productType = "com.apple.product-type.bundle";
 		};
 		0E4DE3CA0A9BB92C001C9EEF /* X11Module */ = {
@@ -380,7 +385,7 @@
 				0E4DE3C70A9BB92C001C9EEF /* Resources */,
 				0E4DE3C80A9BB92C001C9EEF /* Sources */,
 				0E4DE3C90A9BB92C001C9EEF /* Frameworks */,
-				0E4DE5420A9BD174001C9EEF /* Copy into FMN.app */,
+				0E4DE5420A9BD174001C9EEF /* Copy into Forget-Me-Not.app */,
 			);
 			buildRules = (
 			);
@@ -399,7 +404,7 @@
 				0E4DE4A10A9BCADA001C9EEF /* Resources */,
 				0E4DE4A20A9BCADA001C9EEF /* Sources */,
 				0E4DE4A30A9BCADA001C9EEF /* Frameworks */,
-				0E4DE5330A9BD101001C9EEF /* Copy into FMN.app */,
+				0E4DE5330A9BD101001C9EEF /* Copy into Forget-Me-Not.app */,
 			);
 			buildRules = (
 			);
@@ -411,9 +416,9 @@
 			productReference = 0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
-		8D1107260486CEB800E47090 /* FMN */ = {
+		8D1107260486CEB800E47090 /* Forget-Me-Not App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "FMN" */;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Forget-Me-Not App" */;
 			buildPhases = (
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
@@ -423,10 +428,10 @@
 			);
 			dependencies = (
 			);
-			name = FMN;
+			name = "Forget-Me-Not App";
 			productInstallPath = "$(HOME)/Applications";
 			productName = FMN;
-			productReference = 8D1107320486CEB800E47090 /* FMN.app */;
+			productReference = 8D1107320486CEB800E47090 /* Forget-Me-Not.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -439,10 +444,10 @@
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FMN */;
 			projectDirPath = "";
 			targets = (
-				8D1107260486CEB800E47090 /* FMN */,
+				8D1107260486CEB800E47090 /* Forget-Me-Not App */,
 				0E4DE4A40A9BCADA001C9EEF /* AXModule */,
 				0E4DE3CA0A9BB92C001C9EEF /* X11Module */,
-				0E13E42B0A9A7DDD0093153D /* ForgetMeNot */,
+				0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */,
 			);
 		};
 /* End PBXProject section */
@@ -452,13 +457,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E13E4600A9A7ED00093153D /* FMN.app in Resources */,
+				0E13E4600A9A7ED00093153D /* Forget-Me-Not.app in Resources */,
 				0E13E4580A9A7E950093153D /* FMNPrefPane.nib in Resources */,
 				0E13E4590A9A7E950093153D /* InfoPlist.strings in Resources */,
-				0E13E45B0A9A7E950093153D /* FMNPrefPane.tiff in Resources */,
 				0E13E45D0A9A7E950093153D /* version.plist in Resources */,
 				0E2A9C770A9F71A40005F7D6 /* diagram-disabled.png in Resources */,
 				0E2A9C780A9F71A40005F7D6 /* diagram-enabled.png in Resources */,
+				0E5742E60AA4085B00A42972 /* miniFlower.tiff in Resources */,
+				0E57434B0AA4C2B400A42972 /* Flower.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,10 +488,28 @@
 			files = (
 				8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				0E57434A0AA4C2B400A42972 /* Flower.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E5742EC0AA4087C00A42972 /* rm prefs system caches */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "rm prefs system caches";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -f $HOME/Library/Caches/com.apple.preferencepanes.*";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0E13E4290A9A7DDD0093153D /* Sources */ = {
@@ -534,12 +558,12 @@
 /* Begin PBXTargetDependency section */
 		0E13E4320A9A7DE50093153D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* FMN */;
+			target = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
 			targetProxy = 0E13E4310A9A7DE50093153D /* PBXContainerItemProxy */;
 		};
 		0E4DE4F10A9BCDFE001C9EEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* FMN */;
+			target = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
 			targetProxy = 0E4DE4F00A9BCDFE001C9EEF /* PBXContainerItemProxy */;
 		};
 		0E4DE5480A9BD1CC001C9EEF /* PBXTargetDependency */ = {
@@ -554,7 +578,7 @@
 		};
 		0E4DE5700A9BD4F0001C9EEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* FMN */;
+			target = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
 			targetProxy = 0E4DE56F0A9BD4F0001C9EEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -615,7 +639,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = ForgetMeNot;
+				PRODUCT_NAME = "Forget-Me-Not";
 				WRAPPER_EXTENSION = prefpane;
 				ZERO_LINK = YES;
 			};
@@ -643,7 +667,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = ForgetMeNot;
+				PRODUCT_NAME = "Forget-Me-Not";
 				WRAPPER_EXTENSION = prefpane;
 				ZERO_LINK = NO;
 			};
@@ -714,7 +738,7 @@
 		0E4DE4A80A9BCADB001C9EEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMN.app/Contents/MacOS/FMN";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Forget-Me-Not.app/Contents/MacOS/Forget-Me-Not";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -746,7 +770,7 @@
 					ppc,
 					i386,
 				);
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FMN.app/Contents/MacOS/FMN";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Forget-Me-Not.app/Contents/MacOS/Forget-Me-Not";
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -782,7 +806,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = FMN;
+				PRODUCT_NAME = "Forget-Me-Not";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
@@ -802,7 +826,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = FMN;
+				PRODUCT_NAME = "Forget-Me-Not";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
 			};
@@ -835,7 +859,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0E13E42E0A9A7DDF0093153D /* Build configuration list for PBXNativeTarget "ForgetMeNot" */ = {
+		0E13E42E0A9A7DDF0093153D /* Build configuration list for PBXNativeTarget "Forget-Me-Not Prefpane" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0E13E42F0A9A7DDF0093153D /* Debug */,
@@ -862,7 +886,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "FMN" */ = {
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Forget-Me-Not App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4B08A954540054247B /* Debug */,
