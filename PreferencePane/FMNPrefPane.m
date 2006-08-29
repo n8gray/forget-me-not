@@ -201,9 +201,17 @@ void removeLoginItem( NSString *path )
 // This is called when our pane has been selected
 - (void) didSelect
 {
-    [self connectToFMN];
-    [self updateFMNStatus];
-    [mAutolaunch setState:isLoginItem( mFMNPath )];
+    if (AXAPIEnabled()) {
+        [mAccessWarning setHidden:YES];
+        [mLaunchQuit setEnabled:YES];
+        [self connectToFMN];
+        [self updateFMNStatus];
+        [mAutolaunch setState:isLoginItem( mFMNPath )];
+    } else {
+        [mDiagram setImage:nil];
+        [mAccessWarning setHidden:NO];
+        [mLaunchQuit setEnabled:NO];
+    }
 }
 
 // This is called when it's unselected

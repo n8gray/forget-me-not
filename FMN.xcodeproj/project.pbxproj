@@ -255,9 +255,9 @@
 		0E2A9C7B0A9F72060005F7D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0E5742E50AA4085B00A42972 /* miniFlower.tiff */,
 				0E13E44F0A9A7E950093153D /* FMNPrefPane.nib */,
 				0E13E4510A9A7E950093153D /* InfoPlist.strings */,
+				0E5742E50AA4085B00A42972 /* miniFlower.tiff */,
 				0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */,
 				0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */,
 				0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */,

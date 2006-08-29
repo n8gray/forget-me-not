@@ -5,6 +5,7 @@
             CLASS = FMNPrefPane; 
             LANGUAGE = ObjC; 
             OUTLETS = {
+                mAccessWarning = id; 
                 mActivated = NSButton; 
                 mAutolaunch = NSButton; 
                 mControls = NSBox; 
