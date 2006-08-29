@@ -14,12 +14,12 @@ Preference panes are exactly 595 pixels wide, with varying height.
 The image on the cinema display in the prefs pane is 139x87 pixels and the 
 macbook pro's image is 90x57 pixels.
 
-Things that still bug n8:
+To create the miniFlower.tiff file, I changed the stroke width of all the outer
+(petal) lines to 3px and exported the page to a 32x32 bitmap.  That makes the 
+lines darker in the 32x32 icon, which is a good thing.  For the 128x128 size, I
+left the width unchanged.
 
-* I would prefer that the app be called ForgetMeNot.app or Forget-Me-Not.app.
-  It's always annoying to find some cryptic program running whose purpose you
-  don't remember and can't intuit.  Unfortunately, this will probably require
-  a bit of hunting to find all the places that need to be changed.
+Things that still bug n8:
 
 * The "launch at login" preference doesn't require FMN to be running, so we
   shouldn't disable it when FMN isn't running.
