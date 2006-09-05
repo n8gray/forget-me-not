@@ -29,6 +29,7 @@
 
 - (IBAction) toggleActivated:(id)sender;
 - (IBAction) launchOrQuit:(id)sender;
+- (IBAction) launchWebsite:(id)sender;
 
 - (NSString *)mainNibName;
 

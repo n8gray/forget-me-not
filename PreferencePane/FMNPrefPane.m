@@ -11,6 +11,17 @@
 
 @implementation FMNPrefPane
 
+- (IBAction) launchWebsite:(id)sender
+{
+    NSString *website = [myBundle objectForInfoDictionaryKey:@"FMNWebsite"];
+    if (website == nil || ![website isKindOfClass:[NSString class]]) {
+        NSLog(@"Error retrieving website from Info.plist file");
+        website = @"http://www.n8gray.org/code";
+    }
+    website = [NSString stringWithFormat:@"open %@", website];
+    system([website cString]);
+}
+
 /* Login Item manipulation code from some random bulletin board somewhere */
 void addToLoginItems( NSString* path, BOOL hide) {
     NSString *loginwindow = @"loginwindow";

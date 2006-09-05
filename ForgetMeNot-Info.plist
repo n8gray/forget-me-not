@@ -30,5 +30,7 @@
 	<string>Forget-Me-Not</string>
 	<key>NSPrincipalClass</key>
 	<string>FMNPrefPane</string>
+    <key>FMNWebsite</key>
+    <string>http://www.n8gray.org/code/forget-me-not/</string>
 </dict>
 </plist>

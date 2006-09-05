@@ -30,3 +30,12 @@ Things that still bug n8:
   strategy is to only match if the monitors are identical in make, model, size,
   and position.  The default strategy, IMHO, should be "only use size".
 
+
+For release 1.00rc1:
+
+* License
+* Web hosting location
+* Sourceforge project?
+* Web site
+* MacUpdate
+* VersionTracker?

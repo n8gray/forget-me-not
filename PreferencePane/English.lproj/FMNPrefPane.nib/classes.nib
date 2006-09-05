@@ -1,7 +1,7 @@
 {
     IBClasses = (
         {
-            ACTIONS = {launchOrQuit = id; toggleActivated = id; }; 
+            ACTIONS = {launchOrQuit = id; launchWebsite = id; toggleActivated = id; }; 
             CLASS = FMNPrefPane; 
             LANGUAGE = ObjC; 
             OUTLETS = {
@@ -17,7 +17,12 @@
             }; 
             SUPERCLASS = NSPreferencePane; 
         }, 
-        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {"" = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
         {
             CLASS = NSPreferencePane; 
             LANGUAGE = ObjC; 
