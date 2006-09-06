@@ -40,11 +40,13 @@ For release 1.00rc1:
 * VersionTracker?
 
 Release checklist:
-* Update version numbers in prefpane and app Info.plist files
-* Update version number in FMNPrefPane.nib text area
+* Update version numbers in: 
+    - prefpane and app Info.plist files
+    - FMNPrefPane.nib text area
+    - package-fmn.sh
 * Darcs tag Maj.Minor.Micro
 * Darcs push
-* Make a new dir. and darcs pull from the website into it:
-    darcs pull http://www.n8gray.org/darcs/fmn
+* Make a new dir. and darcs get from the website into it:
+    darcs get http://www.n8gray.org/darcs/fmn
 * Set build configuration to Release
 * Build, make tarball, upload.
