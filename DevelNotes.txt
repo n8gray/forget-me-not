@@ -30,12 +30,21 @@ Things that still bug n8:
   strategy is to only match if the monitors are identical in make, model, size,
   and position.  The default strategy, IMHO, should be "only use size".
 
+* There should be a version negotiation during the launch of the pref. pane, to
+  ensure that you're not seeing an old version of the app.
 
 For release 1.00rc1:
 
-* License
-* Web hosting location
-* Sourceforge project?
-* Web site
+* License in source files
 * MacUpdate
 * VersionTracker?
+
+Release checklist:
+* Update version numbers in prefpane and app Info.plist files
+* Update version number in FMNPrefPane.nib text area
+* Darcs tag Maj.Minor.Micro
+* Darcs push
+* Make a new dir. and darcs pull from the website into it:
+    darcs pull http://www.n8gray.org/darcs/fmn
+* Set build configuration to Release
+* Build, make tarball, upload.
