@@ -4,8 +4,6 @@
 <dict>
 	<key>BuildVersion</key>
 	<string>328</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>ProductBuildVersion</key>
@@ -14,5 +12,7 @@
 	<string>PreferencePaneTemplate</string>
 	<key>SourceVersion</key>
 	<string>120000</string>
+    <key>CFBundleShortVersionString</key>
+    <string>FMN_VERSION</string>
 </dict>
 </plist>

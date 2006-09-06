@@ -25,6 +25,7 @@
     IBOutlet NSButton *mAutolaunch;
     IBOutlet NSImageView *mDiagram;
     IBOutlet id mAccessWarning;
+    IBOutlet id mVersionLabel;
 }
 
 - (IBAction) toggleActivated:(id)sender;

@@ -96,28 +96,28 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = "Forget-Me-Not App";
 		};
 		0EF04FA70AAEA3D40028356D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E4DE4A40A9BCADA001C9EEF /* AXModule */;
+			remoteGlobalIDString = 0E4DE4A40A9BCADA001C9EEF;
 			remoteInfo = AXModule;
 		};
 		0EF04FA90AAEA3D40028356D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E4DE3CA0A9BB92C001C9EEF /* X11Module */;
+			remoteGlobalIDString = 0E4DE3CA0A9BB92C001C9EEF;
 			remoteInfo = X11Module;
 		};
 		0EF04FAB0AAEA3D40028356D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */;
+			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D;
 			remoteInfo = "Forget-Me-Not Prefpane";
 		};
 /* End PBXContainerItemProxy section */
@@ -182,6 +182,7 @@
 		0EC122FD0A71730700CE04DC /* X11Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Bridge.m; sourceTree = "<group>"; };
 		0EC125A60A71F92D00CE04DC /* DevelNotes.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = DevelNotes.txt; sourceTree = "<group>"; };
 		0EF04FC90AAEADE90028356D /* package-fmn.sh */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "package-fmn.sh"; sourceTree = "<group>"; };
+		0EF050450AAF6D830028356D /* version.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -365,6 +366,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0EF050450AAF6D830028356D /* version.h */,
 				0EF04FC90AAEADE90028356D /* package-fmn.sh */,
 				32CA4F630368D1EE00C91783 /* FMN_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
@@ -945,6 +947,10 @@
 			buildSettings = {
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
+				INFOPLIST_PREFIX_HEADER = version.h;
+				INFOPLIST_PREPROCESS = YES;
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -959,8 +965,16 @@
 				);
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
+				INFOPLIST_PREFIX_HEADER = version.h;
+				INFOPLIST_PREPROCESS = YES;
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
+				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.3;
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_i386 = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_ppc = /Developer/SDKs/MacOSX10.3.9.sdk;
 			};
 			name = Release;
 		};

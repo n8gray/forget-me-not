@@ -14,6 +14,7 @@
                 mLaunchQuit = NSButton; 
                 mSpinner = NSProgressIndicator; 
                 mStatusField = NSTextField; 
+                mVersionLabel = id; 
             }; 
             SUPERCLASS = NSPreferencePane; 
         }, 

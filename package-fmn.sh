@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-version=1.0
+version=`echo FMN_VERSION | cpp -C -include version.h -P | grep '\.'`
 fmnv=Forget-Me-Not-$version
 tmpdir=$CONFIGURATION_TEMP_DIR/$fmnv
 

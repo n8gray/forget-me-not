@@ -8,6 +8,7 @@
 
 #import "FMNPrefPane.h"
 #import "FMNServer.h"
+#import "version.h"
 
 @implementation FMNPrefPane
 
@@ -146,8 +147,11 @@ void removeLoginItem( NSString *path )
         if (![self startFMN]) {
             [mStatusField setStringValue:@"Couldn't launch Forget-Me-Not.app"];
         } else {
-            sleep(1);
-            [self connectToRunningFMN];
+            int i;
+            for(i=0; mFMNProxy == nil && i<4; i++) {
+                sleep(2);
+                [self connectToRunningFMN];
+            }
             if (mFMNProxy == nil) {
                 [mStatusField setStringValue:@"Couldn't connect to Forget-Me-Not.app"];
             } else {
@@ -212,6 +216,9 @@ void removeLoginItem( NSString *path )
 // This is called when our pane has been selected
 - (void) didSelect
 {
+    [mVersionLabel setStringValue:
+        [NSString stringWithFormat:@"%C Nathaniel Gray\n& David Noblet\nv%@", 
+            0x00a9, FMN_VERSION_NSSTRING]];
     if (AXAPIEnabled()) {
         [mAccessWarning setHidden:YES];
         [mLaunchQuit setEnabled:YES];

@@ -40,10 +40,7 @@ For release 1.00rc1:
 * VersionTracker?
 
 Release checklist:
-* Update version numbers in: 
-    - prefpane and app Info.plist files
-    - FMNPrefPane.nib text area
-    - package-fmn.sh
+* Update version numbers in version.h
 * Darcs tag Maj.Minor.Micro
 * Darcs push
 * Make a new dir. and darcs get from the website into it:

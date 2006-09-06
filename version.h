@@ -1,0 +1,3 @@
+#define FMN_VERSION 1.0.0
+#define FMN_VERSION_STRING "1.0.0"
+#define FMN_VERSION_NSSTRING @"1.0.0"
