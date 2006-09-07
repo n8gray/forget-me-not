@@ -66,6 +66,12 @@
     [mSpinner stopAnimation:self];
 }
 
+- (void) displayWindow
+{
+    NSWindow *w = [mStatusField window];
+    [w display];
+}
+
 - (BOOL) updateFMNStatus
 {
     if (mFMNProxy) {
@@ -128,6 +134,7 @@
         [mLaunchQuit setEnabled:YES];
         [self connectToFMN];
         [self updateFMNStatus];
+        [self displayWindow];  // The next step can be slow, so display now
         [mAutolaunch setState:[FMNLoginItems isLoginItem:@"Forget-Me-Not"]];
     } else {
         [mDiagram setImage:nil];
@@ -144,7 +151,9 @@
             [FMNLoginItems addLoginItem:mFMNPath hidden:NO ];
         }
     } else {
-        [FMNLoginItems deleteLoginItem:@"Forget-Me-Not"];
+        if ([FMNLoginItems isLoginItem:@"Forget-Me-Not"]) {
+            [FMNLoginItems deleteLoginItem:@"Forget-Me-Not"];
+        }
     }
     [mControls setHidden:YES];
     if (mFMNProxy != nil) {
