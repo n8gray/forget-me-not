@@ -8,6 +8,7 @@
 
 #import "FMNPrefPane.h"
 #import "FMNServer.h"
+#import "FMNLoginItems.h"
 #import "version.h"
 
 @implementation FMNPrefPane
@@ -21,103 +22,6 @@
     }
     website = [NSString stringWithFormat:@"open %@", website];
     system([website cString]);
-}
-
-/* Login Item manipulation code from some random bulletin board somewhere */
-void addToLoginItems( NSString* path, BOOL hide) {
-    NSString *loginwindow = @"loginwindow";
-    NSUserDefaults *userDefs;
-    NSMutableDictionary *dict;
-    NSDictionary *entry;
-    NSMutableArray *launchItems;
-    /* get data from user defaults (~/Library/Preferences/loginwindow.plist) */
-    userDefs = [[NSUserDefaults alloc] init];
-    if( !(dict = [[userDefs persistentDomainForName:loginwindow] 
-            mutableCopyWithZone:NULL]) )
-        dict = [[NSMutableDictionary alloc] initWithCapacity:1];
-    if( !(launchItems = 
-          [[dict objectForKey:@"AutoLaunchedApplicationDictionary"]
-                    mutableCopyWithZone:NULL]) )
-        launchItems = [[NSMutableArray alloc] initWithCapacity:1];
-    /* build entry */
-    entry = [[NSDictionary alloc] initWithObjectsAndKeys:
-        [NSNumber numberWithBool:hide], @"Hide",
-        path, @"Path", 
-        nil];
-    /* add entry */
-    if( entry )
-    {
-        [launchItems insertObject:entry atIndex:0];
-        [dict setObject:launchItems 
-                 forKey:@"AutoLaunchedApplicationDictionary"];
-    }
-    /* update user defaults */
-    [userDefs removePersistentDomainForName:loginwindow];
-    [userDefs setPersistentDomain:dict forName:loginwindow];
-    [userDefs synchronize];
-    /* clean up */
-    [entry release];
-    [launchItems release];
-    [dict release];
-    [userDefs release];
-}
-
-BOOL findOrRemoveLoginItem( NSString* path, BOOL remove ) 
-{
-    NSString *loginwindow = @"loginwindow";
-    NSUserDefaults *userDefs;
-    NSMutableDictionary *dict;
-    NSMutableArray *launchItems;
-    NSEnumerator *enumerator;
-    id anObject;
-    id theObject = nil;
-    
-    /* get data from user defaults
-        (~/Library/Preferences/loginwindow.plist) */
-    userDefs = [[NSUserDefaults alloc] init];
-    if( dict = [[userDefs persistentDomainForName:loginwindow] 
-                    mutableCopyWithZone:NULL] ) {
-        if( launchItems = 
-            [[dict objectForKey:@"AutoLaunchedApplicationDictionary"]
-                    mutableCopyWithZone:NULL] ) {
-            /* remove entry */
-            enumerator = [launchItems objectEnumerator];
-            while (anObject = [enumerator nextObject]) {
-                if ([[anObject objectForKey:@"Path"] isEqualToString:path]) {
-                    if (!remove) {
-                        [dict release];
-                        [userDefs release];
-                        [launchItems release];
-                        return YES;
-                    }
-                    theObject = anObject;
-                }
-            }
-            if (!remove && !theObject)
-                goto done;
-            [launchItems removeObject:theObject];
-            [dict setObject:launchItems forKey:@"AutoLaunchedApplicationDictionary"];
-            [userDefs removePersistentDomainForName:loginwindow];
-            [userDefs setPersistentDomain:dict forName:loginwindow];
-            [userDefs synchronize];
-done:
-            [launchItems release];
-        }
-        /* clean up */
-        [dict release];
-        [userDefs release];
-    }
-    return NO;
-}
-
-BOOL isLoginItem( NSString *path )
-{
-    return findOrRemoveLoginItem( path, NO );
-}
-
-void removeLoginItem( NSString *path )
-{
-    findOrRemoveLoginItem( path, YES );
 }
 
 // Returns true if FMN was started or already running, false if it could not be
@@ -224,7 +128,7 @@ void removeLoginItem( NSString *path )
         [mLaunchQuit setEnabled:YES];
         [self connectToFMN];
         [self updateFMNStatus];
-        [mAutolaunch setState:isLoginItem( mFMNPath )];
+        [mAutolaunch setState:[FMNLoginItems isLoginItem:@"Forget-Me-Not"]];
     } else {
         [mDiagram setImage:nil];
         [mAccessWarning setHidden:NO];
@@ -235,12 +139,12 @@ void removeLoginItem( NSString *path )
 // This is called when it's unselected
 - (NSPreferencePaneUnselectReply)shouldUnselect
 {
-    if ([mAutolaunch state]) {
-        if (!isLoginItem( mFMNPath )) {
-            addToLoginItems( mFMNPath, YES );
+    if ([mAutolaunch state] == NSOnState) {
+        if (![FMNLoginItems isLoginItem:@"Forget-Me-Not"]) {
+            [FMNLoginItems addLoginItem:mFMNPath hidden:NO ];
         }
     } else {
-        removeLoginItem( mFMNPath );
+        [FMNLoginItems deleteLoginItem:@"Forget-Me-Not"];
     }
     [mControls setHidden:YES];
     if (mFMNProxy != nil) {

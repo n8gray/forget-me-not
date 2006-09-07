@@ -34,6 +34,7 @@
 		0E13E5380A9A8C880093153D /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E13E5370A9A8C880093153D /* PreferencePanes.framework */; };
 		0E2A9C770A9F71A40005F7D6 /* diagram-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */; };
 		0E2A9C780A9F71A40005F7D6 /* diagram-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */; };
+		0E3EE9700AAF9C240022D5E3 /* FMNLoginItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E3EE96F0AAF9C240022D5E3 /* FMNLoginItems.m */; };
 		0E4DE3F30A9BBA37001C9EEF /* X11Bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122FD0A71730700CE04DC /* X11Bridge.m */; };
 		0E4DE3F40A9BBA38001C9EEF /* X11Restorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E13E0910A93E8670093153D /* X11Restorable.m */; };
 		0E4DE3F50A9BBA39001C9EEF /* X11WindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EC122F80A71728B00CE04DC /* X11WindowOrientation.m */; };
@@ -166,6 +167,8 @@
 		0E13E5370A9A8C880093153D /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "diagram-disabled.png"; path = "../diagram-disabled.png"; sourceTree = "<group>"; };
 		0E2A9C760A9F71A40005F7D6 /* diagram-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "diagram-enabled.png"; path = "../diagram-enabled.png"; sourceTree = "<group>"; };
+		0E3EE96E0AAF9C240022D5E3 /* FMNLoginItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNLoginItems.h; sourceTree = "<group>"; };
+		0E3EE96F0AAF9C240022D5E3 /* FMNLoginItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNLoginItems.m; sourceTree = "<group>"; };
 		0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = X11Module.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4DE3CC0A9BB92C001C9EEF /* X11Module-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "X11Module-Info.plist"; sourceTree = "<group>"; };
 		0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNModuleLoader.h; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				0E2A9C7B0A9F72060005F7D6 /* Resources */,
+				0E3EE96E0AAF9C240022D5E3 /* FMNLoginItems.h */,
+				0E3EE96F0AAF9C240022D5E3 /* FMNLoginItems.m */,
 				0E13E4530A9A7E950093153D /* FMNPrefPane.h */,
 				0E13E4540A9A7E950093153D /* FMNPrefPane.m */,
 			);
@@ -585,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E13E45A0A9A7E950093153D /* FMNPrefPane.m in Sources */,
+				0E3EE9700AAF9C240022D5E3 /* FMNLoginItems.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

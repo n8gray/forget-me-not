@@ -19,6 +19,10 @@ To create the miniFlower.tiff file, I changed the stroke width of all the outer
 lines darker in the 32x32 icon, which is a good thing.  For the 128x128 size, I
 left the width unchanged.
 
+References for adding/removing login items:
+http://www.cocoadev.com/index.pl?StartingMyAppOnStartup
+http://developer.apple.com/samplecode/LoginItemsAE/index.html
+
 Things that still bug n8:
 
 * The "launch at login" preference doesn't require FMN to be running, so we
