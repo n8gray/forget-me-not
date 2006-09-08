@@ -8,11 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FMNWindow.h"
+#import "AXApplication.h"
 
 @interface AXWindow : NSObject <FMNWindow> {
     AXUIElementRef windowElement;
+    AXApplication *windowApp;
 }
 
-- (id) initWithAXElement : (AXUIElementRef) windowElem;
+- (id) initWithAXElement : (AXUIElementRef) windowElem 
+                   ofApp : (AXApplication *) app;
 
 @end

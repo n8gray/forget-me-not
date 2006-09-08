@@ -72,11 +72,11 @@
         
         @try
         {
-            AXApplication* app = [AXApplication configWithPSN : psn];
+            AXApplication* app = [AXApplication configWithPSN:psn appName:name];
             NSArray *appOrientations = [app getCurrentWindowOrientations];
             [orientations addObjectsFromArray : appOrientations];
             NSLog(@"%@: Got %d windows in %f seconds", name,
-                  [orientations count], -[startDate timeIntervalSinceNow]);
+                  [appOrientations count], -[startDate timeIntervalSinceNow]);
         }
         @catch (NSException* ex)
         {

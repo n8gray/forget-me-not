@@ -39,7 +39,7 @@
 {
     [window setWindowPosition : position];
     [window setWindowSize : size];
-    NSLog(@"Window position restored");
+    NSLog(@"Restored %@", window);
 }
 
 - (void) dealloc

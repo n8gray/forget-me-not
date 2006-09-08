@@ -12,14 +12,22 @@
 @implementation AXApplication
 
 + (id) configWithPSN : (ProcessSerialNumber) processSerialNumber
+             appName : (NSString *)name
 {
-    return [[[AXApplication alloc] initWithPSN : processSerialNumber] 
+    return [[[AXApplication alloc] initWithPSN : processSerialNumber
+                                       appName : name] 
         autorelease];
+}
+
+- (NSString *) description
+{
+    return [NSString stringWithString:appName];
 }
 
 - (id) init { [self release]; return nil; }
 
 - (id) initWithPSN : (ProcessSerialNumber) processSerialNumber
+             appName : (NSString *)name
 {
     if(![super init])
         return nil;
@@ -43,13 +51,12 @@
             ];
     }
     
+    appName = [name retain];
     return self;
 }
 
 - (NSArray*) getWindows
-{
-    NSMutableArray* windows = [NSMutableArray arrayWithCapacity : 10];
-    
+{    
     CFTypeRef value;
     if (AXUIElementCopyAttributeValue(appElement,kAXWindowsAttribute,
         &value) != kAXErrorSuccess)
@@ -63,14 +70,14 @@
     }
     
     NSArray* windowArray = (NSArray*) value;
+    NSMutableArray* windows = 
+        [NSMutableArray arrayWithCapacity : [windowArray count]];
     
-    int i;
-    int window_count = [windowArray count];
-    for(i=0; i<window_count; ++i)
-    {
-        FMNWindowRef window = [[[AXWindow alloc] initWithAXElement : 
-            (AXUIElementRef)[windowArray objectAtIndex : i]] autorelease];
-        [windows addObject : window];
+    NSEnumerator* enumerator = [windowArray objectEnumerator];
+    AXUIElementRef elt;
+    while (elt = (AXUIElementRef)[enumerator nextObject]) {
+        [windows addObject:
+            [[[AXWindow alloc] initWithAXElement:elt ofApp:self] autorelease]];
     }
     
     [windowArray release];
@@ -110,6 +117,10 @@
     if (appElement)
     {
         CFRelease(appElement);
+    }
+    if (appName)
+    {
+        [appName release];
     }
 
     [super dealloc];

@@ -13,15 +13,23 @@
 
 - (id) init { [self release]; return nil; }
 
-- (id) initWithAXElement : (AXUIElementRef) windowElem
+- (id) initWithAXElement : (AXUIElementRef) windowElem 
+                   ofApp : (AXApplication *) app
 {
     if (![super init])
         return nil;
     
     CFRetain(windowElem);
     windowElement = windowElem;
+    windowApp = [app retain];
     
     return self;
+}
+
+- (NSString *) description
+{
+    return [NSString stringWithFormat:
+                 @"AX Window 0x%x of app: %@", (long)windowElement, windowApp];
 }
 
 - (NSPoint) getWindowPosition
@@ -31,21 +39,25 @@
     if (AXUIElementCopyAttributeValue(windowElement,kAXPositionAttribute,
         &value) != kAXErrorSuccess)
     {
+        NSString *reason = 
+            [NSString stringWithFormat:@"Unable get position of %@", self];
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
-                reason : @"Unable get AX window position"
-                userInfo : nil
+                           reason : reason
+                         userInfo : nil
             ];
     }
     
     if (!AXValueGetValue(value,AXValueGetType(value),&point))
     {
+        NSString *reason = 
+            [NSString stringWithFormat:@"Unable get position of %@", self];
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
-                reason : @"Unable get AX window position"
-                userInfo : nil
+                           reason : reason
+                         userInfo : nil
             ];
     }
     CFRelease(value);
@@ -60,20 +72,24 @@
     if (AXUIElementCopyAttributeValue(windowElement,kAXSizeAttribute,
         &value) != kAXErrorSuccess)
     {
+        NSString *reason = 
+            [NSString stringWithFormat:@"Unable get size of %@", self];
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
-                reason : @"Unable get AX window size"
+                reason : reason
                 userInfo : nil
             ];
     }
     
     if (!AXValueGetValue(value,AXValueGetType(value),&size))
     {
+        NSString *reason = 
+            [NSString stringWithFormat:@"Unable get size of %@", self];
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
-                reason : @"Unable get AX window size"
+                reason : reason
                 userInfo : nil
             ];
     }
@@ -90,11 +106,14 @@
         != kAXErrorSuccess)
     {
         CFRelease(value);
+        NSString *reason = 
+            [NSString stringWithFormat:@"Unable set position to %f, %f for %@",
+                pos.x, pos.y, self];
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
-                reason : @"Unable set AX window position"
-                userInfo : nil
+                           reason : reason
+                         userInfo : nil
             ];
     }
     CFRelease(value);
@@ -108,11 +127,14 @@
         != kAXErrorSuccess)
     {
         CFRelease(value);
+        NSString *reason = 
+            [NSString stringWithFormat:@"Unable set size to %fx%f for %@",
+                size.width, size.height, self];
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
-                reason : @"Unable set AX window size"
-                userInfo : nil
+                           reason : reason
+                         userInfo : nil
             ];
     }
     CFRelease(value);
@@ -123,6 +145,10 @@
     if (windowElement)
     {
         CFRelease(windowElement);
+    }
+    if (windowApp)
+    {
+        [windowApp release];
     }
     
     [super dealloc];

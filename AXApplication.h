@@ -14,9 +14,12 @@
     @protected AXUIElementRef appElement;
     @protected ProcessSerialNumber psn;
     @protected pid_t pid;
+    @protected NSString *appName;
 }
 
-+ (id) configWithPSN : (ProcessSerialNumber) processSerialNumber;
-- (id) initWithPSN : (ProcessSerialNumber) processSerialNumber;
++ (id) configWithPSN : (ProcessSerialNumber) processSerialNumber
+             appName : (NSString *)name;
+- (id) initWithPSN : (ProcessSerialNumber) processSerialNumber
+           appName : (NSString *)name;
 
 @end
