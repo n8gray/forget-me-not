@@ -23,6 +23,16 @@ References for adding/removing login items:
 http://www.cocoadev.com/index.pl?StartingMyAppOnStartup
 http://developer.apple.com/samplecode/LoginItemsAE/index.html
 
+To hunt for memory leaks, use Debug > Launch Using Performance Tool > ObjectAlloc.
+Cycle back and forth between two display configurations (e.g. two resolutions) a
+few times and then click the "mark" button.  Also select the "Show since mark"
+box, the "auto-sort" box, and sort by "Current".  Now keep cycling between those
+same configurations.  If anything shows up non-zero in current it's a leak,
+since cycling between two seen configs without opening or closing new windows
+shouldn't cause any extra net allocations.  You can use the Instance Browser to
+find out where the allocation occurred, which is a great help for finding the 
+leak.
+
 Things that still bug n8:
 
 * The "launch at login" preference doesn't require FMN to be running, so we

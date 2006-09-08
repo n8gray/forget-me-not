@@ -89,6 +89,7 @@
     if(AXUIElementSetAttributeValue(windowElement,kAXPositionAttribute,value)
         != kAXErrorSuccess)
     {
+        CFRelease(value);
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException
@@ -106,6 +107,7 @@
     if(AXUIElementSetAttributeValue(windowElement,kAXSizeAttribute,value)
         != kAXErrorSuccess)
     {
+        CFRelease(value);
         @throw 
             [NSException
                 exceptionWithName : FMNWindowException

@@ -27,9 +27,10 @@
     NSLog(@"Loaded FMN module: %@", pc);
     id instance = [pc alloc];
     if ([instance respondsToSelector:@selector(initWithBundle:)]) {
-        return [instance performSelector:@selector(initWithBundle:) withObject:bundle];
+        return [[instance performSelector:@selector(initWithBundle:) withObject:bundle]
+                autorelease];
     } else
-        return [instance init];
+        return [[instance init] autorelease];
 }
 
 + (NSArray *) allPluginsOfBundle:(NSBundle *)bundle 

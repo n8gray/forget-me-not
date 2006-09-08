@@ -46,6 +46,7 @@
                 continue;
             }
             [mWindows addObject:xwo];
+            [xwo release];
         }
         if (nChildren) {
             XFree(children);

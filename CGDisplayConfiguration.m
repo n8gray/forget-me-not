@@ -22,8 +22,8 @@
     
     int i;
     unsigned int screen_count = CG_MAX_DISPLAYS;
-    NSMutableData* screenList = [[NSMutableData dataWithCapacity: screen_count * 
-        sizeof(CGDirectDisplayID)] retain];
+    NSMutableData* screenList = [NSMutableData dataWithCapacity: screen_count * 
+        sizeof(CGDirectDisplayID)];
     CGDirectDisplayID* screenList_p = 
         (CGDirectDisplayID*)[screenList mutableBytes];
     
@@ -40,8 +40,6 @@
         [displays addObject: [[[CGDisplay alloc] initWithDisplayID: 
             screenList_p[i]] autorelease]];
     }
-    [screenList release];
-    
     [displays sortUsingSelector : @selector(compare:)];
     
     return self;

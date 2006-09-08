@@ -31,6 +31,13 @@ int ioErrHandler( Display *d ) {
 
 @implementation X11Bridge
 
+- (void) dealloc
+{
+    if (mDisplayName)
+        [mDisplayName release];
+    [super dealloc];
+}
+
 - (id) init
 {
     char *dispName;
@@ -53,7 +60,7 @@ int ioErrHandler( Display *d ) {
 
 - (void) setDisplayName:(NSString *)name
 {
-    NSString *tmp = [name retain]; 
+    NSString *tmp = [[NSString stringWithString:name] retain]; 
     if (mDisplayName)
         [mDisplayName release];
     mDisplayName = tmp;
@@ -62,7 +69,7 @@ int ioErrHandler( Display *d ) {
 - (NSMutableArray *) getRestorables
 {
     return [NSMutableArray 
-            arrayWithObject:[[X11Restorable alloc] initWithBridge:self]];
+            arrayWithObject:[[[X11Restorable alloc] initWithBridge:self] autorelease]];
 }
 
 - (Display *) display { return mDisplay; };

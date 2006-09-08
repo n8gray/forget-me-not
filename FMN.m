@@ -104,6 +104,8 @@ static void FMN_CGDisplayReconfigurationCallback (
     NSLog(@"Restored %d restorables in %f seconds for configuration: %@",
           [restorables count], -[startDate timeIntervalSinceNow], 
           currentDisplayConfiguration);
+    /* May want to remove the restorables from screenConfigurations at this
+        point -- it's just going to be discarded at the next config change */
 }
 
 - (BOOL) activateFMN
@@ -189,6 +191,11 @@ static void FMN_CGDisplayReconfigurationCallback (
     {
         [currentDisplayConfiguration release];
     }
+    
+    if (fmnModules)
+        [fmnModules release];
+    if (serverConnection)
+        [serverConnection release];
 
     [super dealloc];
 }
