@@ -21,7 +21,6 @@
 @interface X11Bridge : NSObject <FMNModule> {
     NSString *mDisplayName;
     Display *mDisplay;
-    Window mRoot;
 }
 
 - (NSMutableArray *) getRestorables;
