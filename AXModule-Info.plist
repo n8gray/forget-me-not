@@ -23,6 +23,7 @@
     <key>ExcludedAppBundleIDs</key>
     <array>
         <string>com.apple.systempreferences</string>
+        <string>com.apple.x11</string>
         <string>com.microsoft.Word</string>
     </array>
 </dict>
