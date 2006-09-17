@@ -7,6 +7,7 @@
 //
 
 #import "FMNLoginItems.h"
+#import "FMNPrefPane.h"
 
 @implementation FMNLoginItems
 
@@ -65,6 +66,70 @@
         }
     }
     NSLog(@"Got Error in isLoginItem");
+    return NO;
+}
+
+- (void) notifyWillSelect
+{
+    
+}
+
+- (void) notifyDidSelect
+{
+     if (AXAPIEnabled()) {
+        [mAutolaunch setState:[FMNLoginItems isLoginItem:@"Forget-Me-Not"]];
+    }
+}
+
+- (void) notifyUnselected
+{
+    if ([mAutolaunch state] == NSOnState) {
+        if (![FMNLoginItems isLoginItem:@"Forget-Me-Not"]) {
+            [FMNLoginItems addLoginItem:mFMNPath hidden:NO ];
+        }
+    } else {
+        if ([FMNLoginItems isLoginItem:@"Forget-Me-Not"]) {
+            [FMNLoginItems deleteLoginItem:@"Forget-Me-Not"];
+        }
+    }
+}
+
+- (id) initWithBundle: (NSBundle*) bundle
+{
+    self = [super init];
+    if (!self)
+        return nil;
+    
+    NSString* myBundlePath = [bundle bundlePath];
+    NSString* parentBundlePath = [NSString stringWithFormat:@"%@/../../../",myBundlePath];
+    mFMNPath = [[NSBundle pathForResource:@"Forget-Me-Not" ofType:@"app" inDirectory: parentBundlePath] retain];
+    
+    // Load our nib
+    [NSBundle loadNibNamed:@"AutolaunchPrefpaneModule" owner:self];
+    
+    return self;
+}
+
+- (NSView*) getControlView
+{
+    return [mAutolaunch retain];
+
+    /*NSButton* newButton;
+    NSSize size;
+
+    newButton = [[NSButton alloc] init];
+    [newButton setButtonType:NSSwitchButton];
+    //[newButton setTitle: @"Autoload Prefpane Module"];
+    [newButton setTitle: mFMNPath];
+    size.width = 240;
+    size.height = 20;
+    [newButton setFrameSize: size];
+
+    return newButton;*/
+}
+
+- (BOOL) isTabControl
+{
     return NO;
 }
 

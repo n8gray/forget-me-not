@@ -1,0 +1,12 @@
+{
+    IBClasses = (
+        {
+            CLASS = FMNLoginItems; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {mAutolaunch = NSButton; }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}

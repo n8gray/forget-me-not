@@ -24,7 +24,6 @@
     IBOutlet NSTextField *mStatusField;
     IBOutlet NSBox *mControls;
     IBOutlet NSButton *mActivated;
-    IBOutlet NSButton *mAutolaunch;
     IBOutlet NSImageView *mDiagram;
     IBOutlet id mAccessWarning;
     IBOutlet id mVersionLabel;

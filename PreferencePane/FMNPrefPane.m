@@ -8,7 +8,6 @@
 
 #import "FMNPrefPane.h"
 #import "FMNServer.h"
-#import "FMNLoginItems.h"
 #import "FMNModuleLoader.h"
 #import "FMNPrefpaneModule.h"
 #import "version.h"
@@ -186,6 +185,17 @@
     }
 }
 
+- (void) willSelect
+{
+    NSEnumerator *enumerator = [fmnPrefpaneModules objectEnumerator];
+    FMNPrefpaneModuleRef module;
+   
+    while (module = (FMNPrefpaneModuleRef)[enumerator nextObject]) 
+    {
+        [module notifyWillSelect];
+    }
+}
+
 // This is called when our pane has been selected
 - (void) didSelect
 {
@@ -198,26 +208,32 @@
         [self connectToFMN];
         [self updateFMNStatus];
         [self displayWindow];  // The next step can be slow, so display now
-        [mAutolaunch setState:[FMNLoginItems isLoginItem:@"Forget-Me-Not"]];
     } else {
         [mDiagram setImage:nil];
         [mAccessWarning setHidden:NO];
         [mLaunchQuit setEnabled:NO];
+    }
+    
+    NSEnumerator *enumerator = [fmnPrefpaneModules objectEnumerator];
+    FMNPrefpaneModuleRef module;
+   
+    while (module = (FMNPrefpaneModuleRef)[enumerator nextObject]) 
+    {
+        [module notifyDidSelect];
     }
 }
 
 // This is called when it's unselected
 - (NSPreferencePaneUnselectReply)shouldUnselect
 {
-    if ([mAutolaunch state] == NSOnState) {
-        if (![FMNLoginItems isLoginItem:@"Forget-Me-Not"]) {
-            [FMNLoginItems addLoginItem:mFMNPath hidden:NO ];
-        }
-    } else {
-        if ([FMNLoginItems isLoginItem:@"Forget-Me-Not"]) {
-            [FMNLoginItems deleteLoginItem:@"Forget-Me-Not"];
-        }
+    NSEnumerator *enumerator = [fmnPrefpaneModules objectEnumerator];
+    FMNPrefpaneModuleRef module;
+   
+    while (module = (FMNPrefpaneModuleRef)[enumerator nextObject]) 
+    {
+        [module notifyUnselected];
     }
+
     [mControls setHidden:YES];
     if (mFMNProxy != nil) {
         [mFMNProxy release];

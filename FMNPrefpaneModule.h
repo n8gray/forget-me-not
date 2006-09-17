@@ -11,6 +11,10 @@
 
 @protocol FMNPrefpaneModule
 
+- (void) notifyWillSelect;
+- (void) notifyDidSelect;
+- (void) notifyUnselected;
+
 - (NSView*) getControlView;
 - (BOOL) isTabControl;
 

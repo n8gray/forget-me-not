@@ -7,8 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FMNPrefpaneModule.h"
 
-@interface FMNLoginItems : NSObject {
+@interface FMNLoginItems : NSObject<FMNPrefpaneModule> {
+    NSString* mFMNPath;
+    IBOutlet NSButton* mAutolaunch;
 }
 
 // appName is the name of the app *without* any .app extension.
