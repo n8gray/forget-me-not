@@ -9,9 +9,39 @@
 #import "FMNPrefPane.h"
 #import "FMNServer.h"
 #import "FMNLoginItems.h"
+#import "FMNModuleLoader.h"
+#import "FMNPrefpaneModule.h"
 #import "version.h"
 
 @implementation FMNPrefPane
+
++ (void) growViewFrame: (NSView*) view down: (int) height
+{    
+    NSSize frameSize = [view frame].size;
+    frameSize.height += height;
+    [view setFrameSize:frameSize];
+    
+    NSPoint frameOrigin = [view frame].origin;
+    frameOrigin.y -= height;
+    [view setFrameOrigin:frameOrigin];
+    
+    NSPoint boundsOrigin = [view bounds].origin;
+    boundsOrigin.y -= height;
+    [view setBoundsOrigin:boundsOrigin];
+    
+    [view display];
+}
+
++ (void) growBox: (NSBox*) view down: (int) height
+{    
+    [FMNPrefPane growViewFrame: view down: height];
+    
+    NSPoint boundsOrigin = [[view contentView] bounds].origin;
+    boundsOrigin.y -= height;
+    [[view contentView] setBoundsOrigin:boundsOrigin];
+    
+    [view display];
+}
 
 - (IBAction) launchWebsite:(id)sender
 {
@@ -123,6 +153,39 @@
     }
 }
 
+- (void) addPluginControl: (NSView*) view
+{
+    NSSize size;
+    NSPoint loc;
+    
+    size = [view frame].size;
+    [FMNPrefPane growViewFrame: [self mainView] down: size.height];
+    [FMNPrefPane growBox: mControls down: size.height];
+    controlYPos -= size.height;
+    
+    loc.x = 14;
+    loc.y = controlYPos;
+    [view setFrameOrigin: loc];
+    
+    [view setNeedsDisplay: YES];
+    [mControls addSubview: view];
+}
+
+// This is called as soon as our main UI has loaded
+- (void) mainViewDidLoad
+{
+    NSEnumerator *enumerator = [fmnPrefpaneModules objectEnumerator];
+    FMNPrefpaneModuleRef module;
+   
+    while (module = (FMNPrefpaneModuleRef)[enumerator nextObject]) 
+    {
+        if(![module isTabControl])
+        {
+            [self addPluginControl: [[module getControlView] autorelease]];
+        }
+    }
+}
+
 // This is called when our pane has been selected
 - (void) didSelect
 {
@@ -176,6 +239,12 @@
             initWithContentsOfFile:[myBundle pathForResource:@"diagram-disabled" 
                                                       ofType:@"png"]];
     [mDiagram setImage:mDisabledImage];
+    
+    fmnPrefpaneModules = [[FMNModuleLoader allPluginsOfBundle:myBundle 
+            withProtocol:@protocol(FMNPrefpaneModule)] retain];
+    
+    controlYPos = 8;
+    
     return self;
 }
 

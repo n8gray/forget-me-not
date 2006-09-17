@@ -16,6 +16,8 @@
     NSString *mFMNPath;
     NSImage *mEnabledImage;
     NSImage *mDisabledImage;
+    NSMutableArray *fmnPrefpaneModules;
+    int controlYPos;
     
     IBOutlet NSButton *mLaunchQuit;
     IBOutlet NSProgressIndicator *mSpinner;
@@ -33,6 +35,5 @@
 - (IBAction) launchWebsite:(id)sender;
 
 - (NSString *)mainNibName;
-
 
 @end

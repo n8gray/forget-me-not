@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-//NSString* FMNWindowException = @"FMNWindowException";
 #define FMNWindowException @"FMNWindowException"
 
 @protocol FMNWindow
@@ -18,6 +17,7 @@
 
 - (void) setWindowPosition : (NSPoint) pos;
 - (void) setWindowSize : (NSSize) size;
+- (void) setWindowSize : (NSSize) size Position : (NSPoint) pos;
 
 @end
 

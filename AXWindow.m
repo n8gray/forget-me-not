@@ -140,6 +140,12 @@
     CFRelease(value);
 }
 
+- (void) setWindowSize : (NSSize) size Position : (NSPoint) pos
+{
+    [self setWindowPosition : pos];
+    [self setWindowSize : size];
+}
+
 - (void) dealloc
 {
     if (windowElement)

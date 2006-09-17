@@ -51,6 +51,7 @@
 		6629992F0A6E0386005757CB /* CGDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6629992E0A6E0386005757CB /* CGDisplay.m */; };
 		66299A150A6E14A4005757CB /* CGDisplayConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299A140A6E14A4005757CB /* CGDisplayConfiguration.m */; };
 		66299AC70A6E24DE005757CB /* FMNWindowOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */; };
+		66496ADB0ABBA5A90052AA87 /* FMNModuleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */; };
 		8D11072A0486CEB800E47090 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -208,6 +209,7 @@
 		66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNWindowOrientation.m; sourceTree = "<group>"; };
 		66299ADA0A6E2768005757CB /* AXApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXApplication.h; sourceTree = "<group>"; };
 		66299ADB0A6E2768005757CB /* AXApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXApplication.m; sourceTree = "<group>"; };
+		6668136E0ABB4B4D0066EABF /* FMNPrefpaneModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNPrefpaneModule.h; sourceTree = "<group>"; };
 		666FF6440A6B17F6007110EF /* FMNDisplayConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNDisplayConfiguration.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,8 +261,6 @@
 				66299A140A6E14A4005757CB /* CGDisplayConfiguration.m */,
 				6613E2B60A676588003DA5B2 /* FMN.h */,
 				6613E2B70A676588003DA5B2 /* FMN.m */,
-				0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */,
-				0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */,
 				66299AC50A6E24DE005757CB /* FMNWindowOrientation.h */,
 				66299AC60A6E24DE005757CB /* FMNWindowOrientation.m */,
 			);
@@ -357,6 +357,7 @@
 				0EC125A60A71F92D00CE04DC /* DevelNotes.txt */,
 				0E5A40F50AAE49CF0055E45E /* LICENSE.txt */,
 				0E5A41070AAE4D510055E45E /* README.txt */,
+				66496ADF0ABBA6AC0052AA87 /* Module Loader */,
 				0E13E44E0A9A7E950093153D /* PreferencePane */,
 				66299A1E0A6E14B5005757CB /* Protocols */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -404,6 +405,7 @@
 			children = (
 				0E13E0670A93CA870093153D /* FMNRestorable.h */,
 				0E13E0760A93E0E40093153D /* FMNModule.h */,
+				6668136E0ABB4B4D0066EABF /* FMNPrefpaneModule.h */,
 				662999280A6E034C005757CB /* FMNDisplay.h */,
 				666FF6440A6B17F6007110EF /* FMNDisplayConfiguration.h */,
 				662998980A6DE369005757CB /* FMNWindow.h */,
@@ -411,6 +413,15 @@
 				0E13E4E40A9A8B460093153D /* FMNServer.h */,
 			);
 			name = Protocols;
+			sourceTree = "<group>";
+		};
+		66496ADF0ABBA6AC0052AA87 /* Module Loader */ = {
+			isa = PBXGroup;
+			children = (
+				0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */,
+				0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */,
+			);
+			name = "Module Loader";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -591,6 +602,7 @@
 			files = (
 				0E13E45A0A9A7E950093153D /* FMNPrefPane.m in Sources */,
 				0E3EE9700AAF9C240022D5E3 /* FMNLoginItems.m in Sources */,
+				66496ADB0ABBA5A90052AA87 /* FMNModuleLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

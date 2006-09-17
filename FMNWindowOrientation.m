@@ -37,8 +37,9 @@
 
 - (void) restore
 {
-    [window setWindowPosition : position];
-    [window setWindowSize : size];
+    /*[window setWindowPosition : position];
+    [window setWindowSize : size];*/
+    [window setWindowSize: size Position: position];
     NSLog(@"Restored %@", window);
 }
 
