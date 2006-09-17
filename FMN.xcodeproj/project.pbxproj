@@ -18,6 +18,7 @@
 				0EF04FA80AAEA3D40028356D /* PBXTargetDependency */,
 				0EF04FAA0AAEA3D40028356D /* PBXTargetDependency */,
 				0EF04FAC0AAEA3D40028356D /* PBXTargetDependency */,
+				669ED0850ABD0DC3007EF09D /* PBXTargetDependency */,
 			);
 			name = "Package FMN";
 			productName = "Package FMN";
@@ -124,11 +125,18 @@
 			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D;
 			remoteInfo = "Forget-Me-Not Prefpane";
 		};
+		669ED0840ABD0DC3007EF09D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */;
+			remoteInfo = AutolaunchPrefpaneModule;
+		};
 		66D404860ABCE53C0014F0F4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */;
+			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D;
 			remoteInfo = "Forget-Me-Not Prefpane";
 		};
 /* End PBXContainerItemProxy section */
@@ -762,6 +770,11 @@
 			isa = PBXTargetDependency;
 			target = 0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */;
 			targetProxy = 0EF04FAB0AAEA3D40028356D /* PBXContainerItemProxy */;
+		};
+		669ED0850ABD0DC3007EF09D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */;
+			targetProxy = 669ED0840ABD0DC3007EF09D /* PBXContainerItemProxy */;
 		};
 		66D404870ABCE53C0014F0F4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
