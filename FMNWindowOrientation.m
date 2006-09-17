@@ -43,6 +43,11 @@
     NSLog(@"Restored %@", window);
 }
 
+- (int) priority
+{
+    return kRestorableDefaultPriority;
+}
+
 - (void) dealloc
 {
     [window release];

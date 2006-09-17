@@ -93,4 +93,9 @@
     }
 }
 
+- (int) priority
+{
+    return kRestorableDefaultPriority;
+}
+
 @end

@@ -46,6 +46,10 @@
 		0E5742E60AA4085B00A42972 /* miniFlower.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0E5742E50AA4085B00A42972 /* miniFlower.tiff */; };
 		0E57434A0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
 		0E57434B0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
+		660640E70ABD233800D7D5D7 /* FMNDockModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 660640E60ABD233800D7D5D7 /* FMNDockModule.m */; };
+		660640ED0ABD23A800D7D5D7 /* DockModule.plugin in Copy Files into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 660640D90ABD227D00D7D5D7 /* DockModule.plugin */; };
+		660641140ABD273600D7D5D7 /* DockRestorable.h in Copy Files into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 660641120ABD273600D7D5D7 /* DockRestorable.h */; };
+		660641150ABD273600D7D5D7 /* DockRestorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 660641130ABD273600D7D5D7 /* DockRestorable.m */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
 		6629992F0A6E0386005757CB /* CGDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6629992E0A6E0386005757CB /* CGDisplay.m */; };
 		66299A150A6E14A4005757CB /* CGDisplayConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 66299A140A6E14A4005757CB /* CGDisplayConfiguration.m */; };
@@ -125,11 +129,25 @@
 			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D;
 			remoteInfo = "Forget-Me-Not Prefpane";
 		};
+		660640F40ABD23C900D7D5D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
+			remoteInfo = "Forget-Me-Not App";
+		};
+		660641840ABD320F00D7D5D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 660640D80ABD227D00D7D5D7 /* DockModule */;
+			remoteInfo = DockModule;
+		};
 		669ED0840ABD0DC3007EF09D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */;
+			remoteGlobalIDString = 66D404800ABCE52B0014F0F4;
 			remoteInfo = AutolaunchPrefpaneModule;
 		};
 		66D404860ABCE53C0014F0F4 /* PBXContainerItemProxy */ = {
@@ -162,6 +180,18 @@
 				0E4DE5440A9BD18D001C9EEF /* X11Module.plugin in Copy into Forget-Me-Not.app */,
 			);
 			name = "Copy into Forget-Me-Not.app";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		660640EA0ABD237F00D7D5D7 /* Copy Files into Forget-Me-Not.app */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "Forget-Me-Not.app/Contents/PlugIns";
+			dstSubfolderSpec = 16;
+			files = (
+				660640ED0ABD23A800D7D5D7 /* DockModule.plugin in Copy Files into Forget-Me-Not.app */,
+				660641140ABD273600D7D5D7 /* DockRestorable.h in Copy Files into Forget-Me-Not.app */,
+			);
+			name = "Copy Files into Forget-Me-Not.app";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		66D4048A0ABCE59F0014F0F4 /* Copy into Forget-Me-Not.prefpane */ = {
@@ -222,6 +252,12 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* FMN_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMN_Prefix.pch; sourceTree = "<group>"; };
+		660640D90ABD227D00D7D5D7 /* DockModule.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DockModule.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		660640DA0ABD227D00D7D5D7 /* DockModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "DockModule-Info.plist"; sourceTree = "<group>"; };
+		660640E50ABD233800D7D5D7 /* FMNDockModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNDockModule.h; sourceTree = "<group>"; };
+		660640E60ABD233800D7D5D7 /* FMNDockModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNDockModule.m; sourceTree = "<group>"; };
+		660641120ABD273600D7D5D7 /* DockRestorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockRestorable.h; sourceTree = "<group>"; };
+		660641130ABD273600D7D5D7 /* DockRestorable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DockRestorable.m; sourceTree = "<group>"; };
 		6613E2B60A676588003DA5B2 /* FMN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMN.h; sourceTree = "<group>"; };
 		6613E2B70A676588003DA5B2 /* FMN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMN.m; sourceTree = "<group>"; };
 		662998980A6DE369005757CB /* FMNWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNWindow.h; sourceTree = "<group>"; };
@@ -270,6 +306,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		660640D70ABD227D00D7D5D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66D4047F0ABCE52B0014F0F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,6 +337,7 @@
 				66D404970ABCE62E0014F0F4 /* Autolaunch Prefpane Module */,
 				0E13E37D0A9A545D0093153D /* AX Module */,
 				0E13E37C0A9A54450093153D /* X11 Module */,
+				660640DF0ABD22A700D7D5D7 /* Dock Module */,
 				6629992D0A6E0386005757CB /* CGDisplay.h */,
 				6629992E0A6E0386005757CB /* CGDisplay.m */,
 				66299A130A6E14A4005757CB /* CGDisplayConfiguration.h */,
@@ -385,6 +429,7 @@
 				0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */,
 				0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */,
 				66D404810ABCE52B0014F0F4 /* AutolaunchPrefpaneModule.plugin */,
+				660640D90ABD227D00D7D5D7 /* DockModule.plugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -436,6 +481,18 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		660640DF0ABD22A700D7D5D7 /* Dock Module */ = {
+			isa = PBXGroup;
+			children = (
+				660640DA0ABD227D00D7D5D7 /* DockModule-Info.plist */,
+				660640E50ABD233800D7D5D7 /* FMNDockModule.h */,
+				660640E60ABD233800D7D5D7 /* FMNDockModule.m */,
+				660641120ABD273600D7D5D7 /* DockRestorable.h */,
+				660641130ABD273600D7D5D7 /* DockRestorable.m */,
+			);
+			name = "Dock Module";
 			sourceTree = "<group>";
 		};
 		66299A1E0A6E14B5005757CB /* Protocols */ = {
@@ -490,6 +547,7 @@
 			dependencies = (
 				0E4DE54A0A9BD1CC001C9EEF /* PBXTargetDependency */,
 				0E4DE5480A9BD1CC001C9EEF /* PBXTargetDependency */,
+				660641850ABD320F00D7D5D7 /* PBXTargetDependency */,
 				0E13E4320A9A7DE50093153D /* PBXTargetDependency */,
 			);
 			name = "Forget-Me-Not Prefpane";
@@ -533,6 +591,25 @@
 			name = AXModule;
 			productName = AXModule;
 			productReference = 0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+		660640D80ABD227D00D7D5D7 /* DockModule */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 660640DB0ABD227F00D7D5D7 /* Build configuration list for PBXNativeTarget "DockModule" */;
+			buildPhases = (
+				660640D50ABD227D00D7D5D7 /* Resources */,
+				660640D60ABD227D00D7D5D7 /* Sources */,
+				660640D70ABD227D00D7D5D7 /* Frameworks */,
+				660640EA0ABD237F00D7D5D7 /* Copy Files into Forget-Me-Not.app */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				660640F50ABD23C900D7D5D7 /* PBXTargetDependency */,
+			);
+			name = DockModule;
+			productName = DockModule;
+			productReference = 660640D90ABD227D00D7D5D7 /* DockModule.plugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 		66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */ = {
@@ -585,6 +662,7 @@
 				8D1107260486CEB800E47090 /* Forget-Me-Not App */,
 				0E4DE4A40A9BCADA001C9EEF /* AXModule */,
 				0E4DE3CA0A9BB92C001C9EEF /* X11Module */,
+				660640D80ABD227D00D7D5D7 /* DockModule */,
 				0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */,
 				66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */,
 				0EF04FA40AAEA3B70028356D /* Package FMN */,
@@ -616,6 +694,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		0E4DE4A10A9BCADA001C9EEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		660640D50ABD227D00D7D5D7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -702,6 +787,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		660640D60ABD227D00D7D5D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				660640E70ABD233800D7D5D7 /* FMNDockModule.m in Sources */,
+				660641150ABD273600D7D5D7 /* DockRestorable.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		66D4047E0ABCE52B0014F0F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -770,6 +864,16 @@
 			isa = PBXTargetDependency;
 			target = 0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */;
 			targetProxy = 0EF04FAB0AAEA3D40028356D /* PBXContainerItemProxy */;
+		};
+		660640F50ABD23C900D7D5D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
+			targetProxy = 660640F40ABD23C900D7D5D7 /* PBXContainerItemProxy */;
+		};
+		660641850ABD320F00D7D5D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 660640D80ABD227D00D7D5D7 /* DockModule */;
+			targetProxy = 660641840ABD320F00D7D5D7 /* PBXContainerItemProxy */;
 		};
 		669ED0850ABD0DC3007EF09D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1015,6 +1119,56 @@
 			};
 			name = Release;
 		};
+		660640DC0ABD227F00D7D5D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "DockModule-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DockModule;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		660640DD0ABD227F00D7D5D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "DockModule-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = DockModule;
+				WRAPPER_EXTENSION = plugin;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		66D404840ABCE52B0014F0F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1175,6 +1329,15 @@
 			buildConfigurations = (
 				0EF04FB50AAEA40A0028356D /* Debug */,
 				0EF04FB60AAEA40A0028356D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		660640DB0ABD227F00D7D5D7 /* Build configuration list for PBXNativeTarget "DockModule" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				660640DC0ABD227F00D7D5D7 /* Debug */,
+				660640DD0ABD227F00D7D5D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

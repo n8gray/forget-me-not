@@ -65,6 +65,26 @@ static void FMN_CGDisplayReconfigurationCallback (
           -[startDate timeIntervalSinceNow]);    
 }
 
+int restorableCompare(id a, id b, void* c)
+{
+    FMNRestorableRef r1 = (FMNRestorableRef)a;
+    FMNRestorableRef r2 = (FMNRestorableRef)b;
+    
+    int p1 = [r1 priority];
+    int p2 = [r2 priority];
+    
+    if(p1 > p2)
+    {
+        return NSOrderedAscending;
+    }
+    else if (p1 == p2)
+    {
+        return NSOrderedSame;
+    }
+    
+    return NSOrderedDescending;
+}
+
 - (void) handlePostDisplayConfigurationChange
 {
     NSLog(@"======== Screen configuration changed! ========");
@@ -77,7 +97,7 @@ static void FMN_CGDisplayReconfigurationCallback (
         [[CGDisplayConfiguration configWithCurrent] retain];
     
     // Try to retrieve the restorables associated with the new config
-    NSArray* restorables = 
+    NSMutableArray* restorables = 
         [screenConfigurations objectForKey : currentDisplayConfiguration];
     
     if (!restorables)
@@ -86,6 +106,9 @@ static void FMN_CGDisplayReconfigurationCallback (
             currentDisplayConfiguration);
         return;
     }
+    
+    // Sort the restorables, according to priority
+    [restorables sortUsingFunction:restorableCompare context:nil];
     
     NSEnumerator* enumerator = [restorables objectEnumerator];
     FMNRestorableRef restorable;

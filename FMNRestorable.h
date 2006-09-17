@@ -9,6 +9,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+enum
+{
+    kRestorableDefaultPriority = 0
+};
+
 /* 
  * This protocol represents the class of objects that can be restored after 
  * a display configuration change.
@@ -16,6 +21,7 @@
 @protocol FMNRestorable
 
 - (void) restore;
+- (int) priority;
 
 @end
 
