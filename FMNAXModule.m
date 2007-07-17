@@ -46,44 +46,71 @@
     [super dealloc];
 }
 
+typedef int CGSConnection;
+
+extern OSStatus CGSGetWorkspace(const CGSConnection cid, int *workspace);
+extern OSStatus CGSSetWorkspace(const CGSConnection cid, int workspace);
+extern CGSConnection _CGSDefaultConnection(void);
+
 - (NSArray *) getRestorables
 {
-    NSArray* launchedApplications = 
-        [[NSWorkspace sharedWorkspace] launchedApplications];
-    
-    NSEnumerator* enumerator = [launchedApplications objectEnumerator];
     NSMutableArray* orientations = [NSMutableArray arrayWithCapacity : 100];
-    ProcessSerialNumber psn;
-    NSDictionary* appInfo;
-    while (appInfo = [enumerator nextObject])
+    int workspace = 0;
+    
+    CGSConnection cid = _CGSDefaultConnection();
+    CGSGetWorkspace(cid,&workspace);
+
+    NSDate *ws_startDate = [NSDate date];
+    
+    int i;
+    for(i=0; i<20; ++i)
     {
-        NSNumber* tmp;
-        tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberLow"];
-        psn.lowLongOfPSN = [tmp longValue];
-        tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberHigh"];
-        psn.highLongOfPSN = [tmp longValue];
-        NSString *name = [appInfo objectForKey:@"NSApplicationName"];
-        NSString *bundleID = [appInfo objectForKey:@"NSApplicationBundleIdentifier"];
-        if (mExclusions != nil && [mExclusions containsObject:bundleID]) {
-            NSLog (@"Skipping excluded app: \"%@\" (%@)", name, bundleID);
-            continue;
-        }
+        int ws_ret = CGSSetWorkspace(cid,i);
+        NSLog (@"Setting workspace: %d (ret=%d)", i, ws_ret);
+        
+        NSArray* launchedApplications = 
+            [[NSWorkspace sharedWorkspace] launchedApplications];
+        NSEnumerator* enumerator = [launchedApplications objectEnumerator];
+        
         NSDate *startDate = [NSDate date];
         
-        @try
+        ProcessSerialNumber psn;
+        NSDictionary* appInfo;
+        while (appInfo = [enumerator nextObject])
         {
-            AXApplication* app = [AXApplication configWithPSN:psn appName:name];
-            NSArray *appOrientations = [app getCurrentWindowOrientations];
-            [orientations addObjectsFromArray : appOrientations];
-            NSLog(@"%@: Got %d windows in %f seconds", name,
-                  [appOrientations count], -[startDate timeIntervalSinceNow]);
+            NSNumber* tmp;
+            tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberLow"];
+            psn.lowLongOfPSN = [tmp longValue];
+            tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberHigh"];
+            psn.highLongOfPSN = [tmp longValue];
+            NSString *name = [appInfo objectForKey:@"NSApplicationName"];
+            NSString *bundleID = [appInfo objectForKey:@"NSApplicationBundleIdentifier"];
+            if (mExclusions != nil && [mExclusions containsObject:bundleID]) {
+                NSLog (@"Skipping excluded app: \"%@\" (%@)", name, bundleID);
+                continue;
+            }
+            
+            @try
+            {
+                AXApplication* app = [AXApplication configWithPSN:psn appName:name];
+                NSArray *appOrientations = [app getCurrentWindowOrientations];
+                [orientations addObjectsFromArray : appOrientations];
+                NSLog(@"%@: Got %d windows in %f seconds", name,
+                      [appOrientations count], -[startDate timeIntervalSinceNow]);
+            }
+            @catch (NSException* ex)
+            {
+                NSLog(@"%@: %@ (after %f seconds)", name, [ex reason],
+                      -[startDate timeIntervalSinceNow]);
+            }
         }
-        @catch (NSException* ex)
-        {
-            NSLog(@"%@: %@ (after %f seconds)", name, [ex reason],
-                  -[startDate timeIntervalSinceNow]);
-        }
+        
     }
+    
+    NSLog(@"AX: Got %d windows in %f seconds",
+        [orientations count], -[ws_startDate timeIntervalSinceNow]);
+    
+    CGSSetWorkspace(cid,workspace);
     return orientations;
 }
     

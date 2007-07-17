@@ -287,7 +287,7 @@
 		66D404820ABCE52B0014F0F4 /* AutolaunchPrefpaneModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AutolaunchPrefpaneModule-Info.plist"; sourceTree = "<group>"; };
 		66D405010ABCEE2D0014F0F4 /* AutolaunchPrefpaneModule.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = AutolaunchPrefpaneModule.nib; path = PreferencePane/AutolaunchPrefpaneModule.nib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
