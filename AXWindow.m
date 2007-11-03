@@ -98,8 +98,16 @@
     return size;
 }
 
-- (void) setWindowPosition : (NSPoint) pos
+- (void) setWindowPosition : (NSPoint) pos Context : (NSDictionary*) context
 {
+    NSNumber* off_x = 
+        (NSNumber*) [context objectForKey:@"com.fmn.x-coordinate-offset"];
+    NSNumber* off_y = 
+        (NSNumber*) [context objectForKey:@"com.fmn.y-coordinate-offset"];
+        
+    pos.x += [off_x floatValue];
+    pos.y += [off_y floatValue];
+    
     CFTypeRef value;
     value = AXValueCreate(kAXValueCGPointType,&pos);
     if(AXUIElementSetAttributeValue(windowElement,kAXPositionAttribute,value)
@@ -119,7 +127,7 @@
     CFRelease(value);
 }
 
-- (void) setWindowSize : (NSSize) size
+- (void) setWindowSize : (NSSize) size Context : (NSDictionary*) context
 {
     CFTypeRef value;
     value = AXValueCreate(kAXValueCGSizeType,&size);
@@ -140,10 +148,10 @@
     CFRelease(value);
 }
 
-- (void) setWindowSize : (NSSize) size Position : (NSPoint) pos
+- (void) setWindowSize : (NSSize) size Position : (NSPoint) pos Context : (NSDictionary*) context
 {
-    [self setWindowPosition : pos];
-    [self setWindowSize : size];
+    [self setWindowPosition : pos Context : context];
+    [self setWindowSize : size Context : context];
 }
 
 - (void) dealloc

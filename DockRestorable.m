@@ -71,7 +71,7 @@
     return self;
 }
 
-- (void) restore
+- (void) restoreWithContext : (NSDictionary*) context
 {
     NSLog(@"Restoring Dock Preferences");
     /*[self logDockPrefs];

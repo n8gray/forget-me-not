@@ -35,11 +35,9 @@
     return self;
 }
 
-- (void) restore
+- (void) restoreWithContext : (NSDictionary*) context
 {
-    /*[window setWindowPosition : position];
-    [window setWindowSize : size];*/
-    [window setWindowSize: size Position: position];
+    [window setWindowSize: size Position: position Context: context];
     NSLog(@"Restored %@", window);
 }
 

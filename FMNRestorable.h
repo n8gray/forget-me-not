@@ -20,7 +20,7 @@ enum
  */
 @protocol FMNRestorable
 
-- (void) restore;
+- (void) restoreWithContext : (NSDictionary*) context;
 - (int) priority;
 
 @end

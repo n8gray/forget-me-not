@@ -18,6 +18,7 @@
     if (![super init])
         return nil;
     
+    mainDisplay = 0;
     displays = 0;
     
     int i;
@@ -39,6 +40,9 @@
     {
         [displays addObject: [[[CGDisplay alloc] initWithDisplayID: 
             screenList_p[i]] autorelease]];
+        if(CGDisplayIsMain(screenList_p[i]))
+            mainDisplay = [[CGDisplay alloc] initWithDisplayID: 
+                screenList_p[i]];
     }
     [displays sortUsingSelector : @selector(compare:)];
     
@@ -60,6 +64,11 @@
     return [displays objectAtIndex : i];
 }
 
+- (FMNDisplayRef) getMainDisplay
+{
+    return mainDisplay;
+}
+
 - (BOOL) isEqual : (id) obj
 {
     //return [self hash] == [obj hash];
@@ -78,6 +87,9 @@
     }
     
     int i;
+    
+    if(![[self getMainDisplay] isEqual : [display getMainDisplay]])
+        return NO;
     
     for(i=0; i<display_count; ++i)
     {
@@ -117,6 +129,11 @@
 
 - (void) dealloc
 {
+    if(mainDisplay)
+    {
+        [mainDisplay release];
+    }
+
     if(displays)
     {
         [displays release];

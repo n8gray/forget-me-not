@@ -1012,6 +1012,7 @@
 					AppKit,
 					"-lX11",
 					"-lXmu",
+					"-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = X11Module;
@@ -1044,6 +1045,7 @@
 					AppKit,
 					"-lX11",
 					"-lXmu",
+					"-Wl,-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = X11Module;
@@ -1280,6 +1282,9 @@
 				INFOPLIST_PREFIX_HEADER = version.h;
 				INFOPLIST_PREPROCESS = YES;
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
+				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
+				OTHER_LDFLAGS = "-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib";
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};

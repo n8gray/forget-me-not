@@ -15,9 +15,9 @@
 - (NSPoint) getWindowPosition;
 - (NSSize) getWindowSize;
 
-- (void) setWindowPosition : (NSPoint) pos;
-- (void) setWindowSize : (NSSize) size;
-- (void) setWindowSize : (NSSize) size Position : (NSPoint) pos;
+- (void) setWindowPosition : (NSPoint) pos Context : (NSDictionary*) context;
+- (void) setWindowSize : (NSSize) size Context : (NSDictionary*) context;
+- (void) setWindowSize : (NSSize) size Position : (NSPoint) pos Context : (NSDictionary*) context;
 
 @end
 

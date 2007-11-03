@@ -43,7 +43,7 @@ static void FMN_CGDisplayReconfigurationCallback (
     NSDate *startDate = [NSDate date];
     
     // Save the current restorables
-    NSMutableArray *restorables = [NSMutableArray arrayWithCapacity:20];    
+    NSMutableSet *restorables = [NSMutableSet setWithCapacity:20];
     NSEnumerator* enumerator = [fmnModules objectEnumerator];
     FMNModuleRef module;
     while (module = [enumerator nextObject]) {
@@ -85,38 +85,67 @@ int restorableCompare(id a, id b, void* c)
     return NSOrderedDescending;
 }
 
+- (NSDictionary*) getRestorationContext : (FMNDisplayConfigurationRef) previousDisplayConfiguration
+{
+    NSMutableDictionary* context = 
+        [NSMutableDictionary dictionaryWithCapacity:10];
+        
+    NSRect prev = [[previousDisplayConfiguration getMainDisplay] getDisplayOrientation];
+    NSRect curr = [[currentDisplayConfiguration getMainDisplay] getDisplayOrientation];
+    
+    NSNumber* off_x = [NSNumber numberWithFloat:(prev.origin.x - curr.origin.x)];
+    NSNumber* off_y = [NSNumber numberWithFloat:(prev.origin.y - curr.origin.y)];
+    
+    [context setObject:off_x forKey:@"com.fmn.x-coordinate-offset"];
+    [context setObject:off_y forKey:@"com.fmn.y-coordinate-offset"];
+    
+    return context;
+}
+
 - (void) handlePostDisplayConfigurationChange
 {
     NSLog(@"======== Screen configuration changed! ========");
     NSDate *startDate = [NSDate date];
-    
-    [currentDisplayConfiguration release];
+    FMNDisplayConfigurationRef previousDisplayConfiguration = 
+        currentDisplayConfiguration;
     
     // Get the new display configuration
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
+        
+    NSDictionary* restorationContext = 
+        [self getRestorationContext : previousDisplayConfiguration];
     
     // Try to retrieve the restorables associated with the new config
-    NSMutableArray* restorables = 
+    NSMutableSet* restorableSet = 
         [screenConfigurations objectForKey : currentDisplayConfiguration];
     
-    if (!restorables)
+    if (!restorableSet)
     {
         NSLog(@"Encountered a new display configuration: %@", 
             currentDisplayConfiguration);
         return;
     }
     
+    NSMutableArray* restorables = [NSMutableArray arrayWithCapacity:[restorableSet count]];
+    NSEnumerator* set = [restorableSet objectEnumerator];
+
+    FMNRestorableRef restorable;    
+    while(restorable = [set nextObject])
+    {
+        [restorables addObject:restorable];
+    }
+    
     // Sort the restorables, according to priority
     [restorables sortUsingFunction:restorableCompare context:nil];
     
     NSEnumerator* enumerator = [restorables objectEnumerator];
-    FMNRestorableRef restorable;
+
     while (restorable = [enumerator nextObject])
     {
         @try
         {
-            [restorable restore];
+            [restorable restoreWithContext : restorationContext];
         }
         @catch (NSException* ex)
         {
@@ -129,6 +158,7 @@ int restorableCompare(id a, id b, void* c)
           currentDisplayConfiguration);
     /* May want to remove the restorables from screenConfigurations at this
         point -- it's just going to be discarded at the next config change */
+    [previousDisplayConfiguration release];
 }
 
 - (BOOL) activateFMN

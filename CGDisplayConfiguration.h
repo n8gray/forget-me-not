@@ -13,6 +13,7 @@
 
 @interface CGDisplayConfiguration : NSObject<NSCopying,FMNDisplayConfiguration> {
     @protected NSMutableArray* displays;
+    @protected FMNDisplayRef mainDisplay;
 }
 
 @end

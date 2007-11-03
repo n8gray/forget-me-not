@@ -70,7 +70,7 @@
     [super dealloc];
 }
 
-- (void) restore
+- (void) restoreWithContext : (NSDictionary*) context
 {
     if ([mX11Bridge openDisplay]) {
         NSDate *startDate = [NSDate date];

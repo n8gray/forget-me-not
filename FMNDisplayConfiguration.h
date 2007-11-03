@@ -14,6 +14,7 @@
 + (id<NSObject,NSCopying,FMNDisplayConfiguration>) configWithCurrent;
 
 - (unsigned) getDisplayCount;
+- (FMNDisplayRef) getMainDisplay;
 - (FMNDisplayRef) getDisplay : (unsigned) i;
 
 - (NSString*) description;
