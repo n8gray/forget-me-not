@@ -11,7 +11,7 @@
 
 #define CG_MAX_DISPLAYS 128
 
-@interface CGDisplayConfiguration : NSObject<NSCopying,FMNDisplayConfiguration> {
+@interface CGDisplayConfiguration : NSObject<NSCopying,FMNDisplayConfiguration,NSCoding> {
     @protected NSMutableArray* displays;
     @protected FMNDisplayRef mainDisplay;
 }

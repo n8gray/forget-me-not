@@ -9,6 +9,8 @@
 #import "FMNAXModule.h"
 #import "AXApplication.h"
 
+#define MAX_WORKSPACE 16
+
 @implementation FMNAXModule
 
 - (void) setExclusions:(NSArray *)ex
@@ -63,7 +65,7 @@ extern CGSConnection _CGSDefaultConnection(void);
     NSDate *ws_startDate = [NSDate date];
     
     int i;
-    for(i=0; i<20; ++i)
+    for(i=0; i<MAX_WORKSPACE; ++i)
     {
         int ws_ret = CGSSetWorkspace(cid,i);
         NSLog (@"Setting workspace: %d (ret=%d)", i, ws_ret);

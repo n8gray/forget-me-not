@@ -35,6 +35,9 @@ leak.
 
 Things that still bug n8:
 
+* Need to track which disp is main -- coordinate system origin is at top-left of
+    of main display.
+
 * The "launch at login" preference doesn't require FMN to be running, so we
   shouldn't disable it when FMN isn't running.
 

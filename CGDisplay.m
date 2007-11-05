@@ -100,4 +100,31 @@
     [super dealloc];
 }
 
+- (NSString*) description
+{
+    NSRect r = [self getDisplayOrientation];
+    
+    return [NSString stringWithFormat:
+            @"CGDisplay 0x%x: %fx%f at (%f, %f)", 
+            (int)displayID, r.size.width, r.size.height, r.origin.x, r.origin.y];
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeBytes:(const uint8_t *)&displayID
+                  length:sizeof(CGDirectDisplayID) 
+                  forKey:@"CGDdisplayID"];
+    [encoder encodeRect:orientation forKey:@"CGDorientation"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    unsigned dummy;
+    self = [super init];
+    displayID = *(CGDirectDisplayID *)[decoder decodeBytesForKey:@"CGDisplayID"
+                                                  returnedLength:&dummy];
+    orientation = [decoder decodeRectForKey:@"CGDorientation"];
+    return self;
+}
+
 @end

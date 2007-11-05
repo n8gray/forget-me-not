@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "FMNDisplay.h"
 
-@interface CGDisplay : NSObject <FMNDisplay> {
+@interface CGDisplay : NSObject <FMNDisplay,NSCoding> {
     @protected CGDirectDisplayID displayID;
     @protected NSRect orientation;
 }

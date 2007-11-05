@@ -11,7 +11,7 @@
 
 @protocol FMNDisplayConfiguration
 
-+ (id<NSObject,NSCopying,FMNDisplayConfiguration>) configWithCurrent;
++ (id<NSObject,NSCopying,FMNDisplayConfiguration,NSCoding>) configWithCurrent;
 
 - (unsigned) getDisplayCount;
 - (FMNDisplayRef) getMainDisplay;
@@ -21,5 +21,5 @@
 
 @end
 
-typedef id<NSObject,NSCopying,FMNDisplayConfiguration> 
+typedef id<NSObject,NSCopying,FMNDisplayConfiguration,NSCoding> 
     FMNDisplayConfigurationRef;

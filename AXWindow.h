@@ -10,7 +10,7 @@
 #import "FMNWindow.h"
 #import "AXApplication.h"
 
-@interface AXWindow : NSObject <FMNWindow> {
+@interface AXWindow : NSObject <FMNWindow,NSCoding> {
     AXUIElementRef windowElement;
     AXApplication *windowApp;
 }

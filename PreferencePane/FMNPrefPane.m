@@ -12,6 +12,8 @@
 #import "FMNPrefpaneModule.h"
 #import "version.h"
 
+#include <unistd.h>  // For sleep
+
 @implementation FMNPrefPane
 
 + (void) growViewFrame: (NSView*) view down: (int) height

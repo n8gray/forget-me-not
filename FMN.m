@@ -37,9 +37,16 @@ static void FMN_CGDisplayReconfigurationCallback (
         FMN_CGDisplayReconfigurationCallback,self);
 }
 
+NSString* describeCurrentConfiguration() {
+    CGDisplayConfiguration *dc = [CGDisplayConfiguration configWithCurrent];
+    NSString *s = [dc description];
+    return s;
+}
+
 - (void) handlePreDisplayConfigurationChange
 {
     NSLog(@"******** Screen configuration about to be changed! ********");
+    NSLog(@"Current configuration: %@", describeCurrentConfiguration());
     NSDate *startDate = [NSDate date];
     
     // Save the current restorables
@@ -105,6 +112,7 @@ int restorableCompare(id a, id b, void* c)
 - (void) handlePostDisplayConfigurationChange
 {
     NSLog(@"======== Screen configuration changed! ========");
+    NSLog(@"New configuration: %@", describeCurrentConfiguration());
     NSDate *startDate = [NSDate date];
     FMNDisplayConfigurationRef previousDisplayConfiguration = 
         currentDisplayConfiguration;
@@ -196,9 +204,6 @@ int restorableCompare(id a, id b, void* c)
     {
         return nil;
     }
-    
-    // Initialize dictionary of screen configurations
-    screenConfigurations = [[NSMutableDictionary alloc] init];
 
     // Initialize the current display configuration
     currentDisplayConfiguration = 
@@ -209,6 +214,11 @@ int restorableCompare(id a, id b, void* c)
     fmnModules = 
         [[FMNModuleLoader allPluginsOfBundle:mainBundle 
                                 withProtocol:@protocol(FMNModule)] retain];
+    
+    // XXX: Deserialize?
+    
+    // Initialize dictionary of screen configurations
+    screenConfigurations = [[NSMutableDictionary alloc] init];
     
     [self activateFMN];
     
@@ -253,6 +263,18 @@ int restorableCompare(id a, id b, void* c)
     [super dealloc];
 }
 
+/* Archive the stored configurations */
+- (BOOL) archiveDisplayConfigurationsToFile:(NSString *)path
+{
+    return [NSKeyedArchiver archiveRootObject:screenConfigurations toFile:path];
+}
+
+/* Load stored configs from a file */
+- (void) loadDisplayConfigurationsFromFile:(NSString *)path
+{
+    screenConfigurations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+}
+
 @end
 
 static void FMN_CGDisplayReconfigurationCallback (
@@ -262,11 +284,20 @@ static void FMN_CGDisplayReconfigurationCallback (
     )
 {
     FMN* fmn = (FMN*) userInfo;
+    static int state = 0;
+    
+    NSLog(@"Got %@display change notification on 0x%x, is %@main",
+          (flags & kCGDisplayBeginConfigurationFlag) ? @"pre-" : @"post-",
+          display, CGDisplayIsMain(display)? @"":@"not ");
 
     // Only want to react once, not once per screen
-    if (!CGDisplayIsMain(display))
+    //if (!CGDisplayIsMain(display))
+    if (state == 1 || state == 2){
+        state++;
         return;
-    
+    }
+    state = (state + 1) % 4;
+
     if(flags == kCGDisplayBeginConfigurationFlag)
     {
         [fmn handlePreDisplayConfigurationChange];

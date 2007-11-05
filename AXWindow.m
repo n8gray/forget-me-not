@@ -124,6 +124,12 @@
                          userInfo : nil
             ];
     }
+    NSPoint afterPos = [self getWindowPosition];
+    if (afterPos.x != pos.x || afterPos.y != pos.y)
+    {
+        NSLog(@"Failed to set position of %@ ((%f, %f) != (%f, %f)), and Accessibility API lied.",
+              self, pos.x, pos.y, afterPos.x, afterPos.y);
+    }
     CFRelease(value);
 }
 
@@ -144,6 +150,12 @@
                            reason : reason
                          userInfo : nil
             ];
+    }
+    NSSize afterSize = [self getWindowSize];
+    if (afterSize.width != size.width || afterSize.height != size.height)
+    {
+        NSLog(@"Failed to set size of %@ ((%f, %f) != (%f, %f)), and Accessibility API lied.",
+              self, size.width, size.height, afterSize.width, afterSize.height);
     }
     CFRelease(value);
 }
@@ -166,6 +178,24 @@
     }
     
     [super dealloc];
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:windowApp forKey:@"AXWwindowApp"];
+    [encoder encodeBytes:(const uint8_t*)&windowElement 
+                  length:sizeof(AXUIElementRef) 
+                  forKey:@"AXWwindowElement"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    unsigned dummy;
+    self = [super init];
+    windowApp = [[decoder decodeObjectForKey:@"AXWwindowApp"] retain];
+    windowElement = *(AXUIElementRef *)[decoder decodeBytesForKey:@"AXWwindowElement"
+                                                   returnedLength:&dummy];
+    return self;
 }
 
 @end

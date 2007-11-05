@@ -98,4 +98,18 @@
     return kRestorableDefaultPriority;
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:mX11Bridge forKey:@"X11Bridge"];
+    [encoder encodeObject:mWindows forKey:@"X11Windows"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    mX11Bridge = [[decoder decodeObjectForKey:@"X11Bridge"] retain];
+    mWindows = [[decoder decodeObjectForKey:@"X11Windows"] retain];
+    return self;
+}
+
 @end

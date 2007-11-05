@@ -10,7 +10,7 @@
 #import "FMNWindow.h"
 #import "FMNRestorable.h"
 
-@interface FMNWindowOrientation : NSObject <FMNRestorable> {
+@interface FMNWindowOrientation : NSObject <FMNRestorable,NSCoding> {
     @protected NSPoint position;
     @protected NSSize size;
     @protected FMNWindowRef window;

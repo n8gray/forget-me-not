@@ -58,4 +58,23 @@
         //      mWindow, mX, mY, mWidth, mHeight);
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeInt64:mWindow forKey:@"X11WOwindow"];
+    [coder encodeInt:mX forKey:@"X11WOx"];
+    [coder encodeInt:mY forKey:@"X11WOy"];
+    [coder encodeInt:mWidth forKey:@"X11WOwidth"];
+    [coder encodeInt:mHeight forKey:@"X11WOheight"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super init];
+    mWindow = [coder decodeInt64ForKey:@"X11WOwindow"];
+    mX = [coder decodeIntForKey:@"X11WOx"];
+    mY = [coder decodeIntForKey:@"X11WOy"];
+    mWidth = [coder decodeIntForKey:@"X11WOwidth"];
+    mHeight = [coder decodeIntForKey:@"X11WOheight"];
+    return self;
+}
 @end

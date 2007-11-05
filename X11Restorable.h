@@ -12,7 +12,7 @@
 
 /* This class wraps all X11 windows in a single restorable so that the display
    can be opened and closed properly */
-@interface X11Restorable : NSObject <FMNRestorable> {
+@interface X11Restorable : NSObject <FMNRestorable,NSCoding> {
     NSMutableArray *mWindows;
     X11Bridge *mX11Bridge;
 }

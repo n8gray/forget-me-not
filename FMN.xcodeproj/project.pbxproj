@@ -49,7 +49,6 @@
 		0E57434B0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
 		660640E70ABD233800D7D5D7 /* FMNDockModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 660640E60ABD233800D7D5D7 /* FMNDockModule.m */; };
 		660640ED0ABD23A800D7D5D7 /* DockModule.plugin in Copy Files into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 660640D90ABD227D00D7D5D7 /* DockModule.plugin */; };
-		660641140ABD273600D7D5D7 /* DockRestorable.h in Copy Files into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 660641120ABD273600D7D5D7 /* DockRestorable.h */; };
 		660641150ABD273600D7D5D7 /* DockRestorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 660641130ABD273600D7D5D7 /* DockRestorable.m */; };
 		6613E2B80A676588003DA5B2 /* FMN.m in Sources */ = {isa = PBXBuildFile; fileRef = 6613E2B70A676588003DA5B2 /* FMN.m */; };
 		6629992F0A6E0386005757CB /* CGDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 6629992E0A6E0386005757CB /* CGDisplay.m */; };
@@ -197,7 +196,6 @@
 			dstSubfolderSpec = 16;
 			files = (
 				660640ED0ABD23A800D7D5D7 /* DockModule.plugin in Copy Files into Forget-Me-Not.app */,
-				660641140ABD273600D7D5D7 /* DockRestorable.h in Copy Files into Forget-Me-Not.app */,
 			);
 			name = "Copy Files into Forget-Me-Not.app";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +285,7 @@
 		66D404820ABCE52B0014F0F4 /* AutolaunchPrefpaneModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AutolaunchPrefpaneModule-Info.plist"; sourceTree = "<group>"; };
 		66D405010ABCEE2D0014F0F4 /* AutolaunchPrefpaneModule.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = AutolaunchPrefpaneModule.nib; path = PreferencePane/AutolaunchPrefpaneModule.nib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -663,9 +661,11 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FMN" */;
+			compatibilityVersion = "Xcode 2.4";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* FMN */;
 			projectDirPath = "";
+			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Forget-Me-Not App */,
 				0E4DE4A40A9BCADA001C9EEF /* AXModule */,
@@ -1276,7 +1276,9 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
 				INFOPLIST_PREFIX_HEADER = version.h;
@@ -1284,7 +1286,6 @@
 				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				MACOSX_DEPLOYMENT_TARGET_i386 = 10.4;
 				MACOSX_DEPLOYMENT_TARGET_ppc = 10.4;
-				OTHER_LDFLAGS = "-dylib_file,/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib";
 				PREBINDING = NO;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
@@ -1297,7 +1298,9 @@
 					ppc,
 					i386,
 				);
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_OTHER_PREPROCESSOR_FLAGS = "-C";
 				INFOPLIST_PREFIX_HEADER = version.h;

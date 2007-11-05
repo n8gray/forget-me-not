@@ -18,10 +18,13 @@
 #import "FMNModule.h"
 
 
-@interface X11Bridge : NSObject <FMNModule> {
+@interface X11Bridge : NSObject <FMNModule,NSCoding> {
     NSString *mDisplayName;
     Display *mDisplay;
 }
+
+/* Designated initializer */
+- (id) initWithDisplayName:(NSString *)dispName;
 
 - (NSMutableArray *) getRestorables;
 

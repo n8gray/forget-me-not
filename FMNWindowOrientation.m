@@ -53,4 +53,20 @@
     [super dealloc];
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodePoint:position forKey:@"FMNWOposition"];
+    [encoder encodeSize:size forKey:@"FMNWOsize"];
+    [encoder encodeObject:window forKey:@"FMNWOwindow"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    position = [decoder decodePointForKey:@"FMNWOposition"];
+    size = [decoder decodeSizeForKey:@"FMNWOsize"];
+    window = [[decoder decodeObjectForKey:@"FMNWOwindow"] retain];
+    return self;
+}
+
 @end

@@ -10,7 +10,7 @@
 /* For the X11 types */
 #import "X11Bridge.h"
 
-@interface X11WindowOrientation : NSObject {
+@interface X11WindowOrientation : NSObject<NSCoding> {
     Window mWindow;
     int mX, mY, mWidth, mHeight;
 }

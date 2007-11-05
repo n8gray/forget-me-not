@@ -10,7 +10,7 @@
 #import <Carbon/Carbon.h>
 #import "FMNWindowGroup.h"
 
-@interface AXApplication : NSObject<FMNWindowGroup> {
+@interface AXApplication : NSObject<FMNWindowGroup,NSCoding> {
     @protected AXUIElementRef appElement;
     @protected ProcessSerialNumber psn;
     @protected pid_t pid;

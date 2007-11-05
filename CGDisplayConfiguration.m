@@ -142,4 +142,16 @@
     [super dealloc];
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:displays forKey:@"CGDCdisplays"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super init];
+    displays = [[decoder decodeObjectForKey:@"CGDCdisplays"] retain];
+    return self;
+}
+
 @end

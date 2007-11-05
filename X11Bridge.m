@@ -41,21 +41,28 @@ int ioErrHandler( Display *d ) {
 - (id) init
 {
     char *dispName;
-    self = [super init];
-    if (!self)
-        return self;
     
     /* XXX: We should make this a preferences item */
     if (!(dispName = getenv("DISPLAY")))
         dispName = ":0";
-    
-    mDisplayName = [[NSString stringWithCString:dispName] retain];
+    return [self initWithDisplayName:[NSString stringWithCString:dispName]];
+}
+
+/* Designated initializer */
+- (id) initWithDisplayName:(NSString *)dispName
+{
+    self = [super init];
+    if (!self)
+        return self;
+
+    mDisplayName = [[NSString stringWithString:dispName] retain];
     
     // I believe this only needs to be done once, even if we connect to
     // different servers in our lifetime.
     XSetErrorHandler(xErrHandler);
     XSetIOErrorHandler(ioErrHandler);
     return self;
+    
 }
 
 - (void) setDisplayName:(NSString *)name
@@ -87,6 +94,17 @@ int ioErrHandler( Display *d ) {
     int i = XCloseDisplay(mDisplay);
     mDisplay = NULL;
     return i;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+    [coder encodeObject:mDisplayName forKey:@"X11BdisplayName"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder
+{
+    NSString *dname = [[coder decodeObjectForKey:@"X11BdisplayName"] retain];
+    return [self initWithDisplayName:dname];
 }
 
 @end

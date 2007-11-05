@@ -126,4 +126,30 @@
     [super dealloc];
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder
+{
+    [encoder encodeObject:appName forKey:@"AXAappName"];
+    [encoder encodeBytes:(const uint8_t*)&appElement 
+                  length:sizeof(AXUIElementRef) 
+                  forKey:@"AXAappElement"];
+    [encoder encodeInt64:(int64_t)pid forKey:@"AXApid"];
+    [encoder encodeBytes:(const uint8_t*)&psn
+                  length:sizeof(ProcessSerialNumber) 
+                  forKey:@"AXApsn"];
+    
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    unsigned dummy;
+    self = [super init];
+    appName = [[decoder decodeObjectForKey:@"AXAappName"] retain];
+    appElement = *(AXUIElementRef *)[decoder decodeBytesForKey:@"AXAappElement"
+                                             returnedLength:&dummy];
+    pid = (pid_t)[decoder decodeInt64ForKey:@"AXApid"];
+    psn = *(ProcessSerialNumber *)[decoder decodeBytesForKey:@"AXApsn"
+                                              returnedLength:&dummy];
+    return self;
+}
+
 @end
