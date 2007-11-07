@@ -129,6 +129,7 @@
     {
         NSLog(@"Failed to set position of %@ ((%f, %f) != (%f, %f)), and Accessibility API lied.",
               self, pos.x, pos.y, afterPos.x, afterPos.y);
+        NSLog(@"x-offset = %f, y-offset = %f",[off_x floatValue], [off_y floatValue]);
     }
     CFRelease(value);
 }
