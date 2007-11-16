@@ -27,7 +27,8 @@
 	<key>NSPrefPaneIconFile</key>
 	<string>miniFlower.tiff</string>
 	<key>NSPrefPaneIconLabel</key>
-	<string>Forget-Me-Not</string>
+	<string>Forget-
+Me-Not</string>
 	<key>NSPrincipalClass</key>
 	<string>FMNPrefPane</string>
     <key>FMNWebsite</key>
