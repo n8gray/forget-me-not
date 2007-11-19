@@ -64,6 +64,11 @@ NSString* describeCurrentConfiguration() {
         @catch (NSException* ex) {
             NSLog([ex reason]);
         }
+        // We need to handle string exceptions because the X11 module needs to
+        // raise them from C contexts where building objects is painful.
+        @catch (NSString * ex) {
+            NSLog(ex);
+        }
     }
     
     [screenConfigurations setObject:restorables

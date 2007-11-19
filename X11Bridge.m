@@ -10,7 +10,12 @@
 #import "X11WindowOrientation.h"
 #import "X11Restorable.h"
 
-/* Define our own error handlers that don't crash DM */
+// For proper handling of Leopard's launchd setup
+#define kX11AppBundle "org.x.X11"
+#define kLaunchDPrefix @"/tmp/launch"
+#include <launch.h>
+
+/* Define our own error handlers that don't crash the program */
 int xErrHandler( Display *d, XErrorEvent *error ) {
     char message[1024];
     XGetErrorText(d, error->error_code, message, 1024);
@@ -45,6 +50,8 @@ int ioErrHandler( Display *d ) {
     /* XXX: We should make this a preferences item */
     if (!(dispName = getenv("DISPLAY")))
         dispName = ":0";
+    
+    NSLog(@"X11 DISPLAY=%s", dispName);
     return [self initWithDisplayName:[NSString stringWithCString:dispName]];
 }
 
@@ -75,13 +82,48 @@ int ioErrHandler( Display *d ) {
 
 - (NSMutableArray *) getRestorables
 {
-    return [NSMutableArray 
-            arrayWithObject:[[[X11Restorable alloc] initWithBridge:self] autorelease]];
+    id restorable = [[[X11Restorable alloc] initWithBridge:self] autorelease];
+    if (restorable)
+        return [NSMutableArray arrayWithObject:restorable];
+    else {
+        @throw( @"No X11 Restorables" );
+        return nil;  // For the compiler's sake...
+    }
+        
 }
 
 - (Display *) display { return mDisplay; };
 
 - (BOOL) openDisplay {
+    /* In Leopard the X server is launched on demand by launchd if you connect 
+     * to the DISPLAY socket.  We don't want to trigger that!  So we query 
+     * launchd to find out if the server is already running
+     *
+     * Big thanks to Ben Byer at Apple for the patch!
+     */
+    NSLog(@"X11 Module: openDisplay(%@)\n", mDisplayName);
+    if ([mDisplayName hasPrefix:kLaunchDPrefix]) {  // this is a launchd socket
+        launch_data_t resp, msg = launch_data_alloc(LAUNCH_DATA_DICTIONARY);
+        launch_data_dict_insert(msg, launch_data_new_string(kX11AppBundle),
+                                LAUNCH_KEY_GETJOB);
+        resp = launch_msg(msg);
+        launch_data_free(msg);
+        
+        if (resp == NULL) {
+            NSLog(@"launch_msg(): %s\n", strerror(errno));
+            return NO;
+        }
+        
+        if (launch_data_get_type(resp) == LAUNCH_DATA_DICTIONARY) {
+            if(!launch_data_dict_lookup(resp, LAUNCH_JOBKEY_PID)) {
+                NSLog(@"Launchd says X11 is not running.\n");
+                launch_data_free(resp);
+                return NO;
+            }
+        }
+        launch_data_free(resp);
+    }
+    
     mDisplay = XOpenDisplay([mDisplayName cString]);
     if (!mDisplay) {
         NSLog (@"Couldn't open X11 display %@", mDisplayName);
