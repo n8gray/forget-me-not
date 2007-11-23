@@ -62,6 +62,12 @@
     }
     CFRelease(value);
     
+    // HACK: XXX: Work around accessibility API bogosity in Leopard
+    // For now I'm discarding anything with x = -40, but should filter on
+    // screen height as well.  But need to find out *which* screen height...
+    if ((point.x == -40.0))// && (point.y == ...))
+        [NSException raise:FMNWindowException
+                    format:@"Got bogus position for %@", self];
     return point;
 }
 
