@@ -7,11 +7,27 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		0EF04FA40AAEA3B70028356D /* Package FMN */ = {
+		0E2A7BB60CEE95AF0026174D /* Package FMN */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 0EF04FB40AAEA40A0028356D /* Build configuration list for PBXAggregateTarget "Package FMN" */;
+			buildConfigurationList = 0E2A7BC40CEE95AF0026174D /* Build configuration list for PBXAggregateTarget "Package FMN" */;
 			buildPhases = (
-				0EF04FAD0AAEA3FE0028356D /* ShellScript */,
+				0E2A7BC30CEE95AF0026174D /* ShellScript */,
+			);
+			dependencies = (
+				0E2A7BB70CEE95AF0026174D /* PBXTargetDependency */,
+				0E2A7BB90CEE95AF0026174D /* PBXTargetDependency */,
+				0E2A7BBB0CEE95AF0026174D /* PBXTargetDependency */,
+				0E2A7BBD0CEE95AF0026174D /* PBXTargetDependency */,
+				0E2A7BBF0CEE95AF0026174D /* PBXTargetDependency */,
+				0E2A7BC10CEE95AF0026174D /* PBXTargetDependency */,
+			);
+			name = "Package FMN";
+			productName = "Package FMN";
+		};
+		0EF04FA40AAEA3B70028356D /* Build Everything Dammit */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0EF04FB40AAEA40A0028356D /* Build configuration list for PBXAggregateTarget "Build Everything Dammit" */;
+			buildPhases = (
 			);
 			dependencies = (
 				0EF04FA60AAEA3D40028356D /* PBXTargetDependency */,
@@ -21,7 +37,7 @@
 				0EF04FAC0AAEA3D40028356D /* PBXTargetDependency */,
 				669ED0850ABD0DC3007EF09D /* PBXTargetDependency */,
 			);
-			name = "Package FMN";
+			name = "Build Everything Dammit";
 			productName = "Package FMN";
 		};
 /* End PBXAggregateTarget section */
@@ -72,6 +88,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = FMN;
+		};
+		0E2A7BB80CEE95AF0026174D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = "Forget-Me-Not App";
+		};
+		0E2A7BBA0CEE95AF0026174D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E4DE4A40A9BCADA001C9EEF;
+			remoteInfo = AXModule;
+		};
+		0E2A7BBC0CEE95AF0026174D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E4DE3CA0A9BB92C001C9EEF;
+			remoteInfo = X11Module;
+		};
+		0E2A7BBE0CEE95AF0026174D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 660640D80ABD227D00D7D5D7;
+			remoteInfo = DockModule;
+		};
+		0E2A7BC00CEE95AF0026174D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0E13E42B0A9A7DDD0093153D;
+			remoteInfo = "Forget-Me-Not Prefpane";
+		};
+		0E2A7BC20CEE95AF0026174D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66D404800ABCE52B0014F0F4;
+			remoteInfo = AutolaunchPrefpaneModule;
 		};
 		0E4DE4F00A9BCDFE001C9EEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -673,7 +731,8 @@
 				660640D80ABD227D00D7D5D7 /* DockModule */,
 				0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */,
 				66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */,
-				0EF04FA40AAEA3B70028356D /* Package FMN */,
+				0EF04FA40AAEA3B70028356D /* Build Everything Dammit */,
+				0E2A7BB60CEE95AF0026174D /* Package FMN */,
 			);
 		};
 /* End PBXProject section */
@@ -736,6 +795,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E2A7BC30CEE95AF0026174D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "chmod 755 package-fmn.sh\nexec ./package-fmn.sh";
+		};
 		0E5742EC0AA4087C00A42972 /* rm prefs system caches */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -749,19 +821,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "rm -f $HOME/Library/Caches/com.apple.preferencepanes.*";
-		};
-		0EF04FAD0AAEA3FE0028356D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "chmod 755 package-fmn.sh\nexec ./package-fmn.sh";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -832,6 +891,36 @@
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
 			targetProxy = 0E13E4310A9A7DE50093153D /* PBXContainerItemProxy */;
+		};
+		0E2A7BB70CEE95AF0026174D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Forget-Me-Not App */;
+			targetProxy = 0E2A7BB80CEE95AF0026174D /* PBXContainerItemProxy */;
+		};
+		0E2A7BB90CEE95AF0026174D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E4DE4A40A9BCADA001C9EEF /* AXModule */;
+			targetProxy = 0E2A7BBA0CEE95AF0026174D /* PBXContainerItemProxy */;
+		};
+		0E2A7BBB0CEE95AF0026174D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E4DE3CA0A9BB92C001C9EEF /* X11Module */;
+			targetProxy = 0E2A7BBC0CEE95AF0026174D /* PBXContainerItemProxy */;
+		};
+		0E2A7BBD0CEE95AF0026174D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 660640D80ABD227D00D7D5D7 /* DockModule */;
+			targetProxy = 0E2A7BBE0CEE95AF0026174D /* PBXContainerItemProxy */;
+		};
+		0E2A7BBF0CEE95AF0026174D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0E13E42B0A9A7DDD0093153D /* Forget-Me-Not Prefpane */;
+			targetProxy = 0E2A7BC00CEE95AF0026174D /* PBXContainerItemProxy */;
+		};
+		0E2A7BC10CEE95AF0026174D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66D404800ABCE52B0014F0F4 /* AutolaunchPrefpaneModule */;
+			targetProxy = 0E2A7BC20CEE95AF0026174D /* PBXContainerItemProxy */;
 		};
 		0E4DE4F10A9BCDFE001C9EEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -986,6 +1075,28 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Forget-Me-Not";
 				WRAPPER_EXTENSION = prefpane;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		0E2A7BC50CEE95AF0026174D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Package FMN";
+			};
+			name = Debug;
+		};
+		0E2A7BC60CEE95AF0026174D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				PRODUCT_NAME = "Package FMN";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1328,6 +1439,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		0E2A7BC40CEE95AF0026174D /* Build configuration list for PBXAggregateTarget "Package FMN" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E2A7BC50CEE95AF0026174D /* Debug */,
+				0E2A7BC60CEE95AF0026174D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0E4DE3CD0A9BB92D001C9EEF /* Build configuration list for PBXNativeTarget "X11Module" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1346,7 +1466,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0EF04FB40AAEA40A0028356D /* Build configuration list for PBXAggregateTarget "Package FMN" */ = {
+		0EF04FB40AAEA40A0028356D /* Build configuration list for PBXAggregateTarget "Build Everything Dammit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0EF04FB50AAEA40A0028356D /* Debug */,
