@@ -105,12 +105,6 @@ int restorableCompare(id a, id b, void* c)
     NSRect prev = [[previousDisplayConfiguration getMainDisplay] getDisplayOrientation];
     NSRect curr = [[currentDisplayConfiguration getMainDisplay] getDisplayOrientation];
     
-    NSNumber* off_x = [NSNumber numberWithFloat:0.0];
-    NSNumber* off_y = [NSNumber numberWithFloat:curr.size.height - prev.size.height];
-    
-    [context setObject:off_x forKey:@"com.fmn.x-coordinate-offset"];
-    [context setObject:off_y forKey:@"com.fmn.y-coordinate-offset"];
-    
     return context;
 }
 
