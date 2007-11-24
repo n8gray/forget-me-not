@@ -120,7 +120,7 @@
             return NO;
         }
     } else {
-        [mStatusField setStringValue:@"Forget-Me-Not Not Running"];
+        [mStatusField setStringValue:@"Forget-Me-Not Deactivated"];
         [mLaunchQuit setTitle:@"Launch"];
         [mControls setHidden:YES];
         [mDiagram setImage:mDisabledImage];
