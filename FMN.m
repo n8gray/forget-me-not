@@ -55,10 +55,10 @@ NSString* describeCurrentConfiguration() {
     FMNModuleRef module;
     while (module = [enumerator nextObject]) {
         @try {
-            //NSDate *restorableDate = [NSDate date];
+            NSDate *restorableDate = [NSDate date];
             NSArray *tmpRestorables = [module getRestorables];
-            //NSLog(@"Got %d restorables in %f seconds", [tmpRestorables count],
-            //      -[restorableDate timeIntervalSinceNow]);
+            NSLog(@"Got %d restorables in %f seconds", [tmpRestorables count],
+                  -[restorableDate timeIntervalSinceNow]);
             [restorables addObjectsFromArray:tmpRestorables];
         }
         @catch (NSException* ex) {

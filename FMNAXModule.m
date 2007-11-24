@@ -39,6 +39,22 @@
         mExclusions = [exclusions retain];
     }
     mOrigin = [[AXOrigin alloc] init];
+    
+    // Yes, this hideous script is the best I could do...
+    mCountWSScript = [[NSAppleScript alloc] initWithSource:@"\n\
+                      tell application \"System Events\"\n\
+                        if spaces enabled of spaces preferences of expose preferences is true then\n\
+                          return (spaces rows of spaces preferences of expose preferences) * (spaces columns of spaces preferences of expose preferences)\n\
+                        else\n\
+                          return 1\n\
+                        end if\n\
+                      end tell"];
+    NSDictionary *err;
+    if (![mCountWSScript compileAndReturnError:&err]) {
+        NSLog(@"Couldn't compile script to count workspaces.  Using default count.");
+        [mCountWSScript release];
+        mCountWSScript = nil;
+    }
     return self;
 }    
 
@@ -55,6 +71,26 @@ typedef int CGSConnection;
 extern OSStatus CGSGetWorkspace(const CGSConnection cid, int *workspace);
 extern OSStatus CGSSetWorkspace(const CGSConnection cid, int workspace);
 extern CGSConnection _CGSDefaultConnection(void);
+
+- (int) countWorkspaces
+{
+    if (mCountWSScript) {
+        NSDictionary *err;
+        NSAppleEventDescriptor *rval;
+        rval = [mCountWSScript executeAndReturnError:err];
+        if (nil == rval) {
+            NSLog(@"Error executing our workspace counting script.");
+        } else {
+            int nws = [rval int32Value];
+            if (nws > MAX_WORKSPACE){
+                NSLog(@"Bogus return value from ws counting script: %i", nws);
+            } else {
+                return nws;
+            }
+        }
+    }
+    return MAX_WORKSPACE;
+}
 
 - (NSArray *) getRestorables
 {
@@ -106,20 +142,25 @@ extern CGSConnection _CGSDefaultConnection(void);
     }
     
     int i;
-    for(i=1; i<=MAX_WORKSPACE; ++i)
+    for(i=1; i<=[self countWorkspaces]; ++i)
     {
         int ws_ret = CGSSetWorkspace(cid,i);
+        int wsWinCount = 0;
         NSLog (@"Setting workspace: %d (ret=%d)", i, ws_ret);
-        NSDate *startDate = [NSDate date];
         AXApplication *app;
         enumerator = [axApps objectEnumerator];
         while (app = [enumerator nextObject]) {
+            NSDate *startDate = [NSDate date];
             @try
             {
                 NSArray *appOrientations = [app getCurrentWindowOrientations];
-                [orientations addObjectsFromArray : appOrientations];
-                NSLog(@"%@: Got %d windows in %f seconds", [app name],
-                      [appOrientations count], -[startDate timeIntervalSinceNow]);
+                int nWins = [appOrientations count];
+                wsWinCount += nWins;
+                if (nWins > 0) {
+                    [orientations addObjectsFromArray : appOrientations];
+                    NSLog(@"%@: Got %d windows in %.2f seconds", [app name],
+                          nWins, -[startDate timeIntervalSinceNow]);
+                }
             }
             @catch (NSException* ex)
             {

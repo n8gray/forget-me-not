@@ -13,6 +13,7 @@
 @interface FMNAXModule : NSObject <FMNModule> {
     NSArray *mExclusions;
     AXOrigin *mOrigin;
+    NSAppleScript *mCountWSScript;
 }
 - (void) setExclusions:(NSArray *)ex;
 - (id) initWithBundle:(NSBundle *)bundle;

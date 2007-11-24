@@ -24,6 +24,8 @@
     {
         position = [window getWindowPosition];
         size = [window getWindowSize];
+        /* NSLog(@"Init with pos (%f, %f) size %fx%f", position.x, position.y,
+              size.width, size.height); */
     }
     @catch (NSException* ex)
     {
@@ -38,7 +40,7 @@
 - (void) restoreWithContext : (NSDictionary*) context
 {
     [window setWindowSize: size Position: position Context: context];
-    NSLog(@"Restored %@", window);
+    //NSLog(@"Restored %@", window);
 }
 
 - (int) priority
