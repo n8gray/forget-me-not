@@ -15,6 +15,7 @@
 
 - (id) initWithAXElement : (AXUIElementRef) windowElem 
                    ofApp : (AXApplication *) app
+                  origin : (NSPoint) inOrigin
 {
     if (![super init])
         return nil;
@@ -22,6 +23,7 @@
     CFRetain(windowElem);
     windowElement = windowElem;
     windowApp = [app retain];
+    origin = inOrigin;
     
     return self;
 }
@@ -68,6 +70,8 @@
     if ((point.x == -40.0))// && (point.y == ...))
         [NSException raise:FMNWindowException
                     format:@"Got bogus position for %@", self];
+    point.x -= origin.x;
+    point.y -= origin.y;
     return point;
 }
 
@@ -104,16 +108,8 @@
     return size;
 }
 
-- (void) setWindowPosition : (NSPoint) pos Context : (NSDictionary*) context
+- (void) setWindowPosition : (NSPoint) pos
 {
-    NSNumber* off_x = 
-        (NSNumber*) [context objectForKey:@"com.fmn.x-coordinate-offset"];
-    NSNumber* off_y = 
-        (NSNumber*) [context objectForKey:@"com.fmn.y-coordinate-offset"];
-        
-    pos.x += [off_x floatValue];
-    pos.y += [off_y floatValue];
-    
     CFTypeRef value;
     value = AXValueCreate(kAXValueCGPointType,&pos);
     if(AXUIElementSetAttributeValue(windowElement,kAXPositionAttribute,value)
@@ -135,9 +131,15 @@
     {
         NSLog(@"Failed to set position of %@ ((%f, %f) != (%f, %f)), and Accessibility API lied.",
               self, pos.x, pos.y, afterPos.x, afterPos.y);
-        NSLog(@"x-offset = %f, y-offset = %f",[off_x floatValue], [off_y floatValue]);
+        //NSLog(@"x-offset = %f, y-offset = %f",[off_x floatValue], [off_y floatValue]);
     }
     CFRelease(value);
+    
+}
+
+- (void) setWindowPosition : (NSPoint) pos Context : (NSDictionary*) context
+{
+    [self setWindowPosition:pos];
 }
 
 - (void) setWindowSize : (NSSize) size Context : (NSDictionary*) context

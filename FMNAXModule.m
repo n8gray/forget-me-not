@@ -38,6 +38,7 @@
         NSLog(@"Excluding apps:\n%@", exclusions);
         mExclusions = [exclusions retain];
     }
+    mOrigin = [[AXOrigin alloc] init];
     return self;
 }    
 
@@ -45,6 +46,7 @@
 {
     if (mExclusions != nil)
         [mExclusions release];
+    [mOrigin release];
     [super dealloc];
 }
 
@@ -63,6 +65,7 @@ extern CGSConnection _CGSDefaultConnection(void);
     CGSGetWorkspace(cid,&workspace);
 
     NSDate *ws_startDate = [NSDate date];
+    NSPoint origin = [mOrigin getOrigin];
     
     // Get the list of launched applications
     NSArray* launchedApplications = [[NSWorkspace sharedWorkspace] launchedApplications];
@@ -91,7 +94,8 @@ extern CGSConnection _CGSDefaultConnection(void);
         @try
         {
             AXApplication* app = [AXApplication configWithPSN:psn 
-                                                      appName:name];
+                                                      appName:name
+                                                       origin:origin];
             [axApps addObject:app];
         }
         @catch (NSException* ex)
@@ -129,6 +133,9 @@ extern CGSConnection _CGSDefaultConnection(void);
     
     NSLog(@"AX: Got %d windows in %f seconds",
         [orientations count], -[ws_startDate timeIntervalSinceNow]);
+    
+    // Put in the AXOrigin object as well so the origin gets restored
+    [orientations addObject:mOrigin];
     
     CGSSetWorkspace(cid,workspace);
     return orientations;

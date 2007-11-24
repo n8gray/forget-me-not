@@ -15,12 +15,15 @@
     @protected ProcessSerialNumber psn;
     @protected pid_t pid;
     @protected NSString *appName;
+    @protected NSPoint origin;
 }
 
 + (id) configWithPSN : (ProcessSerialNumber) processSerialNumber
-             appName : (NSString *)name;
+             appName : (NSString *)name
+              origin : (NSPoint)origin;
 - (id) initWithPSN : (ProcessSerialNumber) processSerialNumber
-           appName : (NSString *)name;
+           appName : (NSString *)name
+            origin : (NSPoint)origin;
 - (NSString *)name;
 
 @end

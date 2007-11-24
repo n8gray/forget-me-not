@@ -13,9 +13,14 @@
 @interface AXWindow : NSObject <FMNWindow,NSCoding> {
     AXUIElementRef windowElement;
     AXApplication *windowApp;
+    NSPoint origin;
 }
 
 - (id) initWithAXElement : (AXUIElementRef) windowElem 
-                   ofApp : (AXApplication *) app;
+                   ofApp : (AXApplication *) app
+                  origin : (NSPoint) pos;
+
+// Set the position without any context.
+- (void) setWindowPosition:(NSPoint)point;
 
 @end

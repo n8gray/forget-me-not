@@ -63,6 +63,7 @@
 		0E5742E60AA4085B00A42972 /* miniFlower.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0E5742E50AA4085B00A42972 /* miniFlower.tiff */; };
 		0E57434A0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
 		0E57434B0AA4C2B400A42972 /* Flower.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0E5743490AA4C2B400A42972 /* Flower.icns */; };
+		0EEBB38D0CF81AF300397598 /* AXOrigin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EEBB38B0CF8186A00397598 /* AXOrigin.m */; };
 		660640E70ABD233800D7D5D7 /* FMNDockModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 660640E60ABD233800D7D5D7 /* FMNDockModule.m */; };
 		660640ED0ABD23A800D7D5D7 /* DockModule.plugin in Copy Files into Forget-Me-Not.app */ = {isa = PBXBuildFile; fileRef = 660640D90ABD227D00D7D5D7 /* DockModule.plugin */; };
 		660641150ABD273600D7D5D7 /* DockRestorable.m in Sources */ = {isa = PBXBuildFile; fileRef = 660641130ABD273600D7D5D7 /* DockRestorable.m */; };
@@ -307,6 +308,8 @@
 		0EC122FC0A71730700CE04DC /* X11Bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Bridge.h; sourceTree = "<group>"; };
 		0EC122FD0A71730700CE04DC /* X11Bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Bridge.m; sourceTree = "<group>"; };
 		0EC125A60A71F92D00CE04DC /* DevelNotes.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = DevelNotes.txt; sourceTree = "<group>"; };
+		0EEBB38A0CF8186A00397598 /* AXOrigin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AXOrigin.h; sourceTree = "<group>"; };
+		0EEBB38B0CF8186A00397598 /* AXOrigin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AXOrigin.m; sourceTree = "<group>"; };
 		0EF04FC90AAEADE90028356D /* package-fmn.sh */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.script.sh; path = "package-fmn.sh"; sourceTree = "<group>"; };
 		0EF050450AAF6D830028356D /* version.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -438,6 +441,8 @@
 				66299ADB0A6E2768005757CB /* AXApplication.m */,
 				662998A20A6DE8AB005757CB /* AXWindow.h */,
 				662998A30A6DE8AB005757CB /* AXWindow.m */,
+				0EEBB38A0CF8186A00397598 /* AXOrigin.h */,
+				0EEBB38B0CF8186A00397598 /* AXOrigin.m */,
 			);
 			name = "AX Module";
 			sourceTree = "<group>";
@@ -851,6 +856,7 @@
 				0E4DE4B00A9BCB98001C9EEF /* AXApplication.m in Sources */,
 				0E4DE4B10A9BCB99001C9EEF /* AXWindow.m in Sources */,
 				0E4DE4B20A9BCB9A001C9EEF /* FMNAXModule.m in Sources */,
+				0EEBB38D0CF81AF300397598 /* AXOrigin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

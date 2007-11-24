@@ -13,9 +13,11 @@
 
 + (id) configWithPSN : (ProcessSerialNumber) processSerialNumber
              appName : (NSString *)name
+              origin : (NSPoint) inOrigin
 {
     return [[[AXApplication alloc] initWithPSN : processSerialNumber
-                                       appName : name] 
+                                       appName : name
+                                        origin : inOrigin]
         autorelease];
 }
 
@@ -27,7 +29,8 @@
 - (id) init { [self release]; return nil; }
 
 - (id) initWithPSN : (ProcessSerialNumber) processSerialNumber
-             appName : (NSString *)name
+           appName : (NSString *)name
+            origin : (NSPoint) inOrigin
 {
     if(![super init])
         return nil;
@@ -51,6 +54,7 @@
             ];
     }
     
+    origin = inOrigin;
     appName = [name retain];
     return self;
 }
@@ -77,7 +81,7 @@
     AXUIElementRef elt;
     while (elt = (AXUIElementRef)[enumerator nextObject]) {
         [windows addObject:
-            [[[AXWindow alloc] initWithAXElement:elt ofApp:self] autorelease]];
+         [[[AXWindow alloc] initWithAXElement:elt ofApp:self origin:origin] autorelease]];
     }
     
     [windowArray release];
