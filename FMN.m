@@ -289,20 +289,14 @@ static void FMN_CGDisplayReconfigurationCallback (
     )
 {
     FMN* fmn = (FMN*) userInfo;
-    static int state = 0;
-    
     NSLog(@"Got %@display change notification on 0x%x, is %@main",
           (flags & kCGDisplayBeginConfigurationFlag) ? @"pre-" : @"post-",
           display, CGDisplayIsMain(display)? @"":@"not ");
 
     // Only want to react once, not once per screen
-    //if (!CGDisplayIsMain(display))
-    if (state == 1 || state == 2){
-        state++;
+    if (!CGDisplayIsMain(display))
         return;
-    }
-    state = (state + 1) % 4;
-
+    
     if(flags == kCGDisplayBeginConfigurationFlag)
     {
         [fmn handlePreDisplayConfigurationChange];
