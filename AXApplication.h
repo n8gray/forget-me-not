@@ -21,5 +21,6 @@
              appName : (NSString *)name;
 - (id) initWithPSN : (ProcessSerialNumber) processSerialNumber
            appName : (NSString *)name;
+- (NSString *)name;
 
 @end

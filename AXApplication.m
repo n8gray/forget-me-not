@@ -152,4 +152,9 @@
     return self;
 }
 
+- (NSString *)name
+{
+    return appName;
+}
+
 @end

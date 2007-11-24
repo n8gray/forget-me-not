@@ -64,47 +64,65 @@ extern CGSConnection _CGSDefaultConnection(void);
 
     NSDate *ws_startDate = [NSDate date];
     
+    // Get the list of launched applications
+    NSArray* launchedApplications = [[NSWorkspace sharedWorkspace] launchedApplications];
+    NSEnumerator* enumerator = [launchedApplications objectEnumerator];
+    
+    // Make an AXApplication for each one
+    NSMutableArray *axApps = 
+            [NSMutableArray arrayWithCapacity:[launchedApplications count]];
+    ProcessSerialNumber psn;
+    NSDictionary* appInfo;
+    while (appInfo = [enumerator nextObject])
+    {
+        NSDate *startDate = [NSDate date];
+        NSNumber* tmp;
+        tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberLow"];
+        psn.lowLongOfPSN = [tmp longValue];
+        tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberHigh"];
+        psn.highLongOfPSN = [tmp longValue];
+        NSString *name = [appInfo objectForKey:@"NSApplicationName"];
+        NSString *bundleID = [appInfo objectForKey:@"NSApplicationBundleIdentifier"];
+        if (mExclusions != nil && [mExclusions containsObject:bundleID]) {
+            NSLog (@"Skipping excluded app: \"%@\" (%@)", name, bundleID);
+            continue;
+        }
+        
+        @try
+        {
+            AXApplication* app = [AXApplication configWithPSN:psn 
+                                                      appName:name];
+            [axApps addObject:app];
+        }
+        @catch (NSException* ex)
+        {
+            NSLog(@"%@: %@ (after %f seconds)", name, [ex reason],
+                  -[startDate timeIntervalSinceNow]);
+        }
+    }
+    
     int i;
-    for(i=0; i<MAX_WORKSPACE; ++i)
+    for(i=1; i<=MAX_WORKSPACE; ++i)
     {
         int ws_ret = CGSSetWorkspace(cid,i);
         NSLog (@"Setting workspace: %d (ret=%d)", i, ws_ret);
-        
-        NSArray* launchedApplications = 
-            [[NSWorkspace sharedWorkspace] launchedApplications];
-        NSEnumerator* enumerator = [launchedApplications objectEnumerator];
-        
         NSDate *startDate = [NSDate date];
-        
-        ProcessSerialNumber psn;
-        NSDictionary* appInfo;
-        while (appInfo = [enumerator nextObject])
-        {
-            NSNumber* tmp;
-            tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberLow"];
-            psn.lowLongOfPSN = [tmp longValue];
-            tmp = [appInfo objectForKey:@"NSApplicationProcessSerialNumberHigh"];
-            psn.highLongOfPSN = [tmp longValue];
-            NSString *name = [appInfo objectForKey:@"NSApplicationName"];
-            NSString *bundleID = [appInfo objectForKey:@"NSApplicationBundleIdentifier"];
-            if (mExclusions != nil && [mExclusions containsObject:bundleID]) {
-                NSLog (@"Skipping excluded app: \"%@\" (%@)", name, bundleID);
-                continue;
-            }
-            
+        AXApplication *app;
+        enumerator = [axApps objectEnumerator];
+        while (app = [enumerator nextObject]) {
             @try
             {
-                AXApplication* app = [AXApplication configWithPSN:psn appName:name];
                 NSArray *appOrientations = [app getCurrentWindowOrientations];
                 [orientations addObjectsFromArray : appOrientations];
-                NSLog(@"%@: Got %d windows in %f seconds", name,
+                NSLog(@"%@: Got %d windows in %f seconds", [app name],
                       [appOrientations count], -[startDate timeIntervalSinceNow]);
             }
             @catch (NSException* ex)
             {
-                NSLog(@"%@: %@ (after %f seconds)", name, [ex reason],
+                NSLog(@"%@: %@ (after %f seconds)", [app name], [ex reason],
                       -[startDate timeIntervalSinceNow]);
             }
+            
         }
         
     }
