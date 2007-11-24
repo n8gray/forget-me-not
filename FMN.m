@@ -173,7 +173,6 @@ int restorableCompare(id a, id b, void* c)
         point -- it's just going to be discarded at the next config change */
     [previousDisplayConfiguration release];
 }
-
 - (BOOL) activateFMN
 {
     // Register to be notified when the screen configuration changes
@@ -280,6 +279,11 @@ int restorableCompare(id a, id b, void* c)
     screenConfigurations = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
 }
 
+- (void) postConfigTimerCB:(NSTimer *)timer
+{
+    [self handlePostDisplayConfigurationChange];
+}
+
 @end
 
 static void FMN_CGDisplayReconfigurationCallback (
@@ -303,7 +307,13 @@ static void FMN_CGDisplayReconfigurationCallback (
     }
     else
     {
-        [fmn handlePostDisplayConfigurationChange];
+        // Our changes seem to be more reliable if we wait a bit before firing.
+        [NSTimer scheduledTimerWithTimeInterval:0.2 
+                                         target:fmn
+                                       selector:@selector(postConfigTimerCB:)
+                                       userInfo:nil
+                                        repeats:NO];
+        //[fmn handlePostDisplayConfigurationChange];
     }
 }
 

@@ -21,5 +21,6 @@
 }
 
 - (void) awakeFromNib;
+- (void) postConfigTimerCB:(NSTimer *)timer;
 
 @end
