@@ -149,4 +149,9 @@ int ioErrHandler( Display *d ) {
     return [self initWithDisplayName:dname];
 }
 
+- (void) restoreFinished
+{
+    // Nada
+}
+
 @end

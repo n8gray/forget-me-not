@@ -18,6 +18,9 @@
 
 - (NSArray *) getRestorables;
 
+/* Called when the restore operation has finished */
+- (void) restoreFinished;
+
 @end
 
 typedef id<NSObject,FMNModule> FMNModuleRef;

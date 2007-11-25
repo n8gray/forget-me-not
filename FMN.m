@@ -101,10 +101,6 @@ int restorableCompare(id a, id b, void* c)
 {
     NSMutableDictionary* context = 
         [NSMutableDictionary dictionaryWithCapacity:10];
-        
-    NSRect prev = [[previousDisplayConfiguration getMainDisplay] getDisplayOrientation];
-    NSRect curr = [[currentDisplayConfiguration getMainDisplay] getDisplayOrientation];
-    
     return context;
 }
 
@@ -131,28 +127,49 @@ int restorableCompare(id a, id b, void* c)
     {
         NSLog(@"Encountered a new display configuration: %@", 
             currentDisplayConfiguration);
-        return;
+    } else {
+        NSMutableArray* restorables = [NSMutableArray arrayWithCapacity:[restorableSet count]];
+        NSEnumerator* set = [restorableSet objectEnumerator];
+        
+        FMNRestorableRef restorable;    
+        while(restorable = [set nextObject])
+        {
+            [restorables addObject:restorable];
+        }
+        
+        // Sort the restorables, according to priority
+        [restorables sortUsingFunction:restorableCompare context:nil];
+        
+        NSEnumerator* enumerator = [restorables objectEnumerator];
+        
+        while (restorable = [enumerator nextObject])
+        {
+            @try
+            {
+                [restorable restoreWithContext : restorationContext];
+            }
+            @catch (NSException* ex)
+            {
+                NSLog([ex reason]);
+            }
+        }
+        
+        NSLog(@"Restored %d restorables in %f seconds for configuration: %@",
+              [restorables count], -[startDate timeIntervalSinceNow], 
+              currentDisplayConfiguration);
+        /* May want to remove the restorables from screenConfigurations at this
+         point -- it's just going to be discarded at the next config change */
+        [previousDisplayConfiguration release];        
     }
     
-    NSMutableArray* restorables = [NSMutableArray arrayWithCapacity:[restorableSet count]];
-    NSEnumerator* set = [restorableSet objectEnumerator];
-
-    FMNRestorableRef restorable;    
-    while(restorable = [set nextObject])
-    {
-        [restorables addObject:restorable];
-    }
-    
-    // Sort the restorables, according to priority
-    [restorables sortUsingFunction:restorableCompare context:nil];
-    
-    NSEnumerator* enumerator = [restorables objectEnumerator];
-
-    while (restorable = [enumerator nextObject])
+    // Do the restoreFinished callbacks
+    NSEnumerator* enumerator = [fmnModules objectEnumerator];
+    FMNModuleRef mod;
+    while (mod = [enumerator nextObject])
     {
         @try
         {
-            [restorable restoreWithContext : restorationContext];
+            [mod restoreFinished];
         }
         @catch (NSException* ex)
         {
@@ -160,12 +177,6 @@ int restorableCompare(id a, id b, void* c)
         }
     }
     
-    NSLog(@"Restored %d restorables in %f seconds for configuration: %@",
-          [restorables count], -[startDate timeIntervalSinceNow], 
-          currentDisplayConfiguration);
-    /* May want to remove the restorables from screenConfigurations at this
-        point -- it's just going to be discarded at the next config change */
-    [previousDisplayConfiguration release];
 }
 - (BOOL) activateFMN
 {

@@ -9,13 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import "AXWindow.h"
 
-@interface AXOrigin : NSObject<FMNRestorable> {
+@interface AXOrigin : NSObject {
     NSWindow *originWindow;
     AXWindow *originAXWindow;
 }
 - (NSPoint) getOrigin;
-
-- (void) restoreWithContext : (NSDictionary*) context;
-- (int) priority;
+- (void) resetOrigin;
 
 @end

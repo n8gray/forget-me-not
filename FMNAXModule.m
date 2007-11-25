@@ -77,7 +77,7 @@ extern CGSConnection _CGSDefaultConnection(void);
     if (mCountWSScript) {
         NSDictionary *err;
         NSAppleEventDescriptor *rval;
-        rval = [mCountWSScript executeAndReturnError:err];
+        rval = [mCountWSScript executeAndReturnError:&err];
         if (nil == rval) {
             NSLog(@"Error executing our workspace counting script.");
         } else {
@@ -175,11 +175,12 @@ extern CGSConnection _CGSDefaultConnection(void);
     NSLog(@"AX: Got %d windows in %f seconds",
         [orientations count], -[ws_startDate timeIntervalSinceNow]);
     
-    // Put in the AXOrigin object as well so the origin gets restored
-    [orientations addObject:mOrigin];
-    
     CGSSetWorkspace(cid,workspace);
     return orientations;
 }
-    
+
+- (void) restoreFinished
+{
+    [mOrigin resetOrigin];
+}
 @end

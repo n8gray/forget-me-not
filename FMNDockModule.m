@@ -20,4 +20,9 @@
     return dockRestorables;
 }
 
+- (void) restoreFinished
+{
+    // Nothing
+}
+
 @end

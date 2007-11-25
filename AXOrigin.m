@@ -22,7 +22,7 @@
     NSSize small;
     NSRect r;
     origin.x = 0.0; origin.y = 0.0;
-    small.width = 30.0; small.height = 30.0;
+    small.width = 10.0; small.height = 10.0;
     r.origin = origin; r.size = small;
     originWindow = [[NSWindow alloc] initWithContentRect:r
                                                styleMask:NSBorderlessWindowMask 
@@ -30,8 +30,11 @@
                                                    defer:NO];
     [originWindow setCanHide:NO];
     [originWindow setHasShadow:NO];
+    //[originWindow setOpaque:NO];
+    //[originWindow setAlphaValue:0.0];
+    //[originWindow setIgnoresMouseEvents:YES];
     // I'm making this very visible for now so we know it's working
-    [originWindow setBackgroundColor:[NSColor redColor]];
+    //[originWindow setBackgroundColor:[NSColor redColor]];
     // XXX: This is only in Leopard -- do we want to try to work around that?
     //[originWindow setCollectionBehavior:NSWindowCollectionBehaviorCanJoinAllSpaces];
     if ([originWindow respondsToSelector:@selector(setCollectionBehavior:)])
@@ -100,16 +103,6 @@
     //[originWindow setFrameTopLeftPoint:NSMakePoint(0.0, height)];
     NSPoint origin = [self getOrigin];
     NSLog(@"Origin is now reset to (%f,%f)", origin.x, origin.y);    
-}
-
-- (void) restoreWithContext : (NSDictionary*) context
-{
-    [self resetOrigin];
-}
-
-- (int) priority
-{
-    return kRestorableDefaultPriority;
 }
 
 @end
