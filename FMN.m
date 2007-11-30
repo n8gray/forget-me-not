@@ -306,7 +306,7 @@ static void FMN_CGDisplayReconfigurationCallback (
     if (!CGDisplayIsMain(display))
         return;
     
-    if(flags == kCGDisplayBeginConfigurationFlag)
+    if(flags & kCGDisplayBeginConfigurationFlag)
     {
         [fmn handlePreDisplayConfigurationChange];
     }
