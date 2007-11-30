@@ -14,6 +14,14 @@
 
 @implementation AXOrigin
 
+// A timer callback to do some work after the window has been created.
+- (void) setupOrigin:(NSTimer *) timer
+{
+    NSLog(@"Initializing origin");
+    [self getOrigin];
+    [self resetOrigin];
+}
+
 // Make a little invisible window that sits at (0,0) to provide us with a
 // reliable origin.
 - (void) createOriginWindow
@@ -46,6 +54,11 @@
     [originWindow setFrameTopLeftPoint:NSMakePoint(0.0, height)];
     
     // We can't get the AXWindow yet.  Do it later.
+    [NSTimer scheduledTimerWithTimeInterval:1.0 
+                                     target:self 
+                                   selector:@selector(setupOrigin:)
+                                   userInfo:nil
+                                    repeats:NO];
     originAXWindow = nil;
 }
 
