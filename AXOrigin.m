@@ -30,7 +30,7 @@
     NSSize small;
     NSRect r;
     origin.x = 0.0; origin.y = 0.0;
-    small.width = 1.0; small.height = 1.0;
+    small.width = 10.0; small.height = 10.0;
     r.origin = origin; r.size = small;
     originWindow = [[NSWindow alloc] initWithContentRect:r
                                                styleMask:NSBorderlessWindowMask 
@@ -40,7 +40,7 @@
     [originWindow setHasShadow:NO];
     [originWindow setOpaque:NO];
     [originWindow setAlphaValue:0.0];
-    [originWindow setIgnoresMouseEvents:YES];
+    //[originWindow setIgnoresMouseEvents:YES];
     // I'm making this very visible for now so we know it's working
     //[originWindow setBackgroundColor:[NSColor redColor]];
     // XXX: This is only in Leopard -- do we want to try to work around that?

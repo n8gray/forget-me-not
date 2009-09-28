@@ -16,6 +16,9 @@
     NSPoint origin;
 }
 
+// Note: The implementation of setWindowSize:Position: is "unusual" because it
+// won't do anything if the window would be placed over halfway offscreen.
+
 - (id) initWithAXElement : (AXUIElementRef) windowElem 
                    ofApp : (AXApplication *) app
                   origin : (NSPoint) pos;

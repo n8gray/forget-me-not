@@ -7,6 +7,8 @@
 //
 
 #import "AXWindow.h"
+#import "FMNDisplayConfiguration.h"
+#import "FMNDisplay.h"
 
 
 @implementation AXWindow
@@ -133,8 +135,48 @@
     CFRelease(value);
 }
 
+- (BOOL) sanityCheckForSize:(NSSize)size 
+                   Position:(NSPoint)pos 
+                    Context:(NSDictionary*) context
+{
+    FMNDisplayConfigurationRef dc = [context objectForKey:@"fmn_new_display_configuration"];
+    NSLog(@"Checking %.2fx%.2f window at (%.2f, %.2f)",
+          size.width, size.height, pos.x, pos.y);
+    if (dc != nil) {
+        NSRect winRect;
+        winRect.origin = pos; winRect.size = size;
+        float onArea = 0.0;
+        float winArea = size.width * size.height;
+        int i=0;
+        for (; i < [dc getDisplayCount]; ++i) {
+            /* BUG: This assumes screens don't overlap. */
+            FMNDisplayRef dr = [dc getDisplay:i];
+            NSRect screenRect = [dr getDisplayOrientation];
+            NSRect onRect = NSIntersectionRect(screenRect, winRect);
+            float thisArea = onRect.size.width * onRect.size.height;
+            onArea += thisArea;
+            NSLog(@"... %.2f%% overlap with disp %.2fx%.2f@(%.2f, %.2f)",
+                  (thisArea/winArea)*100.0, screenRect.size.width, 
+                  screenRect.size.height, screenRect.origin.x, screenRect.origin.y);
+        }
+        /* Bail out if the onscreen area would be too small */
+        if (2*onArea < (winArea))
+            return NO;
+    } else {
+        NSLog(@"Couldn't get display configuration from context. No sanity checking!");
+    }
+    return YES;
+}
+
 - (void) setWindowSize : (NSSize) size Position : (NSPoint) pos Context : (NSDictionary*) context
 {
+    if (![self sanityCheckForSize:size Position:pos Context:context]) {
+        NSLog(@"Refusing to put %.2fx%.2f window at (%.2f, %.2f):  It would be over 1/2 offscreen",
+              size.width, size.height, pos.x, pos.y);
+        return;
+    }
+    /* Check to make sure the given size/pos doesn't put over half the window 
+       offscreen */
     [self setWindowPosition : pos Context : context];
     [self setWindowSize : size Context : context];
 }

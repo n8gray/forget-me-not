@@ -281,12 +281,12 @@
 		0E13E0900A93E8670093153D /* X11Restorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = X11Restorable.h; sourceTree = "<group>"; };
 		0E13E0910A93E8670093153D /* X11Restorable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = X11Restorable.m; sourceTree = "<group>"; };
 		0E13E42C0A9A7DDD0093153D /* Forget-Me-Not.prefpane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Forget-Me-Not.prefpane"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = "ForgetMeNot-Info.plist"; path = "../ForgetMeNot-Info.plist"; sourceTree = "<group>"; };
+		0E13E42D0A9A7DDE0093153D /* ForgetMeNot-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ForgetMeNot-Info.plist"; path = "../ForgetMeNot-Info.plist"; sourceTree = "<group>"; };
 		0E13E4500A9A7E950093153D /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FMNPrefPane.nib; sourceTree = "<group>"; };
 		0E13E4520A9A7E950093153D /* English */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0E13E4530A9A7E950093153D /* FMNPrefPane.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = FMNPrefPane.h; sourceTree = "<group>"; };
 		0E13E4540A9A7E950093153D /* FMNPrefPane.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = FMNPrefPane.m; sourceTree = "<group>"; };
-		0E13E4570A9A7E950093153D /* version.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.xml; path = version.plist; sourceTree = "<group>"; };
+		0E13E4570A9A7E950093153D /* version.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = version.plist; sourceTree = "<group>"; };
 		0E13E4E40A9A8B460093153D /* FMNServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNServer.h; sourceTree = "<group>"; };
 		0E13E5370A9A8C880093153D /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		0E2A9C750A9F71A40005F7D6 /* diagram-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "diagram-disabled.png"; path = "../diagram-disabled.png"; sourceTree = "<group>"; };
@@ -294,11 +294,11 @@
 		0E3EE96E0AAF9C240022D5E3 /* FMNLoginItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMNLoginItems.h; path = PreferencePane/FMNLoginItems.h; sourceTree = "<group>"; };
 		0E3EE96F0AAF9C240022D5E3 /* FMNLoginItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMNLoginItems.m; path = PreferencePane/FMNLoginItems.m; sourceTree = "<group>"; };
 		0E4DE3CB0A9BB92C001C9EEF /* X11Module.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = X11Module.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E4DE3CC0A9BB92C001C9EEF /* X11Module-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "X11Module-Info.plist"; sourceTree = "<group>"; };
+		0E4DE3CC0A9BB92C001C9EEF /* X11Module-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "X11Module-Info.plist"; sourceTree = "<group>"; };
 		0E4DE4280A9BBD9D001C9EEF /* FMNModuleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNModuleLoader.h; sourceTree = "<group>"; };
 		0E4DE4290A9BBD9D001C9EEF /* FMNModuleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNModuleLoader.m; sourceTree = "<group>"; };
 		0E4DE4A50A9BCADA001C9EEF /* AXModule.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AXModule.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E4DE4A60A9BCADA001C9EEF /* AXModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AXModule-Info.plist"; sourceTree = "<group>"; };
+		0E4DE4A60A9BCADA001C9EEF /* AXModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AXModule-Info.plist"; sourceTree = "<group>"; };
 		0E5742E50AA4085B00A42972 /* miniFlower.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = miniFlower.tiff; sourceTree = SOURCE_ROOT; };
 		0E5743490AA4C2B400A42972 /* Flower.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Flower.icns; sourceTree = "<group>"; };
 		0E5A40F50AAE49CF0055E45E /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* FMN_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMN_Prefix.pch; sourceTree = "<group>"; };
 		660640D90ABD227D00D7D5D7 /* DockModule.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DockModule.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		660640DA0ABD227D00D7D5D7 /* DockModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "DockModule-Info.plist"; sourceTree = "<group>"; };
+		660640DA0ABD227D00D7D5D7 /* DockModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DockModule-Info.plist"; sourceTree = "<group>"; };
 		660640E50ABD233800D7D5D7 /* FMNDockModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNDockModule.h; sourceTree = "<group>"; };
 		660640E60ABD233800D7D5D7 /* FMNDockModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMNDockModule.m; sourceTree = "<group>"; };
 		660641120ABD273600D7D5D7 /* DockRestorable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DockRestorable.h; sourceTree = "<group>"; };
@@ -343,7 +343,7 @@
 		6668136E0ABB4B4D0066EABF /* FMNPrefpaneModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNPrefpaneModule.h; sourceTree = "<group>"; };
 		666FF6440A6B17F6007110EF /* FMNDisplayConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMNDisplayConfiguration.h; sourceTree = "<group>"; };
 		66D404810ABCE52B0014F0F4 /* AutolaunchPrefpaneModule.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutolaunchPrefpaneModule.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
-		66D404820ABCE52B0014F0F4 /* AutolaunchPrefpaneModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "AutolaunchPrefpaneModule-Info.plist"; sourceTree = "<group>"; };
+		66D404820ABCE52B0014F0F4 /* AutolaunchPrefpaneModule-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AutolaunchPrefpaneModule-Info.plist"; sourceTree = "<group>"; };
 		66D405010ABCEE2D0014F0F4 /* AutolaunchPrefpaneModule.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = AutolaunchPrefpaneModule.nib; path = PreferencePane/AutolaunchPrefpaneModule.nib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* Forget-Me-Not.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Forget-Me-Not.app"; sourceTree = BUILT_PRODUCTS_DIR; };

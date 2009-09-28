@@ -97,10 +97,12 @@ int restorableCompare(id a, id b, void* c)
     return NSOrderedDescending;
 }
 
-- (NSDictionary*) getRestorationContext : (FMNDisplayConfigurationRef) previousDisplayConfiguration
+- (NSDictionary*) getRestorationContext : (FMNDisplayConfigurationRef) newDisplayConfiguration
 {
     NSMutableDictionary* context = 
         [NSMutableDictionary dictionaryWithCapacity:10];
+    [context setObject:newDisplayConfiguration 
+                forKey:@"fmn_new_display_configuration"];
     return context;
 }
 
@@ -109,15 +111,12 @@ int restorableCompare(id a, id b, void* c)
     NSLog(@"======== Screen configuration changed! ========");
     NSLog(@"New configuration: %@", describeCurrentConfiguration());
     NSDate *startDate = [NSDate date];
-    FMNDisplayConfigurationRef previousDisplayConfiguration = 
-        currentDisplayConfiguration;
     
     // Get the new display configuration
+    //if (currentDisplayConfiguration)
+    //    [currentDisplayConfiguration release];
     currentDisplayConfiguration = 
         [[CGDisplayConfiguration configWithCurrent] retain];
-        
-    NSDictionary* restorationContext = 
-        [self getRestorationContext : previousDisplayConfiguration];
     
     // Try to retrieve the restorables associated with the new config
     NSMutableSet* restorableSet = 
@@ -128,6 +127,9 @@ int restorableCompare(id a, id b, void* c)
         NSLog(@"Encountered a new display configuration: %@", 
             currentDisplayConfiguration);
     } else {
+        NSDictionary* restorationContext = 
+        [self getRestorationContext : currentDisplayConfiguration];
+        
         NSMutableArray* restorables = [NSMutableArray arrayWithCapacity:[restorableSet count]];
         NSEnumerator* set = [restorableSet objectEnumerator];
         
@@ -159,7 +161,7 @@ int restorableCompare(id a, id b, void* c)
               currentDisplayConfiguration);
         /* May want to remove the restorables from screenConfigurations at this
          point -- it's just going to be discarded at the next config change */
-        [previousDisplayConfiguration release];        
+        //[restorationContext release];        
     }
     
     // Do the restoreFinished callbacks
