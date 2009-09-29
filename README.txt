@@ -1,6 +1,20 @@
 Forget-Me-Not
 by Nathaniel Gray & David Noblet
 
+FMN is Obsolete:
+===============
+
+Forget-Me-Not does not work reliably on any OS X since Leopard was released.  I
+make the source available in hopes that somebody with more time than myself will
+be able to make it work again.  Many of the failures are revealed when using
+Spaces.  Others appear if your laptop screen is configured on one side of your
+external monitor but not the other.  I mention this so that you don't get too
+excited if it works for you -- that doesn't mean it'll work for everyone.
+
+HOWEVER, there are those who say they've been using it on Leopard and it's
+worked well enough.  I myself do use it -- it doesn't *always* help, but it
+sometimes does and it doesn't seem to hurt.
+
 About:
 =====
 
@@ -32,23 +46,17 @@ Once that is done, follow the instructions above for Installation.
 Reporting Problems:
 ==================
 
-If you have any problems with Forget-Me-Not, please send an e-mail to
-    n8gray <at> caltech /dot/ edu
-and
-    dnoblet <at> cs /dot/ caltech /dot/ edu
+If you have any problems with Forget-Me-Not, please open an issue at github.
+You can also send an e-mail to
+    n8gray <at> n8gray /dot/ org
+but I'm notorious about dropping these things on the floor if there isn't an
+issue report to remind me.
 
 Source Code:
 ===========
 
-You can get the source code for FMN by using the DARCS revision control system.
-First, download and install DARCS:
-    http://www.darcs.net/
-Next, do a "darcs get" like this:
-    darcs get http://www.n8gray.org/darcs/fmn
-If you're not interested in our complete development history (which you probably
-aren't!) you should do a "partial" get to save space:
-    darcs get --partial http://www.n8gray.org/darcs/fmn    
-You'll end up with an "fmn" directory containing the latest source code.
+You can get the source code for FMN by using GIT (http://git-scm.com).  Our
+code is hosted at github:  http://github.com/n8gray/forget-me-not
 
 License:
 =======
